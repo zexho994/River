@@ -16,12 +16,12 @@ public class IntegerStreamGenerator {
 
         if(isStart) {
             return new PipStream.Builder<Integer>()
-                    .process(new NextItemEvalProcess(() -> getIntegerStreamInner(low, high, false)))
+                    .nextItemEvalProcess(new NextItemEvalProcess(() -> getIntegerStreamInner(low, high, false)))
                     .build();
         }else{
-            return new PipStream.Builder<>()
+            return new PipStream.Builder<Integer>()
                     .head(low)
-                    .process(new NextItemEvalProcess(() -> getIntegerStreamInner(low + 1, high, false)))
+                    .nextItemEvalProcess(new NextItemEvalProcess(() -> getIntegerStreamInner(low + 1, high, false)))
                     .build();
         }
     }
