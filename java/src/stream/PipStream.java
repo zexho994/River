@@ -45,6 +45,10 @@ public class PipStream<T> implements IStream<T> {
             return this;
         }
 
+        public PipStream<T> build(){
+            return targer;
+        }
+
 
     }
 

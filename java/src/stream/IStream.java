@@ -33,7 +33,7 @@ public interface IStream<T> {
     boolean allMatch(Predicate<? super T> predicate);
 
     static <T> PipStream<T> makeEmptyStream(){
-        return new PipStream.Builder<T>().isEnd(true);
+        return new PipStream.Builder<T>().isEnd(true).build();
     }
 
 
