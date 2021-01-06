@@ -67,7 +67,18 @@ public class PipStream<T> implements IStream<T> {
 
     @Override
     public <R> PipStream<R> map(Function<R, T> mapper) {
-        return null;
+        NextItemEvalProcess lastNextItemEvalProcess = this.nextItemEvalProcess;
+//        this.nextItemEvalProcess = new NextItemEvalProcess(
+//                () ->{
+//                    PipStream myStream = lastNextItemEvalProcess.eval();
+//                    return map(mapper, myStream);
+//                }
+//        );
+
+        // 求值链条 加入一个新的process map
+        return new PipStream.Builder<R>()
+                .nextItemEvalProcess(this.nextItemEvalProcess)
+                .build();
     }
 
     @Override
