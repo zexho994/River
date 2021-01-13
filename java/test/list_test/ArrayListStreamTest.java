@@ -1,14 +1,19 @@
 package list_test;
 
-import javafx.print.Printer;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ArrayListStreamTest {
+
+    private Stream<String> stream = Stream.of("one", "two", "three", "for", "five", "six", "eight", "nine", "ten", "one", "two");
+
+    public static void main(String[] args) {
+        ArrayListStreamTest test = new ArrayListStreamTest();
+        test.operations();
+    }
 
     /**
      * 为list创建stream
@@ -20,19 +25,29 @@ public class ArrayListStreamTest {
         Stream parallelStream = list1.parallelStream();
 
         // 方法2：构造生成
-        Arrays.asList("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten").stream();
+        Stream.of("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten");
 
         // 方法3：静态方法生成
         Stream stream2 = Stream.iterate(0, n -> n + 10);
         IntStream stream3 = IntStream.range(0, 100);
-        String[] strArray = new String[]{};
-        Stream stream4 = Stream.of(strArray);
-        Stream stream5 = Stream.of(new String[]{"one", "two", "three"});
-
     }
 
-    public static int c() {
-        return 0;
+    public void operations() {
+        // 1.distinct: 保证输出的流中包含唯一的元素，通过Object.equals(Object) 来检查是否包含相同的元素
+//        List<String> res = this.stream.distinct().collect(Collectors.toList());
+
+        // 2.filter: 过滤掉不满足约束的数据
+//        List<String> res = this.stream.filter(s -> s.equals("six")).collect(Collectors.toList());
+        List<Integer> istream = IntStream.range(1, 20).filter(i -> i * 2 < 10).boxed().collect(Collectors.toList());
+        System.out.printf("operation result => %s \n", istream);
+
+        //3. map: 将流中元素进行映射，类型也可以不同
+        List<Integer> res = this.stream.map(String::hashCode).collect(Collectors.toList());
+
+        //4. flatmap: 混合流map + flattern  的功能，将映射后的流的元素全部放在一个流中
+
+
+        System.out.printf("operation result => %s \n", res);
     }
 
 
