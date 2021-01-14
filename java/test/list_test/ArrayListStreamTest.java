@@ -1,5 +1,6 @@
 package list_test;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,8 @@ public class ArrayListStreamTest {
 
     public static void main(String[] args) {
         ArrayListStreamTest test = new ArrayListStreamTest();
-        test.operations();
+//        test.operations();
+        test.terminal();
     }
 
     /**
@@ -33,6 +35,7 @@ public class ArrayListStreamTest {
         IntStream stream3 = IntStream.range(0, 100);
     }
 
+    // the all of intermediate operations are lazy,and as a result,no operations will have any effect until the pipeline starts to work
     public void operations() {
         // 1.distinct: 保证输出的流中包含唯一的元素，通过Object.equals(Object) 来检查是否包含相同的元素
 //        List<String> res = this.stream.distinct().collect(Collectors.toList());
@@ -65,9 +68,46 @@ public class ArrayListStreamTest {
         //7.skip: 丢弃前n个元素
 //        lines.sorted(Comparator.comparingInt(String::length)).skip(3).forEach(System.out::println);
 //        System.out.printf("operation result => %s \n", res);
+
+        //8.peek,the exists mainly to support debugging,where you want to see the elements as the flow past a certain point in a pipeline
+//        lines.flatMap(words -> Stream.of(words.split(" "))).peek(e -> System.out.printf("before: %s \n", e)).filter(word -> word.contains("e")).forEach(e -> System.out.printf("after : %s \n", e));
+
     }
 
+    public void terminal() {
+        String poetry = "Where, before me, are the ages that have gone?\n" +
+                "And where, behind me, are the coming generations?\n" +
+                "I think of heaven and earth, without limit, without end,\n" +
+                "And I am all alone and my tears fall down.";
+        Stream<String> lines = Arrays.stream(poetry.split("\n"));
+
+        //1. Match: 条件判断
+        //1.1 AllMatch:所有元素都要符合条件
+//        System.out.println(lines.flatMap(line -> Stream.of(line.split(" ")))
+//                .allMatch(line -> line.length() < 20));
+
+        //1.2 anyMatch: 有一个符合要求就返回true
+//        System.out.println(lines.flatMap(line -> Stream.of(line.split(" ")))
+//                .anyMatch(word -> word.equals("heaven")));
 
 
+        //1.3 noneMatch: 需要所有的元素都不满足要求
+//        lines.flatMap(
+//                line -> Stream.of(line.split(" ")).map(nl -> nl.replaceAll("[,?]", ""))
+//        ).filter(line -> line.contains("e")).forEach(System.out::println); // 打印所有包含e的单词
+
+//        System.out.println(lines.flatMap(line -> Stream.of(line.split("\n"))).noneMatch(line -> !line.contains("e"))); // 所有句子是否都包含 e
+
+        // 计算字母e的个数
+        System.out.println(lines.flatMap(line -> line.chars().mapToObj(c -> (char) c).collect(Collectors.toList()).stream())
+                        .filter(c -> c == 'e')
+                        .count());
+
+//        Character[] ch = new Character[]{'a', 'b', 'c', 'd', 'e', 'f'};
+//        List<Character> chars = Arrays.asList(ch);
+//        Stream s = Stream.of(chars);
+//        s.forEach(System.out::println);
+
+    }
 
 }
