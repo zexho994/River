@@ -20,14 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/test/LambdaTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/test/LambdaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/test/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/stream/StreamGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/list_test/ArrayListStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/list_test/ArrayListStreamTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/IntegerStreamGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtream/stream/IntegerStreamGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/PipStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jtream/stream/PipStream.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.ArrayListStreamTest">
     <configuration name="ArrayListStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -118,6 +116,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ArrayListStreamTest" />
@@ -126,6 +137,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -146,6 +158,7 @@
       <workItem from="1610376843736" duration="74000" />
       <workItem from="1610376930267" duration="620000" />
       <workItem from="1610552031664" duration="1980000" />
+      <workItem from="1610598925727" duration="3396000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -158,7 +171,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -176,88 +189,5 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="867" y="409" width="692" height="450" key="#Vim_Emulation" timestamp="1610377051846">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="867" y="409" width="692" height="450" key="#Vim_Emulation/0.0.1920.1080@0.0.1920.1080" timestamp="1610377051846" />
-    <state x="631" y="-601" key="Github.Dialog.Accounts.Choose" timestamp="1609947297787">
-      <screen x="-174" y="-1080" width="1920" height="1080" />
-    </state>
-    <state x="631" y="-601" key="Github.Dialog.Accounts.Choose/-174.-1080.1920.1080/0.23.1680.1027@-174.-1080.1920.1080" timestamp="1609947297787" />
-    <state width="1878" height="218" key="GridCell.Tab.0.bottom" timestamp="1610553538473">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563678" />
-    <state width="1878" height="218" key="GridCell.Tab.0.bottom/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538473" />
-    <state width="1878" height="376" key="GridCell.Tab.0.bottom/1680.-111.1920.1080/0.25.1680.1025@1680.-111.1920.1080" timestamp="1610552942689" />
-    <state width="1878" height="218" key="GridCell.Tab.0.center" timestamp="1610553538471">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563677" />
-    <state width="1878" height="218" key="GridCell.Tab.0.center/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538471" />
-    <state width="1878" height="376" key="GridCell.Tab.0.center/1680.-111.1920.1080/0.25.1680.1025@1680.-111.1920.1080" timestamp="1610552942687" />
-    <state width="1878" height="218" key="GridCell.Tab.0.left" timestamp="1610553538471">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563677" />
-    <state width="1878" height="218" key="GridCell.Tab.0.left/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538471" />
-    <state width="1878" height="376" key="GridCell.Tab.0.left/1680.-111.1920.1080/0.25.1680.1025@1680.-111.1920.1080" timestamp="1610552942685" />
-    <state width="1878" height="218" key="GridCell.Tab.0.right" timestamp="1610553538472">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563678" />
-    <state width="1878" height="218" key="GridCell.Tab.0.right/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538472" />
-    <state width="1878" height="376" key="GridCell.Tab.0.right/1680.-111.1920.1080/0.25.1680.1025@1680.-111.1920.1080" timestamp="1610552942689" />
-    <state width="1878" height="218" key="GridCell.Tab.1.bottom" timestamp="1610553538388">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563680" />
-    <state width="1878" height="218" key="GridCell.Tab.1.bottom/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538388" />
-    <state width="1878" height="218" key="GridCell.Tab.1.center" timestamp="1610553538387">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563679" />
-    <state width="1878" height="218" key="GridCell.Tab.1.center/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538387" />
-    <state width="1878" height="218" key="GridCell.Tab.1.left" timestamp="1610553538386">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563679" />
-    <state width="1878" height="218" key="GridCell.Tab.1.left/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538386" />
-    <state width="1878" height="218" key="GridCell.Tab.1.right" timestamp="1610553538388">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state width="939" height="376" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610377563679" />
-    <state width="1878" height="218" key="GridCell.Tab.1.right/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553538388" />
-    <state x="2405" y="44" key="SettingsEditor" timestamp="1610552703299">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state x="274" y="-939" key="SettingsEditor/-174.-1057.1920.1057/0.23.1680.1027@-174.-1057.1920.1057" timestamp="1609945609658" />
-    <state x="274" y="-959" key="SettingsEditor/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1609944266035" />
-    <state x="274" y="-959" key="SettingsEditor/-174.-1080.1920.1080/0.23.1680.1027@-174.-1080.1920.1080" timestamp="1609947251674" />
-    <state x="448" y="121" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1610377118963" />
-    <state x="2405" y="44" key="SettingsEditor/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610552703299" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1605356919447">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1605356919447" />
-    <state x="386" y="-800" key="Vcs.Push.Dialog.v2" timestamp="1609947282915">
-      <screen x="-174" y="-1080" width="1920" height="1080" />
-    </state>
-    <state x="386" y="-800" key="Vcs.Push.Dialog.v2/-174.-1080.1920.1080/0.23.1680.1027@-174.-1080.1920.1080" timestamp="1609947282915" />
-    <state x="574" y="-619" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609944115659">
-      <screen x="-174" y="-1080" width="1920" height="1080" />
-    </state>
-    <state x="574" y="-619" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-174.-1080.1920.1080/0.0.1680.1050@-174.-1080.1920.1080" timestamp="1609944115659" />
-    <state x="748" y="461" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605356028654" />
-    <state x="2341" y="18" width="597" height="822" key="find.popup" timestamp="1610553126653">
-      <screen x="1680" y="-111" width="1920" height="1080" />
-    </state>
-    <state x="2341" y="18" width="597" height="822" key="find.popup/1680.-111.1920.1080/0.0.1680.1050@1680.-111.1920.1080" timestamp="1610553126653" />
-    <state x="474" y="135" key="new project wizard" timestamp="1605281405737">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="474" y="135" key="new project wizard/-174.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1605281405737" />
   </component>
 </project>

@@ -1,6 +1,7 @@
 package list_test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -45,9 +46,25 @@ public class ArrayListStreamTest {
         List<Integer> res = this.stream.map(String::hashCode).collect(Collectors.toList());
 
         //4. flatmap: 混合流map + flattern  的功能，将映射后的流的元素全部放在一个流中
+        String poetry = "Where, before me, are the ages that have gone?\n" +
+                "And where, behind me, are the coming generations?\n" +
+                "I think of heaven and earth, without limit, without end,\n" +
+                "And I am all alone and my tears fall down.";
 
+        Stream<String> lines = Arrays.stream(poetry.split("\n"));
+//        Stream<String> word1 = lines.flatMap(line -> Arrays.stream(line.split(" ")));  // 根据空格获取单词
+//        Stream<String> word2 = lines.flatMap(dot -> Arrays.stream(dot.split(",")));    // 根据逗号获取句子
+//        lines.flatMap(dot -> Arrays.stream(dot.split(","))).map(str -> str.trim() + str.length()).forEach(str -> System.out.printf("%s \n", str));  //获取每个句子的长度
 
-        System.out.printf("operation result => %s \n", res);
+        //5.limit: 限制返回数量，注意对于有序的并行流，性能不好，如果不在意有序，可以转化成无需
+//        lines.map(str -> str + str.length()).limit(2).forEach(System.out::println);
+
+        //6.sorted: 排序
+//        lines.sorted(Comparator.comparingInt(String::length)).forEach(System.out::println);
+
+        //7.skip: 丢弃前n个元素
+//        lines.sorted(Comparator.comparingInt(String::length)).skip(3).forEach(System.out::println);
+//        System.out.printf("operation result => %s \n", res);
     }
 
 
