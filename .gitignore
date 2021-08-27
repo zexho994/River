@@ -1,8 +1,1 @@
-/out/production/jtream/stream_v2/Additive.class
-/out/test/jtream/list_test/ArrayListStreamTest.class
-/out/production/jtream/stream_v2/sample/Create.class
-/out/production/jtream/test/LambdaTest.class
-/out/production/jtream/stream_v2/test/Main.class
-/out/test/jtream/list_test/MapStreamTest.class
-/out/test/jtream/list_test/SetStreamTest.class
-/out/production/jtream/test/Test.class
+*.class
