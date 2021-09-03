@@ -16,16 +16,12 @@ public class RefRiver<T> extends Pipeline<T> implements River<T> {
      */
     @Override
     public River<T> filter(Predicate<T> predicate) {
-        //创建一个新的stage
-        River<T> newStage = new PipelineStage<>(this, Op.filter);
-
-        //返回新的stage
-        return newStage;
+        return new PipelineStage<>(this, Op.filter);
     }
 
     @Override
     public River<T> distinct() {
-        return null;
+        return new PipelineStage<>(this, Op.distinct);
     }
 
     @Override

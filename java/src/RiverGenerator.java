@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.Spliterator;
 
 /**
+ * 负责River的创建
+ *
  * @author Zexho
  * @date 2021/9/3 11:37 上午
  */

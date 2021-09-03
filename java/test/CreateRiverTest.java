@@ -5,7 +5,7 @@
 public class CreateRiverTest {
 
     public static void main(String[] args) {
-        River<String> stringRiver = filterTest();
+        River<String> distinctTest = distinctTest();
     }
 
     /**
@@ -19,6 +19,12 @@ public class CreateRiverTest {
         River<String> filter = createFromArrayTest().filter(e -> e.equals("2"));
         assert filter != null;
         return filter;
+    }
+
+    public static River<String> distinctTest() {
+        River<String> distinct = filterTest().distinct();
+        assert distinct != null;
+        return distinct;
     }
 
 }
