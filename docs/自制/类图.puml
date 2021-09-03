@@ -1,7 +1,11 @@
 @startuml
 
-interface stream<IN>{
-
+interface River<T>{
+    + (static) Stream<T> of(T)
+    + Stream<T> filter(Predicate<? super T>)
+    + Stream<T> distinct();
+    + forEach(Consumer<? super T>)
+    + long count()
 }
 
 @enduml
