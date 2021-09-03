@@ -12,6 +12,29 @@ class RiverGenerator{
     + (static)<T> River<T> create(T...)
 }
 
-River .right.> RiverGenerator : 依赖
+River .left.> RiverGenerator : depend on
+
+abstract Pipeline<T>{
+    + River<T> source
+    + River<T> previous
+    + River<T> next
+    + Op
+}
+Pipeline .* Op
+
+class RefRiver<T>{}
+River <|-- RefRiver : impl
+Pipeline <|-- RefRiver : extends
+
+class PipelineSource<T>{}
+class PipelineStage<T>{}
+RefRiver<|-- PipelineSource : extends
+RefRiver <|-- PipelineStage : extends
+
+enum Op{
+    + source(0)
+    + filter(1)
+    + distinct(2)
+}
 
 @enduml

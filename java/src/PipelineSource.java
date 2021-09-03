@@ -12,6 +12,11 @@ public class PipelineSource<T> extends RefRiver<T> {
 
     public PipelineSource(Spliterator<T> source) {
         this.sourceSpliterator = source;
+
+        this.op = Op.source;
+        this.source = this;
+        this.previous = null;
+        this.next = null;
     }
 
 }

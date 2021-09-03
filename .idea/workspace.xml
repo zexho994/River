@@ -23,16 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="add: River.of()">
-      <change afterPath="$PROJECT_DIR$/java/src/PipelineSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/RefRiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/RiverGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/test/CreateRiverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/Op.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/Pipeline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/自制/类图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/自制/类图.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/River.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/list_test/ArrayListStreamTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/list_test/MapStreamTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/list_test/SetStreamTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/RefRiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/RefRiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/CreateRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/CreateRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,7 @@
         <option value="UML Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -225,7 +223,7 @@
       <workItem from="1630384586301" duration="127000" />
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
-      <workItem from="1630488465073" duration="49725000" />
+      <workItem from="1630488465073" duration="52560000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -311,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630639926664</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add: River.of()">
+      <created>1630652394613</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1630652394613</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
