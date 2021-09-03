@@ -24,11 +24,14 @@ public interface River<T> {
     /**
      * 构建一个River对象
      *
-     * @param t 元素对象，支持数组
+     * @param t 元素对象
      * @return 构造后的River对象
      * @since V1.0
      */
-    River<T> of(T t);
+    @SafeVarargs
+    static <T> River<T> of(T... t) {
+        return RiverGenerator.create(t);
+    }
 
     /**
      * 过滤操作

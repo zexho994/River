@@ -22,25 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: 删除无用文件">
-      <change afterPath="$PROJECT_DIR$/java/src/River.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="add: River.of()">
+      <change afterPath="$PROJECT_DIR$/java/src/PipelineSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/RefRiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/RiverGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/test/CreateRiverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/自制/类图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/自制/类图.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/BiFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/CollectionStreamGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/Comparator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/EvalFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/ForEach.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/Function.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/IStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/IntegerStreamGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/NextItemEvalProcess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/PipStream$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/PipStream.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/Predicate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/stream/Supplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jtream/test/test1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/list_test/ArrayListStreamTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/list_test/MapStreamTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/list_test/SetStreamTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +42,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="UML Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -111,7 +103,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Create">
+  <component name="RunManager" selected="Application.CreateRiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -166,6 +158,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CreateRiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CreateRiverTest" />
+      <module name="jtream" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MapStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="list_test.MapStreamTest" />
       <module name="jtream" />
@@ -184,9 +183,11 @@
       <item itemvalue="Application.ArrayListStreamTest" />
       <item itemvalue="Application.Create" />
       <item itemvalue="Application.MapStreamTest" />
+      <item itemvalue="Application.CreateRiverTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreateRiverTest" />
         <item itemvalue="Application.Create" />
         <item itemvalue="Application.AdditiveTest" />
         <item itemvalue="Application.MapStreamTest" />
@@ -224,7 +225,7 @@
       <workItem from="1630384586301" duration="127000" />
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
-      <workItem from="1630488465073" duration="45705000" />
+      <workItem from="1630488465073" duration="49725000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -296,7 +297,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630637568350</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[update]: 删除无用文件">
+      <created>1630639910198</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1630639910198</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[Add]: 添加River接口">
+      <created>1630639926664</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1630639926664</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +341,9 @@
     <MESSAGE value="[docs]: 补充文档" />
     <MESSAGE value="[update]: 添加示例代码" />
     <MESSAGE value="[update]: 删除无用文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: 删除无用文件" />
+    <MESSAGE value="[Add]: 添加River接口" />
+    <MESSAGE value="add: River.of()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: River.of()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
