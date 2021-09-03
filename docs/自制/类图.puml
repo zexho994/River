@@ -1,0 +1,7 @@
+@startuml
+
+interface stream<IN>{
+
+}
+
+@enduml

@@ -22,12 +22,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: 暂存">
-      <change afterPath="$PROJECT_DIR$/docs/Stream时序图.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Stream活动图.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Stream类图.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/sample/Create.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/stream_v2/sample/Create.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: 添加示例代码">
+      <change afterPath="$PROJECT_DIR$/docs/自制/类图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Stream时序图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jdk/Stream时序图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Stream活动图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jdk/Stream活动图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Stream类图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/jdk/Stream类图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/lambda/Create.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/BiFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/CollectionStreamGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/Comparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/EvalFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/ForEach.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/Function.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/IStream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/IntegerStreamGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/NextItemEvalProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/PipStream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/Predicate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream/Supplier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/Additive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/Stream.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/sample/Create.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/test/AdditiveTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/stream_v2/test/StreamTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/LambdaTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/LambdaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/test1.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +114,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/jdk" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Create">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
@@ -206,7 +233,7 @@
       <workItem from="1630384586301" duration="127000" />
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
-      <workItem from="1630488465073" duration="42651000" />
+      <workItem from="1630488465073" duration="43161000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -257,7 +284,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630128195624</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[docs]: 补充文档">
+      <created>1630636952608</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1630636952609</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[update]: 添加示例代码">
+      <created>1630636972235</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1630636972235</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +325,9 @@
     <MESSAGE value="add files" />
     <MESSAGE value="[update]: 添加测试代码" />
     <MESSAGE value="[update]: 暂存" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: 暂存" />
+    <MESSAGE value="[docs]: 补充文档" />
+    <MESSAGE value="[update]: 添加示例代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: 添加示例代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
