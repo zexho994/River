@@ -1,0 +1,49 @@
+@startuml
+participant Client
+participant Stream
+participant ReferencePipeline
+participant DistinctOps
+participant StatelessOp
+participant StateFulOp
+participant AbstractPipeline
+
+
+==创建Stream==
+Client -> Stream ++: of(T... t)
+return Stream(Head)
+==执行中间操作==
+group 中间无状态方法:filter{
+Client -> Stream ++: 调用filter()
+Stream -> ReferencePipeline ++ : filter()的实现类
+ReferencePipeline -> StatelessOp++: 创建一个新流(无状态的中间阶段流)
+StatelessOp -> StatelessOp : 保存Stream，opFlag信息
+StatelessOp -> AbstractPipeline ++: super()
+AbstractPipeline -> AbstractPipeline : 绑定新流与上游流
+note left : 将新的流的pre设置为Head，Head的next设置为新的流
+return return
+return return
+return return
+return StatelessOp类
+|||
+end
+
+group 中间有状态方法:distinct
+Client -> Stream ++: 调用distinct()
+Stream -> ReferencePipeline ++ : distinct()的实现类
+ReferencePipeline -> DistinctOps ++: 调用makeRef(this)
+DistinctOps -> StateFulOp++: 创建一个新流(有状态的中间阶段流)
+StateFulOp -> StateFulOp : 保存Stream，opFlag信息
+StateFulOp -> AbstractPipeline ++: super()
+AbstractPipeline -> AbstractPipeline : 绑定新流与上游流
+note left : 将新的流的pre设置为filter，filter的next设置为新的流
+return return
+return return
+return return
+return return
+return StateFulOp类
+|||
+end
+
+==执行终结操作==
+
+@enduml

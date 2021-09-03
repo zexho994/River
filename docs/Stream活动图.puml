@@ -1,0 +1,26 @@
+@startuml
+|client|
+start
+:Stream.of();
+stop
+
+:stream.filter();
+|ReferencePipeline类|
+-> 调用 ;
+:filter();
+|StatelessOp类|
+:创建实例;
+|AbstractPipeline类|
+:连接pre、next 两个stage;
+|ReferencePipeline类|
+:StatelessOp类重写opWrapSink()方法;
+|client|
+:stream.distinct();
+|ReferencePipeline类|
+:distinct();
+|DistinctOps|
+:makeRef();
+|client|
+end
+
+@enduml

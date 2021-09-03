@@ -1,0 +1,126 @@
+@startuml
+interface AutoCloseable
+class PipelineHelper{
+    + S wrapAndCopyInto(S sink,Spliterator)
+}
+interface BaseStream
+
+interface Stream{
+    + of(T... value)
+    + generate(Supplier<T> s)
+    ..
+    + Stream<T> filter(Predicate p)
+    + Stream<T> distinct()
+    + Stream<T> sorted()
+    + <R> Stream<R> map<Function p)
+    ..
+    + void forEach(Consumer c)
+    + T reduce(T identity,BinaryOperator b)
+    + long count()
+}
+note right : 定义流的所有操作
+
+
+abstract AbstractPipeline<IN,OUT,Stream>{
+ - Spliterator<?> sourceSpliterator
+ + Sink<IN> opWrapSink(int flags,Sink<OUT> sink)
+ + <R> R evaluate(TerminalOp)
+}
+note right: Pipeline类的抽象基础，Stream接口的
+note left of AbstractPipeline::sourceSpliterator
+    这里存储流的源数据
+end note
+
+note left of AbstractPipeline::opWrapSink
+    接受一个操作结果类型的sink，
+    返回输入类型元素的sink，
+    执行sink该操作，并将结果传递给提供的sink。
+end note
+AbstractPipeline::opWrapSink *-- Sink
+AbstractPipeline::evaluate *-- TerminalOp
+
+interface TerminalOp<E_IN,R>{
+    + R evaluateParallel(PipelineHelper,Spliterator)
+    + R evaluateSequential(PipelineHelper,Spliterator)
+}
+
+class FindOp{}
+TerminalOp <|-- FindOp
+class ForEachOp{}
+TerminalOp <|-- ForEachOp
+class MatchOp{}
+TerminalOp <|-- MatchOp
+class ReduceOp{}
+TerminalOp <|-- ReduceOp
+
+abstract ReferencePipeline
+note left : 数据源和中间阶段的核心实现类
+
+class Head{}
+note bottom: 表示数据源阶段
+ReferencePipeline <|-- Head
+
+
+class StatelessOp<IN,OUT>
+note bottom: 流的无状态中间阶段的基类
+ReferencePipeline <|-- StatelessOp
+
+class StateFulOp<IN,OUT>{}
+note bottom of StateFulOp: 流的有状态中间阶段的基类
+ReferencePipeline <|-- StateFulOp
+
+interface Spliterator<T>{
+    +void forEachRemaining()
+}
+'class StreamSupport{
+'	+stream()
+'	+intStream() +longStream()
+'	+doubleStream()
+'}
+
+AutoCloseable <|-- BaseStream
+BaseStream <|-- AbstractPipeline
+BaseStream <|-- Stream
+PipelineHelper <|-- AbstractPipeline
+AbstractPipeline <|-- ReferencePipeline
+Stream <|-- ReferencePipeline
+
+
+interface Consumer<T>{
+    + void accept(T t)
+    + (default) andThen(Consumer after)
+}
+note left of Consumer
+    表示接受单个输入参数且不返回结果的操作。
+    与大多数其他功能接口不同，Consumer期望通过
+    副作用进行操作
+    <T>: 操作的输入类型
+end note
+
+interface Sink<T>{
+    + begin()
+    + end()
+    + cancellationRequested()
+}
+Consumer <|-down- Sink
+note right of Sink
+    Consumer的扩展，用于在流管道的各个阶段传递值，
+    附加方法来管理大小信息、控制流等
+end note
+
+abstract ChainedReference<T,OUT>{
+}
+Sink <|-- ChainedReference
+
+'class DistinctOps{}
+'class ReduceOps{}
+
+enum StreamShape{
+    + REFERENCE
+    + INT_VALUE
+    + LONG_VALUE
+    + DOUBLE_VALUE
+}
+note right : 用来描述流的类型
+
+@enduml
