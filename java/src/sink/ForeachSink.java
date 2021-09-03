@@ -13,7 +13,7 @@ public class ForeachSink<T> extends SinkChain<T> {
     }
 
     @Override
-    public void begin() {
+    public void begin(int n) {
 
     }
 

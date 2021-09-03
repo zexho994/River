@@ -1,8 +1,5 @@
 package sink;
 
-import river.AbstractRiver;
-import river.River;
-
 /**
  * @author Zexho
  * @date 2021/9/3 5:43 下午
@@ -10,8 +7,8 @@ import river.River;
 public class SourceSink<T> extends SinkChain<T> {
 
     @Override
-    public void begin() {
-
+    public void begin(int n) {
+        this.next.begin(-1);
     }
 
     @Override

@@ -41,7 +41,7 @@ public abstract class SinkChain<T> implements Sink<T> {
     }
 
     @Override
-    public abstract void begin();
+    public abstract void begin(int n);
 
     @Override
     public abstract void end();

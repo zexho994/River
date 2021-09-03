@@ -3,7 +3,6 @@ package pipeline;
 import river.AbstractRiver;
 import river.Op;
 import river.River;
-import sink.Sink;
 import sink.SinkChain;
 
 import java.util.function.Predicate;
@@ -24,12 +23,25 @@ public abstract class Pipeline<T> {
     public AbstractRiver<T> next;
     public Op op;
 
+    /**
+     * 启动River
+     *
+     * @param river
+     * @param tail
+     */
     public void launch(AbstractRiver<T> river, SinkChain<T> tail) {
-        Sink<T> sinkHead = warpPipeline(river, tail);
-        sinkHead.begin();
+        SinkChain<T> sinkHead = warpPipeline(river, tail);
+        sinkHead.begin(-1);
     }
 
-    private Sink<T> warpPipeline(AbstractRiver<T> river, SinkChain<T> tail) {
+    /**
+     * 所有stage包装成一条sinkChain
+     *
+     * @param river 最后一个中间操作
+     * @param tail  终结操作sink
+     * @return 第一个Sink
+     */
+    private SinkChain<T> warpPipeline(AbstractRiver<T> river, SinkChain<T> tail) {
         SinkChain<T> sink = tail;
 
         for (AbstractRiver<T> s = river; s != null; s = s.previous) {
