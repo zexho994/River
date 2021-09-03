@@ -1,3 +1,8 @@
+package river;
+
+import pipeline.PipelineSource;
+import river.River;
+
 import java.util.Arrays;
 import java.util.Spliterator;
 

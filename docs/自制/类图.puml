@@ -20,21 +20,35 @@ abstract Pipeline<T>{
     + River<T> next
     + Op
 }
-Pipeline .* Op
+Pipeline .* Op : depend on
 
-class RefRiver<T>{}
-River <|-- RefRiver : impl
-Pipeline <|-- RefRiver : extends
+class AbstractRiver<T>{}
+River <|-- AbstractRiver : impl
+Pipeline <|-- AbstractRiver : extends
 
 class PipelineSource<T>{}
 class PipelineStage<T>{}
-RefRiver<|-- PipelineSource : extends
-RefRiver <|-- PipelineStage : extends
+AbstractRiver<|-- PipelineSource : extends
+AbstractRiver <|-- PipelineStage : extends
 
 enum Op{
     + source(0)
     + filter(1)
     + distinct(2)
 }
+
+interface Consumer{}
+interface Sink<T>{}
+Consumer <|-- Sink : impl
+
+abstract SinkChain{}
+Sink <|-- SinkChain : impl
+
+class FilterSink{}
+SinkChain <|-- FilterSink : extends
+
+class DistinctSink{}
+SinkChain <|-- DistinctSink : extends
+
 
 @enduml

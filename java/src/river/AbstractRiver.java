@@ -1,3 +1,9 @@
+package river;
+
+import pipeline.Pipeline;
+import pipeline.PipelineStage;
+import sink.ForeachSink;
+
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -5,7 +11,7 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class RefRiver<T> extends Pipeline<T> implements River<T> {
+public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
 
     /**
      * 追加filter操作
@@ -26,7 +32,8 @@ public class RefRiver<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public void forEach(Consumer<T> consumer) {
-
+        ForeachSink<T> foreachSink = new ForeachSink<>(consumer);
+        launch(this, foreachSink);
     }
 
     @Override

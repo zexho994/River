@@ -1,3 +1,8 @@
+package pipeline;
+
+import river.AbstractRiver;
+import river.Op;
+
 import java.util.Spliterator;
 
 /**
@@ -6,7 +11,7 @@ import java.util.Spliterator;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class PipelineSource<T> extends RefRiver<T> {
+public class PipelineSource<T> extends AbstractRiver<T> {
 
     public final Spliterator<T> sourceSpliterator;
 

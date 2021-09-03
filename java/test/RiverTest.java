@@ -1,11 +1,13 @@
+import river.River;
+
 /**
  * @author Zexho
  * @date 2021/9/3 2:40 下午
  */
-public class CreateRiverTest {
+public class RiverTest {
 
     public static void main(String[] args) {
-        River<String> distinctTest = distinctTest();
+        forEachTest();
     }
 
     /**
@@ -16,7 +18,7 @@ public class CreateRiverTest {
     }
 
     public static River<String> filterTest() {
-        River<String> filter = createFromArrayTest().filter(e -> e.equals("2"));
+        River<String> filter = createFromArrayTest().filter(e -> !e.equals("2"));
         assert filter != null;
         return filter;
     }
@@ -25,6 +27,10 @@ public class CreateRiverTest {
         River<String> distinct = filterTest().distinct();
         assert distinct != null;
         return distinct;
+    }
+
+    public static void forEachTest() {
+        distinctTest().forEach(System.out::println);
     }
 
 }

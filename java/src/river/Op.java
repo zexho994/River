@@ -1,3 +1,5 @@
+package river;
+
 /**
  * 表示操作类型
  *
@@ -14,12 +16,18 @@ public enum Op {
      * 中间操作
      */
     filter(1),
-    distinct(2);
+    distinct(2),
+
+    /**
+     * 结束操作
+     */
+    forEach(20),
+    count(21);
 
     /**
      * 操作的code
      */
-    final int op;
+    int op;
 
     Op(int op) {
         this.op = op;

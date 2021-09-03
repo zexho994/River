@@ -22,8 +22,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="add: Pipeline &amp; Stage &amp; Op">
-      <change beforePath="$PROJECT_DIR$/java/test/CreateRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/CreateRiverTest.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="add: distinct op">
+      <change afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineFinal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/CountSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/FilterSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/Sink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/sink/SourceSink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/自制/类图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/自制/类图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/Op.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/Op.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PipelineSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/RefRiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/RiverGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/CreateRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +52,8 @@
       <list>
         <option value="UML Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,13 +167,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateRiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CreateRiverTest" />
-      <module name="jtream" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MapStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="list_test.MapStreamTest" />
       <module name="jtream" />
@@ -166,6 +176,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RiverTest" />
+      <module name="jtream" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -217,7 +234,7 @@
       <workItem from="1630384586301" duration="127000" />
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
-      <workItem from="1630488465073" duration="53059000" />
+      <workItem from="1630488465073" duration="62483000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -317,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630655637078</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add: distinct op">
+      <created>1630655937366</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1630655937366</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +374,8 @@
     <MESSAGE value="[Add]: 添加River接口" />
     <MESSAGE value="add: River.of()" />
     <MESSAGE value="add: Pipeline &amp; Stage &amp; Op" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: Pipeline &amp; Stage &amp; Op" />
+    <MESSAGE value="add: distinct op" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: distinct op" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -379,6 +404,16 @@
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/AbstractPipeline.java</url>
           <line>497</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/src/sink/SinkChain.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/src/pipeline/Pipeline.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
