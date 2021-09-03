@@ -1,5 +1,6 @@
 package stream_v2.sample;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -9,15 +10,22 @@ import java.util.stream.Stream;
 public class Create {
 
     public static void main(String[] args) {
-        Create create = new Create();
-        create.createStream();
+        Create.createStream();
     }
 
-    public void createStream() {
-        Stream<Integer> stream = Stream.of(1, 2, 3);
-//        stream.forEach(System.out::println);
+    public static void createStream() {
+        // Head Stream
+        Stream<Integer> head = Stream.of(1, 2, 3, 3);
 
-        System.out.println(stream.count());
+        Stream<Integer> afterFilter = head.filter(e -> e != 2);
+        Stream<Integer> afterDistinct = afterFilter.distinct();
+        Stream<Integer> afterSort = afterDistinct.sorted();
+        Stream<Integer> afterLimit = afterSort.limit(2);
+
+//        long count = afterLimit.count();
+//        afterLimit.forEach(System.out::println);
+        Optional<Integer> any = afterLimit.findFirst();
+//        boolean flag = afterLimit.anyMatch(e -> e == 1);
     }
 
 }
