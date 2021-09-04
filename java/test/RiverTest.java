@@ -8,13 +8,14 @@ public class RiverTest {
 
     public static void main(String[] args) {
         forEachTest();
+        countTest();
     }
 
     /**
      * 从数组中创建River
      */
     public static River<String> createFromArrayTest() {
-        return River.of("1","1", "2", "3","3");
+        return River.of("1", "1", "2", "3", "3");
     }
 
     public static River<String> filterTest() {
@@ -31,6 +32,14 @@ public class RiverTest {
 
     public static void forEachTest() {
         distinctTest().forEach(System.out::println);
+    }
+
+    public static void countTest() {
+        long count = distinctTest().count();
+        assert count == 2;
+
+        long count1 = filterTest().count();
+        assert count1 == 4;
     }
 
 }

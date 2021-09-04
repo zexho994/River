@@ -22,18 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update: FilterSink">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update: distinct,filter,foreach done">
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/CountSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/CountSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/FilterSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/FilterSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/SourceSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SourceSink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +221,7 @@
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
       <workItem from="1630488465073" duration="64074000" />
-      <workItem from="1630728301660" duration="3177000" />
+      <workItem from="1630728301660" duration="3689000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -349,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630671274470</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update: distinct,filter,foreach done">
+      <created>1630733765169</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1630733765169</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +385,8 @@
     <MESSAGE value="add: distinct op" />
     <MESSAGE value="add: Sink" />
     <MESSAGE value="update: FilterSink" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: FilterSink" />
+    <MESSAGE value="update: distinct,filter,foreach done" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: distinct,filter,foreach done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -421,19 +422,9 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/sink/SourceSink.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/river/AbstractRiver.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/river/AbstractRiver.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/java/test/RiverTest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

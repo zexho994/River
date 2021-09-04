@@ -3,6 +3,7 @@ package river;
 import pipeline.Pipeline;
 import pipeline.PipelineFinal;
 import pipeline.PipelineStage;
+import sink.CountSink;
 import sink.ForeachSink;
 
 import java.util.Spliterator;
@@ -46,7 +47,10 @@ public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public long count() {
-        return 0;
+        AbstractRiver<T> pipeFinal = new PipelineFinal<>();
+        CountSink<T> countSink = new CountSink<>(pipeFinal);
+        launch(this, countSink);
+        return countSink.getCount();
     }
 
     public Spliterator<T> getSourceSpliterator() {

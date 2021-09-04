@@ -10,22 +10,27 @@ import java.util.function.Consumer;
  */
 public class CountSink<T> extends SinkChain<T> {
 
-    public CountSink(AbstractRiver<T> river, Consumer<T> consumer) {
-        super(river, consumer);
+    private int count;
+
+    public CountSink(AbstractRiver<T> river) {
+        super(river);
     }
 
     @Override
     public void begin(int n) {
-
+        this.count = 0;
     }
 
     @Override
     public void end() {
-
     }
 
     @Override
     public void accept(T t) {
+        count++;
+    }
 
+    public int getCount() {
+        return count;
     }
 }

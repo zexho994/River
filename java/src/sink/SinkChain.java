@@ -19,17 +19,11 @@ public abstract class SinkChain<T> implements Sink<T> {
     public SinkChain(AbstractRiver<T> river) {
         this.river = river;
         this.consumer = this;
-        this.predicate = null;
     }
 
     public SinkChain(AbstractRiver<T> river, Consumer<T> consumer) {
         this.consumer = consumer;
         this.river = river;
-    }
-
-    public SinkChain(AbstractRiver<T> river, Predicate<T> action) {
-        this(river);
-        this.predicate = action;
     }
 
     public SinkChain<T> wrap(AbstractRiver<T> river) {
@@ -39,7 +33,7 @@ public abstract class SinkChain<T> implements Sink<T> {
                 previousSink = new SourceSink<>(river);
                 break;
             case filter:
-                previousSink = new FilterSink<>(river,river.getPredicate());
+                previousSink = new FilterSink<>(river, river.getPredicate());
                 break;
             case distinct:
                 previousSink = new DistinctSink<>(river);
