@@ -1,9 +1,11 @@
 package river;
 
 import pipeline.Pipeline;
+import pipeline.PipelineFinal;
 import pipeline.PipelineStage;
 import sink.ForeachSink;
 
+import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -12,6 +14,9 @@ import java.util.function.Predicate;
  * @date 2021/9/3 2:28 下午
  */
 public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
+
+    protected Spliterator<T> sourceSpliterator;
+    protected Predicate<T> predicate;
 
     /**
      * 追加filter操作
@@ -22,7 +27,9 @@ public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
      */
     @Override
     public River<T> filter(Predicate<T> predicate) {
-        return new PipelineStage<>(this, Op.filter);
+        PipelineStage<T> stage = new PipelineStage<>(this, Op.filter);
+        stage.setPredicate(predicate);
+        return stage;
     }
 
     @Override
@@ -32,7 +39,8 @@ public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public void forEach(Consumer<T> consumer) {
-        ForeachSink<T> foreachSink = new ForeachSink<>(consumer);
+        AbstractRiver<T> pipeFinal = new PipelineFinal<>();
+        ForeachSink<T> foreachSink = new ForeachSink<>(pipeFinal, consumer);
         launch(this, foreachSink);
     }
 
@@ -40,4 +48,13 @@ public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
     public long count() {
         return 0;
     }
+
+    public Spliterator<T> getSourceSpliterator() {
+        return sourceSpliterator;
+    }
+
+    public Predicate<T> getPredicate() {
+        return predicate;
+    }
+
 }

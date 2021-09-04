@@ -5,6 +5,7 @@ import river.Op;
 import river.River;
 import sink.SinkChain;
 
+import java.util.Spliterator;
 import java.util.function.Predicate;
 
 /**
@@ -31,7 +32,11 @@ public abstract class Pipeline<T> {
      */
     public void launch(AbstractRiver<T> river, SinkChain<T> tail) {
         SinkChain<T> sinkHead = warpPipeline(river, tail);
+
         sinkHead.begin(-1);
+        Spliterator<T> sourceSpliterator = sinkHead.river.getSourceSpliterator();
+        sourceSpliterator.forEachRemaining(sinkHead);
+        sinkHead.end();
     }
 
     /**

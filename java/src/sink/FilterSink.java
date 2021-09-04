@@ -1,7 +1,8 @@
 package sink;
 
-import java.util.HashSet;
-import java.util.Set;
+import river.AbstractRiver;
+
+import java.util.function.Predicate;
 
 /**
  * @author Zexho
@@ -9,26 +10,27 @@ import java.util.Set;
  */
 public class FilterSink<T> extends SinkChain<T> {
 
-    Set<T> set;
+    public FilterSink(AbstractRiver<T> river, Predicate<T> action) {
+        super(river);
+        this.predicate = action;
+    }
 
     @Override
     public void begin(int n) {
-        set = new HashSet<>(n == -1 ? 16 : n);
         this.next.begin(n);
     }
 
     @Override
     public void end() {
         this.next.end();
-        set = null;
     }
 
     @Override
     public void accept(T t) {
-        if (set.contains(t)) {
+        Predicate<T> predicate = this.river.getPredicate();
+        if (!predicate.test(t)) {
             return;
         }
-        set.add(t);
         this.next.accept(t);
     }
 }

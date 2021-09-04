@@ -13,7 +13,6 @@ import java.util.Spliterator;
  */
 public class PipelineSource<T> extends AbstractRiver<T> {
 
-    public final Spliterator<T> sourceSpliterator;
 
     public PipelineSource(Spliterator<T> source) {
         this.sourceSpliterator = source;

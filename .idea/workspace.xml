@@ -22,14 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="add: Sink">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update: FilterSink">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/CountSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/CountSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/FilterSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/FilterSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/Sink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/Sink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SourceSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SourceSink.java" afterDir="false" />
     </list>
@@ -103,7 +105,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CreateRiverTest">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -179,15 +181,15 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.RiverTest" />
       <item itemvalue="Application.AdditiveTest" />
       <item itemvalue="Application.ArrayListStreamTest" />
       <item itemvalue="Application.Create" />
       <item itemvalue="Application.MapStreamTest" />
-      <item itemvalue="Application.CreateRiverTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CreateRiverTest" />
+        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.Create" />
         <item itemvalue="Application.AdditiveTest" />
         <item itemvalue="Application.MapStreamTest" />
@@ -225,7 +227,8 @@
       <workItem from="1630384586301" duration="127000" />
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
-      <workItem from="1630488465073" duration="63280000" />
+      <workItem from="1630488465073" duration="64074000" />
+      <workItem from="1630728301660" duration="3177000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -339,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630670458533</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update: FilterSink">
+      <created>1630671274470</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1630671274470</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +384,8 @@
     <MESSAGE value="add: Pipeline &amp; Stage &amp; Op" />
     <MESSAGE value="add: distinct op" />
     <MESSAGE value="add: Sink" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: Sink" />
+    <MESSAGE value="update: FilterSink" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: FilterSink" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,6 +414,26 @@
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/AbstractPipeline.java</url>
           <line>497</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
+          <line>953</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/src/sink/SourceSink.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/src/river/AbstractRiver.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/src/river/AbstractRiver.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

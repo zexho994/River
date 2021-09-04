@@ -1,5 +1,7 @@
 package sink;
 
+import river.AbstractRiver;
+
 import java.util.function.Consumer;
 
 /**
@@ -8,22 +10,20 @@ import java.util.function.Consumer;
  */
 public class ForeachSink<T> extends SinkChain<T> {
 
-    public ForeachSink(Consumer<T> consumer) {
-        super(consumer);
+    public ForeachSink(AbstractRiver<T> river, Consumer<T> consumer) {
+        super(river, consumer);
     }
 
     @Override
     public void begin(int n) {
-
     }
 
     @Override
     public void end() {
-
     }
 
     @Override
-    public void accept(Object o) {
-
+    public void accept(T o) {
+        consumer.accept(o);
     }
 }

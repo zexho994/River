@@ -14,7 +14,7 @@ public class RiverTest {
      * 从数组中创建River
      */
     public static River<String> createFromArrayTest() {
-        return River.of("1", "2", "3");
+        return River.of("1","1", "2", "3","3");
     }
 
     public static River<String> filterTest() {
