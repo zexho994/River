@@ -15,14 +15,6 @@ public class ForeachSink<T> extends SinkChain<T> {
     }
 
     @Override
-    public void begin(int n) {
-    }
-
-    @Override
-    public void end() {
-    }
-
-    @Override
     public void accept(T o) {
         consumer.accept(o);
     }

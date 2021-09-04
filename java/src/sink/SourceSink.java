@@ -18,11 +18,6 @@ public class SourceSink<T> extends SinkChain<T> {
     }
 
     @Override
-    public void end() {
-        this.next.end();
-    }
-
-    @Override
     public void accept(T t) {
         this.next.accept(t);
     }

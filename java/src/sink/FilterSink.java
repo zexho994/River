@@ -16,16 +16,6 @@ public class FilterSink<T> extends SinkChain<T> {
     }
 
     @Override
-    public void begin(int n) {
-        this.next.begin(n);
-    }
-
-    @Override
-    public void end() {
-        this.next.end();
-    }
-
-    @Override
     public void accept(T t) {
         Predicate<T> predicate = this.river.getPredicate();
         if (!predicate.test(t)) {

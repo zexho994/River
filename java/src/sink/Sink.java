@@ -8,5 +8,6 @@ import java.util.function.Consumer;
  */
 public interface Sink<T> extends Consumer<T> {
     void begin(int n);
+
     void end();
 }

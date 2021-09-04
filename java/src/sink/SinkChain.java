@@ -46,10 +46,18 @@ public abstract class SinkChain<T> implements Sink<T> {
     }
 
     @Override
-    public abstract void begin(int n);
+    public void begin(int n) {
+        if (next != null) {
+            this.next.begin(n);
+        }
+    }
 
     @Override
-    public abstract void end();
+    public void end() {
+        if (next != null) {
+            this.next.end();
+        }
+    }
 
     @Override
     public abstract void accept(T t);

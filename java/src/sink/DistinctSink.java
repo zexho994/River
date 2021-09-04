@@ -4,7 +4,6 @@ import river.AbstractRiver;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
 
 /**
  * @author Zexho
@@ -12,7 +11,7 @@ import java.util.function.Consumer;
  */
 public class DistinctSink<T> extends SinkChain<T> {
 
-    Set<T> set = null;
+    private Set<T> set = null;
 
     public DistinctSink(AbstractRiver<T> river) {
         super(river);
@@ -21,11 +20,6 @@ public class DistinctSink<T> extends SinkChain<T> {
     @Override
     public void begin(int n) {
         set = new HashSet<>(n < 0 ? 16 : n);
-    }
-
-    @Override
-    public void end() {
-        this.next.end();
     }
 
     @Override
