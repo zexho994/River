@@ -70,10 +70,12 @@ package Sin{
     class DistinctSink{}
     class ForEachSink{}
     class CountSink{}
+    class LimitSink{}
     SinkChain <|-- FilterSink : extends
     SinkChain <|-- DistinctSink : extends
     SinkChain <|-- ForEachSink : extends
     SinkChain <|-- CountSink : extends
+    SinkChain <|-- LimitSink : extends
 }
 
 @enduml
