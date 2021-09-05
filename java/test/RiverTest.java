@@ -40,6 +40,12 @@ public class RiverTest {
 
         long count1 = filterTest().count();
         assert count1 == 4;
+
+        long count2 = River.of("java", "c++", "go", "python", "c", "java")
+                .distinct()
+                .filter(e -> !e.equals("go") && !e.equals("c++"))
+                .count();
+        assert count2 == 3;
     }
 
 }

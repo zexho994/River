@@ -1,7 +1,6 @@
 package river;
 
 import pipeline.Pipeline;
-import pipeline.PipelineFinal;
 import pipeline.PipelineStage;
 import sink.CountSink;
 import sink.ForeachSink;
@@ -14,7 +13,7 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
+public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     protected Spliterator<T> sourceSpliterator;
     protected Predicate<T> predicate;
@@ -40,14 +39,14 @@ public class AbstractRiver<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public void forEach(Consumer<T> consumer) {
-        AbstractRiver<T> pipeFinal = new PipelineFinal<>();
+        PipelineStage<T> pipeFinal = new PipelineStage<>();
         ForeachSink<T> foreachSink = new ForeachSink<>(pipeFinal, consumer);
         launch(this, foreachSink);
     }
 
     @Override
     public long count() {
-        AbstractRiver<T> pipeFinal = new PipelineFinal<>();
+        PipelineStage<T> pipeFinal = new PipelineStage<>();
         CountSink<T> countSink = new CountSink<>(pipeFinal);
         launch(this, countSink);
         return countSink.getCount();

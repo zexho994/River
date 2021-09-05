@@ -22,16 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update: count()">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update: SinkChain begin(),end()添加default">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/自制/类图.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/自制/类图.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineFinal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/CountSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/CountSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/DistinctSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/FilterSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/FilterSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/ForeachSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/Sink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/Sink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SourceSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SourceSink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +231,8 @@
       <workItem from="1630467702579" duration="992000" />
       <workItem from="1630478108507" duration="3545000" />
       <workItem from="1630488465073" duration="64074000" />
-      <workItem from="1630728301660" duration="4028000" />
+      <workItem from="1630728301660" duration="4615000" />
+      <workItem from="1630826078871" duration="947000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -362,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630734253161</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update: SinkChain begin(),end()添加default">
+      <created>1630734571422</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1630734571422</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +412,8 @@
     <MESSAGE value="update: FilterSink" />
     <MESSAGE value="update: distinct,filter,foreach done" />
     <MESSAGE value="update: count()" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: count()" />
+    <MESSAGE value="update: SinkChain begin(),end()添加default" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: SinkChain begin(),end()添加default" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

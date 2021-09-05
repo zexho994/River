@@ -1,6 +1,6 @@
 package sink;
 
-import river.AbstractRiver;
+import river.AbstractRiverPipeline;
 
 /**
  * @author Zexho
@@ -13,7 +13,7 @@ public class CountSink<T> extends SinkChain<T> {
      */
     private int count;
 
-    public CountSink(AbstractRiver<T> river) {
+    public CountSink(AbstractRiverPipeline<T> river) {
         super(river);
     }
 

@@ -1,6 +1,6 @@
 package sink;
 
-import river.AbstractRiver;
+import river.AbstractRiverPipeline;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,7 @@ public class DistinctSink<T> extends SinkChain<T> {
 
     private Set<T> set = null;
 
-    public DistinctSink(AbstractRiver<T> river) {
+    public DistinctSink(AbstractRiverPipeline<T> river) {
         super(river);
     }
 

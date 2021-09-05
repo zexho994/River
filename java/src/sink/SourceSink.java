@@ -1,6 +1,6 @@
 package sink;
 
-import river.AbstractRiver;
+import river.AbstractRiverPipeline;
 
 /**
  * @author Zexho
@@ -8,7 +8,7 @@ import river.AbstractRiver;
  */
 public class SourceSink<T> extends SinkChain<T> {
 
-    public SourceSink(AbstractRiver<T> river) {
+    public SourceSink(AbstractRiverPipeline<T> river) {
         super(river);
     }
 

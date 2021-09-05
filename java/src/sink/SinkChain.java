@@ -1,6 +1,6 @@
 package sink;
 
-import river.AbstractRiver;
+import river.AbstractRiverPipeline;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -11,22 +11,22 @@ import java.util.function.Predicate;
  */
 public abstract class SinkChain<T> implements Sink<T> {
 
-    public AbstractRiver<T> river;
+    public AbstractRiverPipeline<T> river;
     public SinkChain<T> next;
     public final Consumer<T> consumer;
     public Predicate<T> predicate;
 
-    public SinkChain(AbstractRiver<T> river) {
+    public SinkChain(AbstractRiverPipeline<T> river) {
         this.river = river;
         this.consumer = this;
     }
 
-    public SinkChain(AbstractRiver<T> river, Consumer<T> consumer) {
+    public SinkChain(AbstractRiverPipeline<T> river, Consumer<T> consumer) {
         this.consumer = consumer;
         this.river = river;
     }
 
-    public SinkChain<T> wrap(AbstractRiver<T> river) {
+    public SinkChain<T> wrap(AbstractRiverPipeline<T> river) {
         SinkChain<T> previousSink;
         switch (river.op) {
             case source:

@@ -1,6 +1,6 @@
 package sink;
 
-import river.AbstractRiver;
+import river.AbstractRiverPipeline;
 
 import java.util.function.Predicate;
 
@@ -10,7 +10,7 @@ import java.util.function.Predicate;
  */
 public class FilterSink<T> extends SinkChain<T> {
 
-    public FilterSink(AbstractRiver<T> river, Predicate<T> action) {
+    public FilterSink(AbstractRiverPipeline<T> river, Predicate<T> action) {
         super(river);
         this.predicate = action;
     }

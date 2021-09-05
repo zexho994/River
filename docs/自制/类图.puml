@@ -22,33 +22,51 @@ abstract Pipeline<T>{
 }
 Pipeline .* Op : depend on
 
-class AbstractRiver<T>{}
-River <|-- AbstractRiver : impl
-Pipeline <|-- AbstractRiver : extends
+class AbstractRiverPipeline<T>{}
+River <|-- AbstractRiverPipeline : impl
+Pipeline <|-- AbstractRiverPipeline : extends
 
-class PipelineSource<T>{}
-class PipelineStage<T>{}
-AbstractRiver<|-- PipelineSource : extends
-AbstractRiver <|-- PipelineStage : extends
+class PipelineSource<T>{
+    + PipelineSource(Spliterator<T>)
+}
+class PipelineStage<T>{
+    + PipelineStage(AbstractRiverPipeline<T>, Op)
+}
+AbstractRiverPipeline<|-- PipelineSource : extends
+AbstractRiverPipeline <|-- PipelineStage : extends
 
 enum Op{
     + source(0)
     + filter(1)
     + distinct(2)
+    + forEach(20)
+    + count(21)
 }
 
-interface Consumer{}
-interface Sink<T>{}
+interface Consumer{
+    + void accept()
+}
+interface Sink<T>{
+    + void begin()
+    + void end()
+}
 Consumer <|-- Sink : impl
 
-abstract SinkChain{}
+abstract SinkChain{
+    + AbstractRiverPipeline<T> river
+    + SinkChain<T> next
+    + final Consumer<T> consumer
+    + Predicate<T> predicate
+}
 Sink <|-- SinkChain : impl
 
 class FilterSink{}
-SinkChain <|-- FilterSink : extends
-
 class DistinctSink{}
+class ForEachSink{}
+class CountSink{}
+SinkChain <|-- FilterSink : extends
 SinkChain <|-- DistinctSink : extends
-
+SinkChain <|-- ForEachSink : extends
+SinkChain <|-- CountSink : extends
 
 @enduml
