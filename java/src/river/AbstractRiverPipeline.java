@@ -5,6 +5,7 @@ import pipeline.PipelineStage;
 import sink.CountSink;
 import sink.ForeachSink;
 
+import java.util.Comparator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -18,6 +19,7 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
     protected Spliterator<T> sourceSpliterator;
     protected Predicate<T> predicate;
     protected int maxCount;
+    protected Comparator<T> comparator;
 
     /**
      * 追加filter操作
@@ -43,6 +45,13 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
         PipelineStage<T> pipelineStage = new PipelineStage<>(this, Op.limit);
         pipelineStage.setMaxCount(size);
         return pipelineStage;
+    }
+
+    @Override
+    public River<T> sort(Comparator<T> comparator) {
+        PipelineStage<T> stage = new PipelineStage<>(this, Op.sort);
+        stage.comparator = comparator;
+        return stage;
     }
 
     @Override
@@ -76,4 +85,7 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
         return this.maxCount;
     }
 
+    public Comparator<T> getComparator() {
+        return this.comparator;
+    }
 }

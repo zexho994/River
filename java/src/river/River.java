@@ -1,5 +1,6 @@
 package river;
 
+import java.util.Comparator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -54,8 +55,17 @@ public interface River<T> {
      * 限制River的元素数量
      *
      * @param size 元素的最大数量
+     * @return River
      */
     River<T> limit(int size);
+
+    /**
+     * 排序
+     *
+     * @param comparable 比较器
+     * @return 添加排序后的River
+     */
+    River<T> sort(Comparator<T> comparable);
 
     /**
      * 遍历River所有元素

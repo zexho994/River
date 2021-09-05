@@ -1,5 +1,7 @@
 import river.River;
 
+import java.util.Objects;
+
 /**
  * @author Zexho
  * @date 2021/9/3 2:40 下午
@@ -10,6 +12,7 @@ public class RiverTest {
         forEachTest();
         countTest();
         limitTest();
+        sortTest();
     }
 
     /**
@@ -59,6 +62,21 @@ public class RiverTest {
         System.out.println("limit test => foreach");
         River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
                 .limit(5)
+                .forEach(System.out::println);
+    }
+
+    public static void sortTest() {
+        System.out.println("sorted test");
+        River.of(2, 1, 5, 4, 0)
+                .sort((n1, n2) -> {
+                    if (Objects.equals(n1, n2)) {
+                        return 0;
+                    } else if (n1 > n2) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                })
                 .forEach(System.out::println);
     }
 

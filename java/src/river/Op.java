@@ -18,6 +18,7 @@ public enum Op {
     filter(1),
     distinct(2),
     limit(3),
+    sort(4),
 
     /**
      * 结束操作
