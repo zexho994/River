@@ -17,6 +17,7 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     protected Spliterator<T> sourceSpliterator;
     protected Predicate<T> predicate;
+    protected int maxCount;
 
     /**
      * 追加filter操作
@@ -35,6 +36,13 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
     @Override
     public River<T> distinct() {
         return new PipelineStage<>(this, Op.distinct);
+    }
+
+    @Override
+    public River<T> limit(int size) {
+        PipelineStage<T> pipelineStage = new PipelineStage<>(this, Op.limit);
+        pipelineStage.setMaxCount(size);
+        return pipelineStage;
     }
 
     @Override
@@ -58,6 +66,14 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     public Predicate<T> getPredicate() {
         return predicate;
+    }
+
+    public void setMaxCount(int count) {
+        this.maxCount = count;
+    }
+
+    public int getMaxCount() {
+        return this.maxCount;
     }
 
 }

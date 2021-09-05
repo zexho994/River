@@ -38,6 +38,9 @@ public abstract class SinkChain<T> implements Sink<T> {
             case distinct:
                 previousSink = new DistinctSink<>(river);
                 break;
+            case limit:
+                previousSink = new LimitSink<>(river);
+                break;
             default:
                 throw new IllegalArgumentException("river op error");
         }

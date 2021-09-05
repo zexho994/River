@@ -9,6 +9,7 @@ public class RiverTest {
     public static void main(String[] args) {
         forEachTest();
         countTest();
+        limitTest();
     }
 
     /**
@@ -31,6 +32,7 @@ public class RiverTest {
     }
 
     public static void forEachTest() {
+        System.out.println("foreach test");
         distinctTest().forEach(System.out::println);
     }
 
@@ -46,6 +48,18 @@ public class RiverTest {
                 .filter(e -> !e.equals("go") && !e.equals("c++"))
                 .count();
         assert count2 == 3;
+    }
+
+    public static void limitTest() {
+        long count = River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
+                .limit(5)
+                .count();
+        assert count == 5 : "limit test fail,count = " + count;
+
+        System.out.println("limit test => foreach");
+        River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
+                .limit(5)
+                .forEach(System.out::println);
     }
 
 }

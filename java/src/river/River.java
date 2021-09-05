@@ -51,6 +51,13 @@ public interface River<T> {
     River<T> distinct();
 
     /**
+     * 限制River的元素数量
+     *
+     * @param size 元素的最大数量
+     */
+    River<T> limit(int size);
+
+    /**
      * 遍历River所有元素
      *
      * @param consumer 表达式
