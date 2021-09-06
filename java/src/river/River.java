@@ -68,6 +68,14 @@ public interface River<T> {
     River<T> sort(Comparator<T> comparable);
 
     /**
+     * 对元素进行预操作
+     *
+     * @param consumer 执行的操作
+     * @return 新River
+     */
+    River<T> peek(Consumer<T> consumer);
+
+    /**
      * 遍历River所有元素
      *
      * @param consumer 表达式

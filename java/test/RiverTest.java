@@ -14,6 +14,7 @@ public class RiverTest {
         distinctTest();
         limitTest();
         sortTest();
+        peekTest();
     }
 
     /**
@@ -69,6 +70,16 @@ public class RiverTest {
                     }
                 })
                 .forEach(System.out::println);
+    }
+
+    public static void peekTest() {
+        System.out.println("peek test:");
+        long count = River.of(2, 1, 3, 4, 4, 0, 5)
+                .distinct()
+                .sort(Integer::compare)
+                .peek(e -> System.out.println("peek: " + e))
+                .count();
+        assert count == 6;
     }
 
 }
