@@ -15,14 +15,14 @@ import java.util.Spliterator;
 final class RiverGenerator {
 
     @SafeVarargs
-    public static <T> River<T> create(T... t) {
-        Spliterator<T> spliterator = Arrays.spliterator(t);
-        return new PipelineStage<T>(spliterator) {
+    public static <E> River<E> create(E... e) {
+        Spliterator<E> spliterator = Arrays.spliterator(e);
+        return new PipelineStage<E, E>(spliterator) {
             @Override
-            public SinkChain<T> wrapSink(SinkChain<T> sink) {
-                SinkChain<T> sinkChain = new SinkChain<T>() {
+            public SinkChain<E> wrapSink(SinkChain<E> sink) {
+                SinkChain<E> sinkChain = new SinkChain<E>() {
                     @Override
-                    public void accept(T t) {
+                    public void accept(E t) {
                         next.accept(t);
                     }
                 };

@@ -8,14 +8,13 @@ import java.util.Spliterator;
  * @author Zexho
  * @date 2021/9/3 3:15 下午
  */
-public class PipelineStage<T> extends AbstractRiverPipeline<T> {
+public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
 
-    public PipelineStage(Spliterator<T> spliterator) {
+    public PipelineStage(Spliterator<I> spliterator) {
         this.sourceSpliterator = spliterator;
     }
 
-    public PipelineStage(AbstractRiverPipeline<T> river) {
-        this.source = river.source;
+    public PipelineStage(AbstractRiverPipeline<I, O> river) {
         this.previous = river;
         this.next = null;
         river.next = this;

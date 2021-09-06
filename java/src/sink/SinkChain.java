@@ -8,16 +8,16 @@ import java.util.Spliterator;
  * @author Zexho
  * @date 2021/9/3 5:08 下午
  */
-public abstract class SinkChain<T> implements Sink<T> {
+public abstract class SinkChain<E> implements Sink<E> {
 
-    public AbstractRiverPipeline<T> river;
-    public Spliterator<T> sourceSpliterator;
-    public SinkChain<T> next;
+    public AbstractRiverPipeline<E, E> river;
+    public Spliterator<E> sourceSpliterator;
+    public SinkChain<E> next;
 
     public SinkChain() {
     }
 
-    public SinkChain(AbstractRiverPipeline<T> river) {
+    public SinkChain(AbstractRiverPipeline<E, E> river) {
         this.river = river;
     }
 
@@ -36,13 +36,13 @@ public abstract class SinkChain<T> implements Sink<T> {
     }
 
     @Override
-    public abstract void accept(T t);
+    public abstract void accept(E t);
 
-    public Spliterator<T> getSourceSpliterator() {
+    public Spliterator<E> getSourceSpliterator() {
         return sourceSpliterator;
     }
 
-    public void setSourceSpliterator(Spliterator<T> sourceSpliterator) {
+    public void setSourceSpliterator(Spliterator<E> sourceSpliterator) {
         this.sourceSpliterator = sourceSpliterator;
     }
 }

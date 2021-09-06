@@ -90,7 +90,15 @@ public class RiverTest {
                 .peek(e -> System.out.println("peek: " + e))
                 .count();
         assert count == 3;
+    }
 
+    public static void mapTest() {
+        System.out.println("map test:");
+        long count = River.of(1, 2, 3, 4, 5)
+                .skip(2)
+                .peek(e -> System.out.println("peek: " + e))
+                .map(e -> e * 10)
+                .count();
     }
 
 }

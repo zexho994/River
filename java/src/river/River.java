@@ -2,6 +2,7 @@ package river;
 
 import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -22,7 +23,7 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 11:01 上午
  */
-public interface River<T> {
+public interface River<E> {
 
     /**
      * 构建一个River对象
@@ -42,14 +43,14 @@ public interface River<T> {
      * @param predicate 过滤的表达式
      * @return 过滤后的River
      */
-    River<T> filter(Predicate<T> predicate);
+    River<E> filter(Predicate<E> predicate);
 
     /**
      * 元素去重操作
      *
      * @return 去重后的River
      */
-    River<T> distinct();
+    River<E> distinct();
 
     /**
      * 限制River的元素数量
@@ -57,7 +58,7 @@ public interface River<T> {
      * @param size 元素的最大数量
      * @return River
      */
-    River<T> limit(int size);
+    River<E> limit(int size);
 
     /**
      * 排序
@@ -65,7 +66,7 @@ public interface River<T> {
      * @param comparable 比较器
      * @return 添加排序后的River
      */
-    River<T> sort(Comparator<T> comparable);
+    River<E> sort(Comparator<E> comparable);
 
     /**
      * 对元素进行预操作
@@ -73,21 +74,30 @@ public interface River<T> {
      * @param consumer 执行的操作
      * @return 新River
      */
-    River<T> peek(Consumer<T> consumer);
+    River<E> peek(Consumer<E> consumer);
 
     /**
      * 跳过指定数量的元素
      *
      * @param size 要跳过的元素数
+     * @return new River
      */
-    River<T> skip(int size);
+    River<E> skip(int size);
+
+    /**
+     * 元素转换映射
+     *
+     * @param function
+     * @return
+     */
+    <E_OUT> River<E_OUT> map(Function<E, E_OUT> function);
 
     /**
      * 遍历River所有元素
      *
      * @param consumer 表达式
      */
-    void forEach(Consumer<T> consumer);
+    void forEach(Consumer<E> consumer);
 
     /**
      * 计算元素的数量
@@ -95,5 +105,4 @@ public interface River<T> {
      * @return River中元素的数量
      */
     long count();
-
 }

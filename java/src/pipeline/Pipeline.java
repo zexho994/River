@@ -17,21 +17,20 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 3:01 下午
  */
-public abstract class Pipeline<T> {
-    public AbstractRiverPipeline<T> source;
-    public AbstractRiverPipeline<T> previous;
-    public AbstractRiverPipeline<T> next;
+public abstract class Pipeline<I, O> {
+    public AbstractRiverPipeline<I, O> previous;
+    public AbstractRiverPipeline<I, O> next;
 
     /**
      * 启动River
      *
      * @param stage 最后一个中间操作stage
      */
-    public void launch(AbstractRiverPipeline<T> stage) {
-        SinkChain<T> sinkHead = warpPipeline(stage);
+    public void launch(AbstractRiverPipeline<I, O> stage) {
+        SinkChain<I> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
-        Spliterator<T> sourceSpliterator = sinkHead.getSourceSpliterator();
+        Spliterator<I> sourceSpliterator = sinkHead.getSourceSpliterator();
         sourceSpliterator.forEachRemaining(sinkHead);
         sinkHead.end();
     }
@@ -42,9 +41,9 @@ public abstract class Pipeline<T> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain<T> warpPipeline(AbstractRiverPipeline<T> river) {
-        SinkChain<T> sink = null;
-        for (AbstractRiverPipeline<T> s = river; s != null; s = s.previous) {
+    private SinkChain<I> warpPipeline(AbstractRiverPipeline<I, O> river) {
+        SinkChain<I> sink = null;
+        for (AbstractRiverPipeline<I, O> s = river; s != null; s = s.previous) {
             sink = s.wrapSink(sink);
         }
         return sink;
