@@ -10,7 +10,6 @@ import java.util.Spliterator;
  */
 public abstract class SinkChain<E> implements Sink<E> {
 
-    public AbstractRiverPipeline<E, E> river;
     public Spliterator<E> sourceSpliterator;
     public SinkChain<E> next;
 
