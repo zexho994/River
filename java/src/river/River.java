@@ -76,6 +76,13 @@ public interface River<T> {
     River<T> peek(Consumer<T> consumer);
 
     /**
+     * 跳过指定数量的元素
+     *
+     * @param size 要跳过的元素数
+     */
+    River<T> skip(int size);
+
+    /**
      * 遍历River所有元素
      *
      * @param consumer 表达式

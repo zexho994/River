@@ -15,6 +15,7 @@ public class RiverTest {
         limitTest();
         sortTest();
         peekTest();
+        skipTest();
     }
 
     /**
@@ -80,6 +81,16 @@ public class RiverTest {
                 .peek(e -> System.out.println("peek: " + e))
                 .count();
         assert count == 6;
+    }
+
+    public static void skipTest() {
+        System.out.println("skip test:");
+        long count = River.of(1, 2, 3, 4, 5)
+                .skip(2)
+                .peek(e -> System.out.println("peek: " + e))
+                .count();
+        assert count == 3;
+
     }
 
 }

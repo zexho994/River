@@ -163,6 +163,35 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
     }
 
     @Override
+    public River<T> skip(int size) {
+        return new PipelineStage<T>(this) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> chain = new SinkChain<T>() {
+                    private int num;
+
+                    @Override
+                    public void begin(int n) {
+                        num = size;
+                        super.begin(Math.max(n - num, 0));
+                    }
+
+                    @Override
+                    public void accept(T t) {
+                        if (num > 0) {
+                            num--;
+                            return;
+                        }
+                        this.next.accept(t);
+                    }
+                };
+                chain.next = sink;
+                return chain;
+            }
+        };
+    }
+
+    @Override
     public void forEach(Consumer<T> consumer) {
         PipelineStage<T> pipeFinal = new PipelineStage<T>(this) {
             @Override
