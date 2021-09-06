@@ -6,6 +6,7 @@ import sink.CountSink;
 import sink.SinkChain;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -37,7 +38,36 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public River<T> distinct() {
-        return new PipelineStage<>(this, Op.distinct);
+        return new PipelineStage<T>(this, Op.distinct) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> sinkChain = new SinkChain<T>() {
+                    private HashSet<T> set;
+
+                    @Override
+                    public void begin(int n) {
+                        this.set = new HashSet<>(n > 0 ? n : 16);
+                        super.begin(n);
+                    }
+
+                    @Override
+                    public void end() {
+                        this.set = null;
+                        super.end();
+                    }
+
+                    @Override
+                    public void accept(T t) {
+                        if (!set.add(t)) {
+                            return;
+                        }
+                        next.accept(t);
+                    }
+                };
+                sinkChain.next = sink;
+                return sinkChain;
+            }
+        };
     }
 
     @Override

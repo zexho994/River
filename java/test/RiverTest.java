@@ -11,6 +11,7 @@ public class RiverTest {
     public static void main(String[] args) {
 //        forEachTest();
 //        countTest();
+        distinctTest();
         limitTest();
 //        sortTest();
     }
@@ -28,21 +29,16 @@ public class RiverTest {
         return filter;
     }
 
-    public static River<String> distinctTest() {
-        River<String> distinct = filterTest().distinct();
-        assert distinct != null;
-        return distinct;
+    public static void distinctTest() {
+        System.out.println("distinct test");
+        River.of("1", "1", "2", "3", "3").distinct().forEach(System.out::println);
     }
 
     public static void forEachTest() {
         System.out.println("foreach test");
-        distinctTest().forEach(System.out::println);
     }
 
     public static void countTest() {
-        long count = distinctTest().count();
-        assert count == 2;
-
         long count1 = filterTest().count();
         assert count1 == 4;
 
