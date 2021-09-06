@@ -1,6 +1,6 @@
 package river;
 
-import pipeline.PipelineSource;
+import pipeline.PipelineStage;
 import sink.SinkChain;
 
 import java.util.Arrays;
@@ -17,7 +17,7 @@ final class RiverGenerator {
     @SafeVarargs
     public static <T> River<T> create(T... t) {
         Spliterator<T> spliterator = Arrays.spliterator(t);
-        return new PipelineSource<T>(spliterator) {
+        return new PipelineStage<T>(spliterator) {
             @Override
             public SinkChain<T> wrapSink(SinkChain<T> sink) {
                 SinkChain<T> sinkChain = new SinkChain<T>() {

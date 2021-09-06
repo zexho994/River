@@ -2,11 +2,17 @@ package pipeline;
 
 import river.AbstractRiverPipeline;
 
+import java.util.Spliterator;
+
 /**
  * @author Zexho
  * @date 2021/9/3 3:15 下午
  */
 public class PipelineStage<T> extends AbstractRiverPipeline<T> {
+
+    public PipelineStage(Spliterator<T> spliterator) {
+        this.sourceSpliterator = spliterator;
+    }
 
     public PipelineStage(AbstractRiverPipeline<T> river) {
         this.source = river.source;
