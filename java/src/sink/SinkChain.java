@@ -17,10 +17,6 @@ public abstract class SinkChain<E> implements Sink<E> {
     public SinkChain() {
     }
 
-    public SinkChain(AbstractRiverPipeline<E, E> river) {
-        this.river = river;
-    }
-
     @Override
     public void begin(int n) {
         if (next != null) {

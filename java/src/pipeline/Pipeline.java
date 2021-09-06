@@ -27,10 +27,10 @@ public abstract class Pipeline<I, O> {
      * @param stage 最后一个中间操作stage
      */
     public void launch(AbstractRiverPipeline<I, O> stage) {
-        SinkChain<I> sinkHead = warpPipeline(stage);
+        SinkChain<O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
-        Spliterator<I> sourceSpliterator = sinkHead.getSourceSpliterator();
+        Spliterator<O> sourceSpliterator = sinkHead.getSourceSpliterator();
         sourceSpliterator.forEachRemaining(sinkHead);
         sinkHead.end();
     }
@@ -41,8 +41,8 @@ public abstract class Pipeline<I, O> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain<I> warpPipeline(AbstractRiverPipeline<I, O> river) {
-        SinkChain<I> sink = null;
+    private SinkChain<O> warpPipeline(AbstractRiverPipeline<I, O> river) {
+        SinkChain<O> sink = null;
         for (AbstractRiverPipeline<I, O> s = river; s != null; s = s.previous) {
             sink = s.wrapSink(sink);
         }

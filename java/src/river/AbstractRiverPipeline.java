@@ -13,9 +13,9 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River<I> {
+public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River<O> {
 
-    protected Spliterator<I> sourceSpliterator;
+    protected Spliterator<O> sourceSpliterator;
 
     /**
      * 追加filter操作
@@ -25,13 +25,13 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
      * @return 新增的filter对象
      */
     @Override
-    public River<I> filter(Predicate<I> predicate) {
+    public River<O> filter(Predicate<O> predicate) {
         return new PipelineStage<I, O>(this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> sinkChain = new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> sinkChain = new SinkChain<O>() {
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         if (!predicate.test(t)) {
                             return;
                         }
@@ -45,12 +45,12 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public River<I> distinct() {
+    public River<O> distinct() {
         return new PipelineStage<I, O>(this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> sinkChain = new SinkChain<I>() {
-                    private HashSet<I> set;
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> sinkChain = new SinkChain<O>() {
+                    private HashSet<O> set;
 
                     @Override
                     public void begin(int n) {
@@ -65,7 +65,7 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
                     }
 
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         if (!set.add(t)) {
                             return;
                         }
@@ -79,11 +79,11 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public River<I> limit(int size) {
+    public River<O> limit(int size) {
         return new PipelineStage<I, O>(AbstractRiverPipeline.this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> chain = new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> chain = new SinkChain<O>() {
                     private int count = 0;
 
                     @Override
@@ -92,7 +92,7 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
                     }
 
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         if (this.count == size) {
                             return;
                         }
@@ -107,13 +107,13 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public River<I> sort(Comparator<I> comp) {
+    public River<O> sort(Comparator<O> comp) {
         return new PipelineStage<I, O>(this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> sinkChain = new SinkChain<I>() {
-                    private Comparator<I> comparator;
-                    private List<I> list;
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> sinkChain = new SinkChain<O>() {
+                    private Comparator<O> comparator;
+                    private List<O> list;
 
                     @Override
                     public void begin(int n) {
@@ -123,14 +123,14 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
                     }
 
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         this.list.add(t);
                     }
 
                     @Override
                     public void end() {
                         list.sort(this.comparator);
-                        for (I t : list) {
+                        for (O t : list) {
                             this.next.accept(t);
                         }
                         this.list = null;
@@ -145,14 +145,14 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public River<I> peek(Consumer<I> consumer) {
+    public River<O> peek(Consumer<O> consumer) {
         return new PipelineStage<I, O>(this) {
 
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> chain = new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> chain = new SinkChain<O>() {
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         consumer.accept(t);
                         next.accept(t);
                     }
@@ -164,11 +164,11 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public River<I> skip(int size) {
+    public River<O> skip(int size) {
         return new PipelineStage<I, O>(this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> chain = new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> chain = new SinkChain<O>() {
                     private int num;
 
                     @Override
@@ -178,7 +178,7 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
                     }
 
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         if (num > 0) {
                             num--;
                             return;
@@ -193,18 +193,18 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
     }
 
     @Override
-    public <E_OUT> River<E_OUT> map(Function<I, E_OUT> function) {
+    public <E_OUT> River<E_OUT> map(Function<O, E_OUT> function) {
         return null;
     }
 
     @Override
-    public void forEach(Consumer<I> consumer) {
+    public void forEach(Consumer<O> consumer) {
         PipelineStage<I, O> pipeFinal = new PipelineStage<I, O>(this) {
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                SinkChain<I> chain = new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                SinkChain<O> chain = new SinkChain<O>() {
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         consumer.accept(t);
                     }
                 };
@@ -221,8 +221,8 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
             private int count;
 
             @Override
-            public SinkChain<I> wrapSink(SinkChain<I> sink) {
-                return new SinkChain<I>() {
+            public SinkChain<O> wrapSink(SinkChain<O> sink) {
+                return new SinkChain<O>() {
                     @Override
                     public void begin(int n) {
                         count = 0;
@@ -235,7 +235,7 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
                     }
 
                     @Override
-                    public void accept(I t) {
+                    public void accept(O t) {
                         count++;
                     }
                 };
@@ -251,7 +251,7 @@ public class AbstractRiverPipeline<I, O> extends Pipeline<I, O> implements River
         return pipeFinal.getCount();
     }
 
-    public SinkChain<I> wrapSink(SinkChain<I> sink) {
+    public SinkChain<O> wrapSink(SinkChain<O> sink) {
         return null;
     }
 }
