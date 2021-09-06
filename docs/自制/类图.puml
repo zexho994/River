@@ -1,5 +1,8 @@
 @startuml
 
+circle client{}
+client --> River
+
 package River{
     interface River<T>{
         + (static) Stream<T> of(T...)
@@ -21,30 +24,17 @@ package Pipeline{
         + River<T> source
         + River<T> previous
         + River<T> next
-        + Op
     }
-    Pipeline .left* Op : depend on
 
     class AbstractRiverPipeline<T>{}
-    River <|-down- AbstractRiverPipeline : impl
-    Pipeline <|- AbstractRiverPipeline : extends
+    River <|-right- AbstractRiverPipeline : impl
+    Pipeline <|-- AbstractRiverPipeline : extends
 
-    class PipelineSource<T>{
-        + PipelineSource(Spliterator<T>)
-    }
     class PipelineStage<T>{
         + PipelineStage(AbstractRiverPipeline<T>, Op)
     }
-    AbstractRiverPipeline<|-down- PipelineSource : extends
     AbstractRiverPipeline <|-down- PipelineStage : extends
 
-    enum Op{
-        + source(0)
-        + filter(1)
-        + distinct(2)
-        + forEach(20)
-        + count(21)
-    }
 }
 
 package Sin{
@@ -55,7 +45,7 @@ package Sin{
         + void begin()
         + void end()
     }
-    Consumer <|- Sink : impl
+    Consumer <|-- Sink : impl
 
     abstract SinkChain{
         + AbstractRiverPipeline<T> river
@@ -65,17 +55,6 @@ package Sin{
     }
     Sink <|-- SinkChain : impl
     SinkChain *- AbstractRiverPipeline
-
-    class FilterSink{}
-    class DistinctSink{}
-    class ForEachSink{}
-    class CountSink{}
-    class LimitSink{}
-    SinkChain <|-- FilterSink : extends
-    SinkChain <|-- DistinctSink : extends
-    SinkChain <|-- ForEachSink : extends
-    SinkChain <|-- CountSink : extends
-    SinkChain <|-- LimitSink : extends
 }
 
 @enduml
