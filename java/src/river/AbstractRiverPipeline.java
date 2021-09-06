@@ -5,9 +5,7 @@ import pipeline.PipelineStage;
 import sink.CountSink;
 import sink.SinkChain;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Spliterator;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -19,7 +17,6 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     protected Spliterator<T> sourceSpliterator;
     protected int maxCount;
-    protected Comparator<T> comparator;
 
     /**
      * 追加filter操作
@@ -111,10 +108,41 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
     }
 
     @Override
-    public River<T> sort(Comparator<T> comparator) {
-        PipelineStage<T> stage = new PipelineStage<>(this, Op.sort);
-        stage.comparator = comparator;
-        return stage;
+    public River<T> sort(Comparator<T> comp) {
+        return new PipelineStage<T>(this, Op.sort) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> sinkChain = new SinkChain<T>() {
+                    private Comparator<T> comparator;
+                    private List<T> list;
+
+                    @Override
+                    public void begin(int n) {
+                        this.comparator = comp;
+                        this.list = new ArrayList<>(n > 0 ? n : 16);
+                        super.begin(n);
+                    }
+
+                    @Override
+                    public void accept(T t) {
+                        this.list.add(t);
+                    }
+
+                    @Override
+                    public void end() {
+                        list.sort(this.comparator);
+                        for (T t : list) {
+                            this.next.accept(t);
+                        }
+                        this.list = null;
+                        this.comparator = null;
+                        super.end();
+                    }
+                };
+                sinkChain.next = sink;
+                return sinkChain;
+            }
+        };
     }
 
     @Override
@@ -152,10 +180,6 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     public int getMaxCount() {
         return this.maxCount;
-    }
-
-    public Comparator<T> getComparator() {
-        return this.comparator;
     }
 
     public SinkChain<T> wrapSink(SinkChain<T> sink) {

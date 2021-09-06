@@ -3,8 +3,6 @@ package pipeline;
 import river.AbstractRiverPipeline;
 import river.Op;
 
-import java.util.function.Predicate;
-
 /**
  * @author Zexho
  * @date 2021/9/3 3:15 下午

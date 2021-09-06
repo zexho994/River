@@ -22,8 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: distinct">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: filter">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +262,7 @@
       <workItem from="1630728301660" duration="4615000" />
       <workItem from="1630826078871" duration="2782000" />
       <workItem from="1630852985699" duration="77000" />
-      <workItem from="1630853107598" duration="16230000" />
+      <workItem from="1630853107598" duration="16874000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -450,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630913895382</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="[refactor]: filter">
+      <created>1630914283711</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1630914283711</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +492,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="supplement code of stream of list" />
     <MESSAGE value="add file" />
     <MESSAGE value="add files" />
     <MESSAGE value="[update]: 添加测试代码" />
@@ -507,7 +516,8 @@
     <MESSAGE value="[update]: 重构foreach(),limit(),source()" />
     <MESSAGE value="[refactor]: foreach(),limit(),source()" />
     <MESSAGE value="[refactor]: distinct" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: distinct" />
+    <MESSAGE value="[refactor]: filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

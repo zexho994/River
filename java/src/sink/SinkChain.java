@@ -3,7 +3,6 @@ package sink;
 import river.AbstractRiverPipeline;
 
 import java.util.Spliterator;
-import java.util.function.Predicate;
 
 /**
  * @author Zexho

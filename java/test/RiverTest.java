@@ -14,7 +14,7 @@ public class RiverTest {
         filterTest();
         distinctTest();
         limitTest();
-//        sortTest();
+        sortTest();
     }
 
     /**
@@ -55,14 +55,14 @@ public class RiverTest {
 //                .count();
 //        assert count == 5 : "limit test fail,count = " + count;
 
-        System.out.println("limit test => foreach");
+        System.out.println("limit test:");
         River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
                 .limit(5)
                 .forEach(System.out::println);
     }
 
     public static void sortTest() {
-        System.out.println("sorted test");
+        System.out.println("sorted test:");
         River.of(2, 1, 5, 4, 0)
                 .sort((n1, n2) -> {
                     if (Objects.equals(n1, n2)) {
