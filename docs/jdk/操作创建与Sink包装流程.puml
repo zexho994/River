@@ -1,0 +1,17 @@
+@startuml
+|Client|
+:调用filter(predicate);
+|Stream<T>|
+:filter(predicate);
+:new StatelessOp class;
+|StatelessOp<T,T>类|
+:override opWrapSink;
+'|opWrapSink()重写逻辑|
+|Stream<T>|
+:return StatelessOp;
+|Client|
+:后续操作;
+start
+
+stop
+@enduml

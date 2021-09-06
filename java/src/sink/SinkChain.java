@@ -2,7 +2,7 @@ package sink;
 
 import river.AbstractRiverPipeline;
 
-import java.util.function.Consumer;
+import java.util.Spliterator;
 import java.util.function.Predicate;
 
 /**
@@ -12,41 +12,15 @@ import java.util.function.Predicate;
 public abstract class SinkChain<T> implements Sink<T> {
 
     public AbstractRiverPipeline<T> river;
+    public Spliterator<T> sourceSpliterator;
     public SinkChain<T> next;
-    public final Consumer<T> consumer;
     public Predicate<T> predicate;
+
+    public SinkChain() {
+    }
 
     public SinkChain(AbstractRiverPipeline<T> river) {
         this.river = river;
-        this.consumer = this;
-    }
-
-    public SinkChain(AbstractRiverPipeline<T> river, Consumer<T> consumer) {
-        this.consumer = consumer;
-        this.river = river;
-    }
-
-    public static <T> SinkChain<T> warp(AbstractRiverPipeline<T> stage) {
-        switch (stage.op) {
-            case source:
-                return new SourceSink<>(stage);
-            case filter:
-                return new FilterSink<>(stage, stage.getPredicate());
-            case distinct:
-                return new DistinctSink<>(stage);
-            case limit:
-                return new LimitSink<>(stage);
-            case sort:
-                return new SortSink<>(stage);
-            default:
-                throw new IllegalArgumentException("river op error");
-        }
-    }
-
-    public SinkChain<T> wrapSinkChain(AbstractRiverPipeline<T> stage) {
-        SinkChain<T> previousSink = SinkChain.warp(stage);
-        previousSink.next = this;
-        return previousSink;
     }
 
     @Override
@@ -66,4 +40,11 @@ public abstract class SinkChain<T> implements Sink<T> {
     @Override
     public abstract void accept(T t);
 
+    public Spliterator<T> getSourceSpliterator() {
+        return sourceSpliterator;
+    }
+
+    public void setSourceSpliterator(Spliterator<T> sourceSpliterator) {
+        this.sourceSpliterator = sourceSpliterator;
+    }
 }

@@ -3,7 +3,7 @@ package river;
 import pipeline.Pipeline;
 import pipeline.PipelineStage;
 import sink.CountSink;
-import sink.ForeachSink;
+import sink.SinkChain;
 
 import java.util.Comparator;
 import java.util.Spliterator;
@@ -42,9 +42,30 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public River<T> limit(int size) {
-        PipelineStage<T> pipelineStage = new PipelineStage<>(this, Op.limit);
-        pipelineStage.setMaxCount(size);
-        return pipelineStage;
+        return new PipelineStage<T>(AbstractRiverPipeline.this, Op.limit) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> chain = new SinkChain<T>() {
+                    private int count = 0;
+
+                    @Override
+                    public void begin(int n) {
+                        this.next.begin(size);
+                    }
+
+                    @Override
+                    public void accept(T t) {
+                        if (this.count == size) {
+                            return;
+                        }
+                        this.count++;
+                        this.next.accept(t);
+                    }
+                };
+                chain.next = sink;
+                return chain;
+            }
+        };
     }
 
     @Override
@@ -56,16 +77,26 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public void forEach(Consumer<T> consumer) {
-        PipelineStage<T> pipeFinal = new PipelineStage<>();
-        ForeachSink<T> foreachSink = new ForeachSink<>(pipeFinal, consumer);
-        launch(this, foreachSink);
+        PipelineStage<T> pipeFinal = new PipelineStage<T>(this, Op.forEach) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> chain = new SinkChain<T>() {
+                    @Override
+                    public void accept(T t) {
+                        consumer.accept(t);
+                    }
+                };
+                chain.next = sink;
+                return chain;
+            }
+        };
+        launch(pipeFinal);
     }
 
     @Override
     public long count() {
-        PipelineStage<T> pipeFinal = new PipelineStage<>();
-        CountSink<T> countSink = new CountSink<>(pipeFinal);
-        launch(this, countSink);
+        CountSink<T> countSink = new CountSink<>(new PipelineStage<>());
+        launch(this);
         return countSink.getCount();
     }
 
@@ -87,5 +118,9 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     public Comparator<T> getComparator() {
         return this.comparator;
+    }
+
+    public SinkChain<T> wrapSink(SinkChain<T> sink) {
+        return null;
     }
 }

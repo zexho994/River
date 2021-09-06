@@ -19,6 +19,7 @@ public enum Op {
     distinct(2),
     limit(3),
     sort(4),
+    peek(5),
 
     /**
      * 结束操作
