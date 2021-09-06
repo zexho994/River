@@ -2,7 +2,6 @@ package river;
 
 import pipeline.Pipeline;
 import pipeline.PipelineStage;
-import sink.CountSink;
 import sink.SinkChain;
 
 import java.util.*;
@@ -16,7 +15,6 @@ import java.util.function.Predicate;
 public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     protected Spliterator<T> sourceSpliterator;
-    protected int maxCount;
 
     /**
      * 追加filter操作
@@ -165,21 +163,38 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     @Override
     public long count() {
-        CountSink<T> countSink = new CountSink<>(new PipelineStage<>());
-        launch(this);
-        return countSink.getCount();
-    }
+        PipelineStage<T> pipeFinal = new PipelineStage<T>(this, Op.count) {
+            private int count;
 
-    public Spliterator<T> getSourceSpliterator() {
-        return sourceSpliterator;
-    }
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                return new SinkChain<T>() {
+                    @Override
+                    public void begin(int n) {
+                        count = 0;
+                        super.begin(n);
+                    }
 
-    public void setMaxCount(int count) {
-        this.maxCount = count;
-    }
+                    @Override
+                    public void end() {
+                        super.end();
+                    }
 
-    public int getMaxCount() {
-        return this.maxCount;
+                    @Override
+                    public void accept(T t) {
+                        count++;
+                    }
+                };
+            }
+
+            @Override
+            public int getCount() {
+                return this.count;
+            }
+
+        };
+        launch(pipeFinal);
+        return pipeFinal.getCount();
     }
 
     public SinkChain<T> wrapSink(SinkChain<T> sink) {

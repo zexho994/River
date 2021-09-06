@@ -9,15 +9,16 @@ import river.Op;
  */
 public class PipelineStage<T> extends AbstractRiverPipeline<T> {
 
-    public PipelineStage() {
-    }
-
     public PipelineStage(AbstractRiverPipeline<T> river, Op op) {
         this.source = river.source;
         this.previous = river;
         this.next = null;
         river.next = this;
         this.op = op;
+    }
+
+    public int getCount() {
+        throw new UnsupportedOperationException("to override");
     }
 
 }

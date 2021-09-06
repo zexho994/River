@@ -9,8 +9,7 @@ import java.util.Objects;
 public class RiverTest {
 
     public static void main(String[] args) {
-//        forEachTest();
-//        countTest();
+        countTest();
         filterTest();
         distinctTest();
         limitTest();
@@ -37,10 +36,6 @@ public class RiverTest {
         River.of("1", "1", "2", "3", "3").distinct().forEach(System.out::println);
     }
 
-    public static void forEachTest() {
-        System.out.println("foreach test");
-    }
-
     public static void countTest() {
         long count2 = River.of("java", "c++", "go", "python", "c", "java")
                 .distinct()
@@ -50,10 +45,10 @@ public class RiverTest {
     }
 
     public static void limitTest() {
-//        long count = River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
-//                .limit(5)
-//                .count();
-//        assert count == 5 : "limit test fail,count = " + count;
+        long count = River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
+                .limit(5)
+                .count();
+        assert count == 5 : "limit test fail,count = " + count;
 
         System.out.println("limit test:");
         River.of("1", "2", "3", "4", "5", "2", "1", "2", "1", "2", "1", "2")
