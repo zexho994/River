@@ -26,27 +26,25 @@ public abstract class SinkChain<T> implements Sink<T> {
         this.river = river;
     }
 
-    public SinkChain<T> wrap(AbstractRiverPipeline<T> river) {
-        SinkChain<T> previousSink;
-        switch (river.op) {
+    public static <T> SinkChain<T> warp(AbstractRiverPipeline<T> stage) {
+        switch (stage.op) {
             case source:
-                previousSink = new SourceSink<>(river);
-                break;
+                return new SourceSink<>(stage);
             case filter:
-                previousSink = new FilterSink<>(river, river.getPredicate());
-                break;
+                return new FilterSink<>(stage, stage.getPredicate());
             case distinct:
-                previousSink = new DistinctSink<>(river);
-                break;
+                return new DistinctSink<>(stage);
             case limit:
-                previousSink = new LimitSink<>(river);
-                break;
+                return new LimitSink<>(stage);
             case sort:
-                previousSink = new SortSink<>(river);
-                break;
+                return new SortSink<>(stage);
             default:
                 throw new IllegalArgumentException("river op error");
         }
+    }
+
+    public SinkChain<T> wrapSinkChain(AbstractRiverPipeline<T> stage) {
+        SinkChain<T> previousSink = SinkChain.warp(stage);
         previousSink.next = this;
         return previousSink;
     }

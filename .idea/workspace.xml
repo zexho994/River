@@ -22,14 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="update docs">
-      <change afterPath="$PROJECT_DIR$/java/src/sink/SortSink.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add] sort()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/Op.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/Op.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +259,7 @@
       <workItem from="1630728301660" duration="4615000" />
       <workItem from="1630826078871" duration="2782000" />
       <workItem from="1630852985699" duration="77000" />
-      <workItem from="1630853107598" duration="2213000" />
+      <workItem from="1630853107598" duration="6635000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -425,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630844370912</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="[add] sort()">
+      <created>1630855383072</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1630855383072</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +483,8 @@
     <MESSAGE value="release" />
     <MESSAGE value="[add]: limit()" />
     <MESSAGE value="update docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docs" />
+    <MESSAGE value="[add] sort()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] sort()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -513,11 +518,6 @@
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
           <line>953</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/sink/SortSink.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

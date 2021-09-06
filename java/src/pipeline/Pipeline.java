@@ -48,9 +48,8 @@ public abstract class Pipeline<T> {
      */
     private SinkChain<T> warpPipeline(AbstractRiverPipeline<T> river, SinkChain<T> tail) {
         SinkChain<T> sink = tail;
-
         for (AbstractRiverPipeline<T> s = river; s != null; s = s.previous) {
-            sink = sink.wrap(s);
+            sink = sink.wrapSinkChain(s);
         }
         return sink;
     }
