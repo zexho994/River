@@ -1,7 +1,6 @@
 package pipeline;
 
 import river.AbstractRiverPipeline;
-import river.Op;
 import river.River;
 import sink.SinkChain;
 
@@ -22,7 +21,6 @@ public abstract class Pipeline<T> {
     public AbstractRiverPipeline<T> source;
     public AbstractRiverPipeline<T> previous;
     public AbstractRiverPipeline<T> next;
-    public Op op;
 
     /**
      * 启动River

@@ -1,7 +1,6 @@
 package pipeline;
 
 import river.AbstractRiverPipeline;
-import river.Op;
 
 /**
  * @author Zexho
@@ -9,12 +8,11 @@ import river.Op;
  */
 public class PipelineStage<T> extends AbstractRiverPipeline<T> {
 
-    public PipelineStage(AbstractRiverPipeline<T> river, Op op) {
+    public PipelineStage(AbstractRiverPipeline<T> river) {
         this.source = river.source;
         this.previous = river;
         this.next = null;
         river.next = this;
-        this.op = op;
     }
 
     public int getCount() {

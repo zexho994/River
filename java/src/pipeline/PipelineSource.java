@@ -1,9 +1,6 @@
 package pipeline;
 
 import river.AbstractRiverPipeline;
-import river.Op;
-import sink.SinkChain;
-import sink.SourceSink;
 
 import java.util.Spliterator;
 
@@ -17,7 +14,6 @@ public class PipelineSource<T> extends AbstractRiverPipeline<T> {
 
     public PipelineSource(Spliterator<T> source) {
         this.sourceSpliterator = source;
-        this.op = Op.source;
         this.source = this;
         this.previous = null;
         this.next = null;

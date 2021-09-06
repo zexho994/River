@@ -22,11 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: sort">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: count()">
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +259,7 @@
       <workItem from="1630728301660" duration="4615000" />
       <workItem from="1630826078871" duration="2782000" />
       <workItem from="1630852985699" duration="77000" />
-      <workItem from="1630853107598" duration="17828000" />
+      <workItem from="1630853107598" duration="18199000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -466,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630915114230</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="[refactor]: count()">
+      <created>1630915985539</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1630915985539</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +503,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add files" />
     <MESSAGE value="[update]: 添加测试代码" />
     <MESSAGE value="[update]: 暂存" />
     <MESSAGE value="[docs]: 补充文档" />
@@ -523,7 +527,8 @@
     <MESSAGE value="[refactor]: distinct" />
     <MESSAGE value="[refactor]: filter" />
     <MESSAGE value="[refactor]: sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: sort" />
+    <MESSAGE value="[refactor]: count()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: count()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -552,11 +557,6 @@
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
           <line>953</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java</url>
-          <line>196</line>
-          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
