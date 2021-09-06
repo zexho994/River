@@ -22,12 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: 使用&lt;IN,OUT&gt;两个参数">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: River&lt;&gt; 添加第三个参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -500,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630930812071</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="[update]: River&lt;&gt; 添加第三个参数">
+      <created>1630942460441</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1630942460441</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +539,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: 添加示例代码" />
     <MESSAGE value="[update]: 删除无用文件" />
     <MESSAGE value="[Add]: 添加River接口" />
     <MESSAGE value="add: River.of()" />
@@ -557,7 +563,8 @@
     <MESSAGE value="[add]: peek()" />
     <MESSAGE value="[add]: skip()" />
     <MESSAGE value="[update]: 使用&lt;IN,OUT&gt;两个参数" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: 使用&lt;IN,OUT&gt;两个参数" />
+    <MESSAGE value="[update]: River&lt;&gt; 添加第三个参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: River&lt;&gt; 添加第三个参数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

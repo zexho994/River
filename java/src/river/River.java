@@ -90,7 +90,7 @@ public interface River<E> {
      * @param function
      * @return
      */
-    <E_OUT> River<E_OUT> map(Function<E, E_OUT> function);
+    <E_OUT> River<E_OUT> map(Function<? super E, ? extends E_OUT> function);
 
     /**
      * 遍历River所有元素

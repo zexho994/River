@@ -27,7 +27,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
      */
     @Override
     public River<O> filter(Predicate<O> predicate) {
-        return new PipelineStage<I, O>(this) {
+        return new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> sinkChain = new SinkChain<O>() {
@@ -47,7 +47,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public River<O> distinct() {
-        return new PipelineStage<I, O>(this) {
+        return new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> sinkChain = new SinkChain<O>() {
@@ -81,7 +81,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public River<O> limit(int size) {
-        return new PipelineStage<I, O>(AbstractRiverPipeline.this) {
+        return new PipelineStage<O, O>(AbstractRiverPipeline.this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> chain = new SinkChain<O>() {
@@ -109,7 +109,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public River<O> sort(Comparator<O> comp) {
-        return new PipelineStage<I, O>(this) {
+        return new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> sinkChain = new SinkChain<O>() {
@@ -147,7 +147,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public River<O> peek(Consumer<O> consumer) {
-        return new PipelineStage<I, O>(this) {
+        return new PipelineStage<O, O>(this) {
 
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
@@ -166,7 +166,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public River<O> skip(int size) {
-        return new PipelineStage<I, O>(this) {
+        return new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> chain = new SinkChain<O>() {
@@ -194,13 +194,14 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
     }
 
     @Override
-    public <E_OUT> River<E_OUT> map(Function<O, E_OUT> function) {
+    public <E_OUT> River<E_OUT> map(Function<? super O, ? extends E_OUT> function) {
+//        new PipelineStage<O, E_OUT>(this);
         return null;
     }
 
     @Override
     public void forEach(Consumer<O> consumer) {
-        PipelineStage<I, O> pipeFinal = new PipelineStage<I, O>(this) {
+        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O> wrapSink(SinkChain<O> sink) {
                 SinkChain<O> chain = new SinkChain<O>() {
@@ -218,7 +219,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public long count() {
-        PipelineStage<I, O> pipeFinal = new PipelineStage<I, O>(this) {
+        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
             private int count;
 
             @Override

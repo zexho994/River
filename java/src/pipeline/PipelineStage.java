@@ -15,10 +15,8 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O, River<O>> {
         this.sourceSpliterator = spliterator;
     }
 
-    public PipelineStage(AbstractRiverPipeline<I, O, ? extends River<O>> river) {
+    public PipelineStage(AbstractRiverPipeline<?, I, ? extends River<O>> river) {
         this.previous = river;
-        this.next = null;
-        river.next = this;
     }
 
     public int getCount() {
