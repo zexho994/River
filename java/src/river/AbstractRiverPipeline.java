@@ -18,7 +18,6 @@ import java.util.function.Predicate;
 public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     protected Spliterator<T> sourceSpliterator;
-    protected Predicate<T> predicate;
     protected int maxCount;
     protected Comparator<T> comparator;
 
@@ -31,9 +30,22 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
      */
     @Override
     public River<T> filter(Predicate<T> predicate) {
-        PipelineStage<T> stage = new PipelineStage<>(this, Op.filter);
-        stage.setPredicate(predicate);
-        return stage;
+        return new PipelineStage<T>(this, Op.filter) {
+            @Override
+            public SinkChain<T> wrapSink(SinkChain<T> sink) {
+                SinkChain<T> sinkChain = new SinkChain<T>() {
+                    @Override
+                    public void accept(T t) {
+                        if (!predicate.test(t)) {
+                            return;
+                        }
+                        next.accept(t);
+                    }
+                };
+                sinkChain.next = sink;
+                return sinkChain;
+            }
+        };
     }
 
     @Override
@@ -132,10 +144,6 @@ public class AbstractRiverPipeline<T> extends Pipeline<T> implements River<T> {
 
     public Spliterator<T> getSourceSpliterator() {
         return sourceSpliterator;
-    }
-
-    public Predicate<T> getPredicate() {
-        return predicate;
     }
 
     public void setMaxCount(int count) {

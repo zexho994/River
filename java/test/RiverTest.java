@@ -11,6 +11,7 @@ public class RiverTest {
     public static void main(String[] args) {
 //        forEachTest();
 //        countTest();
+        filterTest();
         distinctTest();
         limitTest();
 //        sortTest();
@@ -23,10 +24,12 @@ public class RiverTest {
         return River.of("1", "1", "2", "3", "3");
     }
 
-    public static River<String> filterTest() {
-        River<String> filter = createFromArrayTest().filter(e -> !e.equals("2"));
-        assert filter != null;
-        return filter;
+    public static void filterTest() {
+        System.out.println("filter test:");
+        System.out.println("==> !equals(2)");
+        createFromArrayTest().filter(e -> !e.equals("2")).forEach(System.out::println);
+        System.out.println("==> equals(2)");
+        createFromArrayTest().filter(e -> e.equals("2")).forEach(System.out::println);
     }
 
     public static void distinctTest() {
@@ -39,9 +42,6 @@ public class RiverTest {
     }
 
     public static void countTest() {
-        long count1 = filterTest().count();
-        assert count1 == 4;
-
         long count2 = River.of("java", "c++", "go", "python", "c", "java")
                 .distinct()
                 .filter(e -> !e.equals("go") && !e.equals("c++"))

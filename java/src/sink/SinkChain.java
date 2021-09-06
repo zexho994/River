@@ -14,7 +14,6 @@ public abstract class SinkChain<T> implements Sink<T> {
     public AbstractRiverPipeline<T> river;
     public Spliterator<T> sourceSpliterator;
     public SinkChain<T> next;
-    public Predicate<T> predicate;
 
     public SinkChain() {
     }

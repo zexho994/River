@@ -22,7 +22,4 @@ public class PipelineStage<T> extends AbstractRiverPipeline<T> {
         this.op = op;
     }
 
-    public void setPredicate(Predicate<T> predicate) {
-        this.predicate = predicate;
-    }
 }
