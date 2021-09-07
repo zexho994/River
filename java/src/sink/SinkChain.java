@@ -10,8 +10,8 @@ import java.util.Spliterator;
  */
 public abstract class SinkChain<IN, OUT> implements Sink<IN> {
 
-    public Spliterator sourceSpliterator;
-    public SinkChain next;
+    public Spliterator<IN> sourceSpliterator;
+    public SinkChain<OUT, ?> next;
 
     public SinkChain() {
     }
@@ -33,11 +33,11 @@ public abstract class SinkChain<IN, OUT> implements Sink<IN> {
     @Override
     public abstract void accept(IN t);
 
-    public Spliterator getSourceSpliterator() {
+    public Spliterator<IN> getSourceSpliterator() {
         return sourceSpliterator;
     }
 
-    public void setSourceSpliterator(Spliterator sourceSpliterator) {
+    public void setSourceSpliterator(Spliterator<IN> sourceSpliterator) {
         this.sourceSpliterator = sourceSpliterator;
     }
 }
