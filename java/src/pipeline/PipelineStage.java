@@ -15,7 +15,10 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O, River<O>> {
         this.sourceSpliterator = spliterator;
     }
 
-    public PipelineStage(AbstractRiverPipeline<?, I, ? extends River<O>> river) {
+    /**
+     * @param river 上一个stage
+     */
+    public PipelineStage(AbstractRiverPipeline<?, I, ?> river) {
         this.previous = river;
     }
 

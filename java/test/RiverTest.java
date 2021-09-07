@@ -16,6 +16,7 @@ public class RiverTest {
         sortTest();
         peekTest();
         skipTest();
+        mapTest();
     }
 
     /**
@@ -96,9 +97,16 @@ public class RiverTest {
         System.out.println("map test:");
         long count = River.of(1, 2, 3, 4, 5)
                 .skip(2)
-                .peek(e -> System.out.println("peek: " + e))
+                .peek(e -> System.out.println("before map: " + e))
                 .map(e -> e * 10)
+                .peek(e -> System.out.println("after map:" + e))
                 .count();
+        assert count == 3;
+
+        River.of(1, 2, 3, 4, 5)
+                .skip(2)
+                .map(e -> "p -> " + e)
+                .forEach(System.out::println);
     }
 
 }

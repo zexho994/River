@@ -13,7 +13,7 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class AbstractRiverPipeline<I, O, S extends River<O>>
+public class AbstractRiverPipeline<I, O, S>
         extends Pipeline<I, O> implements River<O> {
 
     protected Spliterator sourceSpliterator;
@@ -195,8 +195,19 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
 
     @Override
     public <E_OUT> River<E_OUT> map(Function<? super O, ? extends E_OUT> function) {
-//        new PipelineStage<O, E_OUT>(this);
-        return null;
+        return new PipelineStage<O, E_OUT>(AbstractRiverPipeline.this) {
+            @Override
+            public SinkChain<O, E_OUT> wrapSink(SinkChain<E_OUT, ?> sink) {
+                SinkChain<O, E_OUT> chain = new SinkChain<O, E_OUT>() {
+                    @Override
+                    public void accept(O o) {
+                        next.accept(function.apply(o));
+                    }
+                };
+                chain.next = sink;
+                return chain;
+            }
+        };
     }
 
     @Override
@@ -253,7 +264,7 @@ public class AbstractRiverPipeline<I, O, S extends River<O>>
         return pipeFinal.getCount();
     }
 
-    public SinkChain<I, O> wrapSink(SinkChain<I, ?> sink) {
+    public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
         return null;
     }
 }
