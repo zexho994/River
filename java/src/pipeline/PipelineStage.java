@@ -29,7 +29,7 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
         throw new UnsupportedOperationException("to override");
     }
 
-    public O getState() {
+    public Object getState() {
         throw new UnsupportedOperationException("to override");
     }
 

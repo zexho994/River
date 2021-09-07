@@ -9,6 +9,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 
 /**
  * @author Zexho
@@ -356,7 +357,36 @@ public class AbstractRiverPipeline<I, O>
 
         };
         launch(stage);
-        return stage.getState();
+        return (O) stage.getState();
+    }
+
+    @Override
+    public <R, A> R collect(Collector<? super O, A, R> collector) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private A state;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void begin(int n) {
+                        state = collector.supplier().get();
+                    }
+
+                    @Override
+                    public void accept(O t) {
+                        collector.accumulator().accept(state, t);
+                    }
+                };
+            }
+
+            @Override
+            public A getState() {
+                return state;
+            }
+        };
+        launch(stage);
+        return collector.finisher().apply((A) stage.getState());
     }
 
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {

@@ -5,6 +5,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 
 /**
  * River就像一条河流，源源不断的流~
@@ -37,6 +38,9 @@ public interface River<E> {
     static <T> River<T> of(T... t) {
         return RiverGenerator.create(t);
     }
+
+
+    //===============================中间操作=====================================
 
     /**
      * 过滤操作
@@ -124,9 +128,21 @@ public interface River<E> {
     long count();
 
     /**
+     * 操作
+     *
      * @param identity    初始值
      * @param accumulator 操作函数
      * @return reduce result
      */
     E reduce(E identity, BinaryOperator<E> accumulator);
+
+    /**
+     * 执行操作
+     *
+     * @param collector 执行操作的收集器
+     * @param <R>       结果类型
+     * @param <A>       中间累加类型
+     * @return 执行结果
+     */
+    <R, A> R collect(Collector<? super E, A, R> collector);
 }

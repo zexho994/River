@@ -1,6 +1,9 @@
 import river.River;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Zexho
@@ -19,6 +22,7 @@ public class RiverTest {
         mapTest();
         toArrayTest();
         reduceTest();
+        collectionTest();
     }
 
     /**
@@ -126,7 +130,7 @@ public class RiverTest {
     }
 
     public static void reduceTest() {
-        System.out.println("reduce test");
+        System.out.println("reduce test:");
         Integer reduce = River.of(1, 2, 3, 4, 5)
                 .reduce(0, (n1, n2) -> n1 + n2 + 10);
         assert reduce == 65;
@@ -134,6 +138,31 @@ public class RiverTest {
         String reduce1 = River.of("A", "B", "C", "D", "E")
                 .reduce("start", (n1, n2) -> n1 + "-" + n2);
         assert reduce1.equals("start-A-B-C-D-E");
+    }
+
+    public static void collectionTest() {
+        System.out.println("collection test:");
+        List<String> collect = River.of("A", "B", "C", "D", "E")
+                .map(e -> e + ".")
+                .collect(Collectors.toList());
+        assert collect != null;
+        assert collect.size() == 5;
+        assert collect.get(2).equals("C.");
+
+        List<Integer> collect2 = River.of("1", "2", "3", "4", "5")
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
+        assert collect2 != null;
+        assert collect2.size() == 5;
+        assert collect2.get(2) == 3;
+        for (int i = 0; i < 5; i++) {
+            assert collect2.get(i) == i + 1;
+        }
+
+        Set<Integer> collect1 = River.of(1, 2, 2, 4, 5)
+                .collect(Collectors.toSet());
+        assert collect1 != null;
+        assert collect1.size() == 4;
     }
 
 }
