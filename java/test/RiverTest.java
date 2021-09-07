@@ -2,6 +2,7 @@ import river.River;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,7 @@ public class RiverTest {
         toArrayTest();
         reduceTest();
         collectionTest();
+        minTest();
     }
 
     /**
@@ -163,6 +165,20 @@ public class RiverTest {
                 .collect(Collectors.toSet());
         assert collect1 != null;
         assert collect1.size() == 4;
+    }
+
+    public static void minTest() {
+        Optional<Integer> min = River.of(1, 2, 2, 4, 0, 5, -2)
+                .min((a, b) -> {
+                    if (a >= b) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                });
+        assert min.isPresent();
+        Integer minVal = min.get();
+        assert minVal == -2;
     }
 
 }

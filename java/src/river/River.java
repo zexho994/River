@@ -1,6 +1,7 @@
 package river;
 
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -145,4 +146,12 @@ public interface River<E> {
      * @return 执行结果
      */
     <R, A> R collect(Collector<? super E, A, R> collector);
+
+    /**
+     * 获取比较后，最小的元素
+     *
+     * @param comparator 比较器
+     * @return 最小的元素
+     */
+    Optional<E> min(Comparator<? super E> comparator);
 }

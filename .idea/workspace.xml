@@ -22,9 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: reduce(identity,binaryOperator)">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: collect()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
@@ -261,7 +260,7 @@
       <workItem from="1630826078871" duration="2782000" />
       <workItem from="1630852985699" duration="77000" />
       <workItem from="1630853107598" duration="18199000" />
-      <workItem from="1631009701006" duration="5822000" />
+      <workItem from="1631009701006" duration="7030000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -571,7 +570,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631011138747</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="[add]: collect()">
+      <created>1631015639274</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1631015639274</updated>
+    </task>
+    <task id="LOCAL-00046" summary="[add]: collect()">
+      <created>1631015681144</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1631015681144</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update: count()" />
     <MESSAGE value="update: SinkChain begin(),end()添加default" />
     <MESSAGE value="release" />
     <MESSAGE value="[add]: limit()" />
@@ -628,7 +640,8 @@
     <MESSAGE value="[add]: toArray(E[])" />
     <MESSAGE value="[add]: toArray()" />
     <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: reduce(identity,binaryOperator)" />
+    <MESSAGE value="[add]: collect()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: collect()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
