@@ -1,2 +1,2 @@
-# jtream
+# River
 new java stream utils
