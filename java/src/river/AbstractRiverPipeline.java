@@ -13,10 +13,10 @@ import java.util.function.Predicate;
  * @author Zexho
  * @date 2021/9/3 2:28 下午
  */
-public class AbstractRiverPipeline<I, O, S>
+public class AbstractRiverPipeline<I, O>
         extends Pipeline<I, O> implements River<O> {
 
-    protected Spliterator sourceSpliterator;
+    protected Spliterator<I> sourceSpliterator;
 
     /**
      * 追加filter操作

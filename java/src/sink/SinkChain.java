@@ -27,6 +27,11 @@ public abstract class SinkChain<IN, OUT> implements Sink<IN> {
         }
     }
 
+    /**
+     * 接受元素，并由子类进行重写，执行对应的逻辑
+     *
+     * @param t 接受的元素
+     */
     @Override
     public abstract void accept(IN t);
 

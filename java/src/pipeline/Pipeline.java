@@ -18,14 +18,14 @@ import java.util.function.Predicate;
  * @date 2021/9/3 3:01 下午
  */
 public abstract class Pipeline<I, O> {
-    public AbstractRiverPipeline<?, I, ?> previous;
+    public AbstractRiverPipeline<?, I> previous;
 
     /**
      * 启动River
      *
      * @param stage 最后一个中间操作stage
      */
-    public void launch(AbstractRiverPipeline<?, O, ? extends River<O>> stage) {
+    public void launch(AbstractRiverPipeline<?, O> stage) {
         SinkChain<O, O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
@@ -40,8 +40,8 @@ public abstract class Pipeline<I, O> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain warpPipeline(AbstractRiverPipeline river) {
-        SinkChain sink = null;
+    private SinkChain<O, O> warpPipeline(AbstractRiverPipeline<?, O> river) {
+        SinkChain<O, O> sink = null;
         for (AbstractRiverPipeline s = river; s != null; s = s.previous) {
             sink = s.wrapSink(sink);
         }
