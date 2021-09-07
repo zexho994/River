@@ -22,7 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: toArray(E[])">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: toArray()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
@@ -260,6 +261,7 @@
       <workItem from="1630826078871" duration="2782000" />
       <workItem from="1630852985699" duration="77000" />
       <workItem from="1630853107598" duration="18199000" />
+      <workItem from="1631009701006" duration="1148000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1609947280146</created>
@@ -555,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630997501616</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="[add]: toArray()">
+      <created>1630998198449</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1630998198449</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update: FilterSink" />
     <MESSAGE value="update: distinct,filter,foreach done" />
     <MESSAGE value="update: count()" />
     <MESSAGE value="update: SinkChain begin(),end()添加default" />
@@ -612,7 +620,8 @@
     <MESSAGE value="[update]: SinkChain 补充泛型类型" />
     <MESSAGE value="[update]: SinkChain 删除无用构造函数" />
     <MESSAGE value="[add]: toArray(E[])" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: toArray(E[])" />
+    <MESSAGE value="[add]: toArray()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: toArray()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

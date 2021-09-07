@@ -18,6 +18,7 @@ public class RiverTest {
         skipTest();
         mapTest();
         toArrayTest();
+        reduceTest();
     }
 
     /**
@@ -122,6 +123,17 @@ public class RiverTest {
                 .toArray();
         assert arr1 != null;
         assert arr1.length == 5;
+    }
+
+    public static void reduceTest() {
+        System.out.println("reduce test");
+        Integer reduce = River.of(1, 2, 3, 4, 5)
+                .reduce(0, (n1, n2) -> n1 + n2 + 10);
+        assert reduce == 65;
+
+        String reduce1 = River.of("A", "B", "C", "D", "E")
+                .reduce("start", (n1, n2) -> n1 + "-" + n2);
+        assert reduce1.equals("start-A-B-C-D-E");
     }
 
 }

@@ -5,6 +5,7 @@ import pipeline.PipelineStage;
 import sink.SinkChain;
 
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -320,6 +321,42 @@ public class AbstractRiverPipeline<I, O>
         };
         launch(pipeFinal);
         return pipeFinal.getCount();
+    }
+
+    @Override
+    public O reduce(O identity, BinaryOperator<O> accumulator) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            public O state;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void begin(int n) {
+                        state = identity;
+                        super.begin(n);
+                    }
+
+                    @Override
+                    public void accept(O t) {
+                        state = accumulator.apply(state, t);
+                    }
+
+                    @Override
+                    public void end() {
+                        super.end();
+                    }
+                };
+            }
+
+            @Override
+            public O getState() {
+                return state;
+            }
+
+        };
+        launch(stage);
+        return stage.getState();
     }
 
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {

@@ -1,6 +1,7 @@
 package river;
 
 import java.util.Comparator;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -108,6 +109,11 @@ public interface River<E> {
      */
     Object[] toArray();
 
+    /**
+     * 输出元素到参数数组中
+     *
+     * @param e 承载元素的数组
+     */
     void toArray(E[] e);
 
     /**
@@ -116,4 +122,11 @@ public interface River<E> {
      * @return River中元素的数量
      */
     long count();
+
+    /**
+     * @param identity    初始值
+     * @param accumulator 操作函数
+     * @return reduce result
+     */
+    E reduce(E identity, BinaryOperator<E> accumulator);
 }
