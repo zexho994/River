@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 public class AbstractRiverPipeline<I, O, S extends River<O>>
         extends Pipeline<I, O> implements River<O> {
 
-    protected Spliterator<O> sourceSpliterator;
+    protected Spliterator sourceSpliterator;
 
     /**
      * 追加filter操作

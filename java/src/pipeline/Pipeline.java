@@ -18,7 +18,7 @@ import java.util.function.Predicate;
  * @date 2021/9/3 3:01 下午
  */
 public abstract class Pipeline<I, O> {
-    public AbstractRiverPipeline<?, I, ? extends River<O>> previous;
+    public AbstractRiverPipeline previous;
 
     /**
      * 启动River
@@ -40,8 +40,8 @@ public abstract class Pipeline<I, O> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain<O> warpPipeline(AbstractRiverPipeline<?, O, ? extends River<O>> river) {
-        SinkChain<O> sink = null;
+    private SinkChain warpPipeline(AbstractRiverPipeline river) {
+        SinkChain sink = null;
         for (AbstractRiverPipeline s = river; s != null; s = s.previous) {
             sink = s.wrapSink(sink);
         }

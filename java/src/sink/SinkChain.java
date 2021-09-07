@@ -1,7 +1,5 @@
 package sink;
 
-import river.AbstractRiverPipeline;
-
 import java.util.Spliterator;
 
 /**
@@ -10,8 +8,8 @@ import java.util.Spliterator;
  */
 public abstract class SinkChain<E> implements Sink<E> {
 
-    public Spliterator<E> sourceSpliterator;
-    public SinkChain<E> next;
+    public Spliterator sourceSpliterator;
+    public SinkChain next;
 
     public SinkChain() {
     }
@@ -33,11 +31,11 @@ public abstract class SinkChain<E> implements Sink<E> {
     @Override
     public abstract void accept(E t);
 
-    public Spliterator<E> getSourceSpliterator() {
+    public Spliterator getSourceSpliterator() {
         return sourceSpliterator;
     }
 
-    public void setSourceSpliterator(Spliterator<E> sourceSpliterator) {
+    public void setSourceSpliterator(Spliterator sourceSpliterator) {
         this.sourceSpliterator = sourceSpliterator;
     }
 }
