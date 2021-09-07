@@ -29,6 +29,7 @@ public class RiverTest {
         anyMatch();
         allMatch();
         noneMatch();
+        findFirstTest();
     }
 
     /**
@@ -241,4 +242,30 @@ public class RiverTest {
         assert !b3;
         System.out.println("success");
     }
+
+    public static void findFirstTest() {
+        System.out.print("=>test findFirst : ");
+        Optional<String> first = River.of("one", "two")
+                .findFirst();
+        assert first.isPresent();
+        assert first.get().equals("one");
+
+        Optional<Integer> first1 = River.of(-1, 2, 2, 4, 0, 5)
+                .findFirst();
+        assert first1.isPresent();
+        assert first1.get().equals(-1);
+
+        Optional<Object> first2 = River.of()
+                .findFirst();
+        assert !first2.isPresent();
+
+        Optional<String> first3 = River.of(-1, 2, 2, 4, 0, 5)
+                .map(e -> e + "!")
+                .findFirst();
+        assert first3.isPresent();
+        assert first3.get().equals("-1!");
+
+        System.out.println("success");
+    }
+
 }

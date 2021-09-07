@@ -532,6 +532,40 @@ public class AbstractRiverPipeline<I, O>
         return (boolean) stage.getState();
     }
 
+    @Override
+    public Optional<O> findFirst() {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private O state;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void accept(O t) {
+                        if (state == null) {
+                            state = t;
+                        } else {
+                            return;
+                        }
+                    }
+                };
+            }
+
+            @Override
+            public Object getState() {
+                if (state == null) {
+                    return Optional.empty();
+                } else {
+                    Optional<O> res = Optional.of(this.state);
+                    this.state = null;
+                    return res;
+                }
+            }
+        };
+        launch(stage);
+        return (Optional<O>) stage.getState();
+    }
+
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
         return null;
     }

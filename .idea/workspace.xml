@@ -22,7 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: allMatch()">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: noneMatch()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
@@ -603,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631030992399</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="[add]: noneMatch()">
+      <created>1631031208759</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1631031208759</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +643,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[add]: limit()" />
     <MESSAGE value="[add] sort()" />
     <MESSAGE value="[update] 添加静态warp方法" />
     <MESSAGE value="[update]: 重构foreach(),limit(),source()" />
@@ -660,7 +667,8 @@
     <MESSAGE value="[add]: collect()" />
     <MESSAGE value="[add]: anyMatch()" />
     <MESSAGE value="[add]: allMatch()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: allMatch()" />
+    <MESSAGE value="[add]: noneMatch()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: noneMatch()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -689,6 +697,11 @@
           <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
           <line>953</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/test/RiverTest.java</url>
+          <line>267</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

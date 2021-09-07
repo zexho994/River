@@ -186,4 +186,12 @@ public interface River<E> {
      * @return
      */
     boolean noneMatch(Predicate<? super E> predicate);
+
+    /**
+     * 获取第一个元素
+     *
+     * @return
+     */
+    Optional<E> findFirst();
+
 }
