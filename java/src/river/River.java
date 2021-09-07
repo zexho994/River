@@ -170,4 +170,12 @@ public interface River<E> {
      * @return true:match success
      */
     boolean anyMatch(Predicate<? super E> predicate);
+
+    /**
+     * 判断匹配，所有都要匹配
+     *
+     * @param predicate
+     * @return
+     */
+    boolean allMatch(Predicate<? super E> predicate);
 }

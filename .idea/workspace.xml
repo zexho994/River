@@ -22,8 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: collect()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: anyMatch()">
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
@@ -590,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631015681144</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="[add]: anyMatch()">
+      <created>1631030628373</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1631030628373</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +628,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update: SinkChain begin(),end()添加default" />
     <MESSAGE value="release" />
     <MESSAGE value="[add]: limit()" />
     <MESSAGE value="[add] sort()" />
@@ -647,7 +652,8 @@
     <MESSAGE value="[add]: toArray()" />
     <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
     <MESSAGE value="[add]: collect()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: collect()" />
+    <MESSAGE value="[add]: anyMatch()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: anyMatch()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
