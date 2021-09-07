@@ -26,6 +26,7 @@ public class RiverTest {
         collectionTest();
         minTest();
         maxTest();
+        anyMatch();
     }
 
     /**
@@ -169,6 +170,7 @@ public class RiverTest {
     }
 
     public static void minTest() {
+        System.out.println("min test:");
         Optional<Integer> min = River.of(1, 2, 2, 4, 0, 5, -2)
                 .min((a, b) -> {
                     if (a >= b) {
@@ -183,6 +185,7 @@ public class RiverTest {
     }
 
     public static void maxTest() {
+        System.out.println("max test:");
         Optional<Integer> max = River.of(1, 2, 2, 4, 0, 5, -2)
                 .max((a, b) -> {
                     if (a >= b) {
@@ -194,5 +197,16 @@ public class RiverTest {
         assert max.isPresent();
         Integer maxVal = max.get();
         assert maxVal == 5;
+    }
+
+    public static void anyMatch() {
+        System.out.print("=> anyMatch test : ");
+        boolean b1 = River.of(1, 2, 2, 4, 0, 5)
+                .anyMatch(e -> e == 5);
+        assert b1;
+        boolean b2 = River.of(1, 2, 2, 4, 0, 5)
+                .anyMatch(e -> e == 3);
+        assert !b2;
+        System.out.println("success");
     }
 }

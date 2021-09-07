@@ -163,4 +163,11 @@ public interface River<E> {
      */
     Optional<E> max(Comparator<? super E> comparator);
 
+    /**
+     * 判断匹配，任意即可
+     *
+     * @param predicate
+     * @return true:match success
+     */
+    boolean anyMatch(Predicate<? super E> predicate);
 }

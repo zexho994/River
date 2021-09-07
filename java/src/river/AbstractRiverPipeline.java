@@ -445,6 +445,35 @@ public class AbstractRiverPipeline<I, O>
         return (Optional<O>) stage.getState();
     }
 
+    @Override
+    public boolean anyMatch(Predicate<? super O> predicate) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private boolean state = false;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void accept(O t) {
+                        if (state) {
+                            return;
+                        }
+                        if (predicate.test(t)) {
+                            state = true;
+                        }
+                    }
+                };
+            }
+
+            @Override
+            public Object getState() {
+                return state;
+            }
+        };
+        launch(stage);
+        return (boolean) stage.getState();
+    }
+
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
         return null;
     }
