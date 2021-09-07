@@ -1,5 +1,6 @@
 package river;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.BinaryOperator;
@@ -28,6 +29,8 @@ import java.util.stream.Collector;
  */
 public interface River<E> {
 
+    //===============================创建操作=====================================
+
     /**
      * 构建一个River对象
      *
@@ -40,6 +43,9 @@ public interface River<E> {
         return RiverGenerator.create(t);
     }
 
+    static <T> River<T> of(Collection<T> collection) {
+        return RiverGenerator.create(collection);
+    }
 
     //===============================中间操作=====================================
 

@@ -4,6 +4,8 @@ import pipeline.PipelineStage;
 import sink.SinkChain;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
 import java.util.Spliterator;
 
 /**
@@ -17,6 +19,15 @@ final class RiverGenerator {
     @SafeVarargs
     public static <E> River<E> create(E... e) {
         Spliterator<E> spliterator = Arrays.spliterator(e);
+        return create(spliterator);
+    }
+
+    public static <E> River<E> create(Collection<E> collection) {
+        Spliterator<E> spliterator = Objects.requireNonNull(collection).spliterator();
+        return create(spliterator);
+    }
+
+    private static <E> River<E> create(Spliterator<E> spliterator) {
         return new PipelineStage<E, E>(spliterator) {
             @Override
             public SinkChain<E, E> wrapSink(SinkChain<E, ?> sink) {
