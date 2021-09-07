@@ -114,11 +114,14 @@ public class RiverTest {
         System.out.println("toArray test:");
         String[] arr = new String[5];
         River.of(1, 2, 3, 4, 5)
-                .map(e -> "map : " + e)
+                .map(e -> "arr : " + e)
                 .toArray(arr);
-        for (String s : arr) {
-            System.out.println(s);
-        }
+
+        Object[] arr1 = River.of(1, 2, 3, 4, 5)
+                .map(e -> "arr1 : " + e)
+                .toArray();
+        assert arr1 != null;
+        assert arr1.length == 5;
     }
 
 }

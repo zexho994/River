@@ -227,8 +227,33 @@ public class AbstractRiverPipeline<I, O>
     }
 
     @Override
-    public O[] toArray() {
-        return null;
+    public Object[] toArray() {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private List<O> list;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void begin(int n) {
+                        list = new ArrayList<>(n > 0 ? n : 16);
+                        super.begin(n);
+                    }
+
+                    @Override
+                    public void accept(O t) {
+                        list.add(t);
+                    }
+                };
+            }
+
+            @Override
+            public Object[] getArray() {
+                return list.toArray();
+            }
+        };
+        launch(stage);
+        return stage.getArray();
     }
 
     @Override

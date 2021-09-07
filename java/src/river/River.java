@@ -106,7 +106,7 @@ public interface River<E> {
      *
      * @return E类型的数组
      */
-    E[] toArray();
+    Object[] toArray();
 
     void toArray(E[] e);
 
