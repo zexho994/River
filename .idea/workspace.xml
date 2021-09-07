@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: anyMatch()">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: allMatch()">
       <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
@@ -596,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631030628373</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="[add]: allMatch()">
+      <created>1631030992399</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1631030992399</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="release" />
     <MESSAGE value="[add]: limit()" />
     <MESSAGE value="[add] sort()" />
     <MESSAGE value="[update] 添加静态warp方法" />
@@ -653,7 +659,8 @@
     <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
     <MESSAGE value="[add]: collect()" />
     <MESSAGE value="[add]: anyMatch()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: anyMatch()" />
+    <MESSAGE value="[add]: allMatch()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: allMatch()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -28,6 +28,7 @@ public class RiverTest {
         maxTest();
         anyMatch();
         allMatch();
+        noneMatch();
     }
 
     /**
@@ -224,6 +225,20 @@ public class RiverTest {
         boolean b3 = River.of(1, 2, 2, 4, 0, 5)
                 .anyMatch(e -> e > 0 && e < 5.1);
         assert b3;
+        System.out.println("success");
+    }
+
+    public static void noneMatch() {
+        System.out.print("=>test noneMatch : ");
+        boolean b1 = River.of(1, 2, 2, 4, 0, 5)
+                .noneMatch(e -> e == 3);
+        assert b1;
+        boolean b2 = River.of(1, 2, 2, 4, 0, 5)
+                .noneMatch(e -> e > 6);
+        assert b2;
+        boolean b3 = River.of(1, 2, 2, 4, 0, 5)
+                .noneMatch(e -> e == 4);
+        assert !b3;
         System.out.println("success");
     }
 }

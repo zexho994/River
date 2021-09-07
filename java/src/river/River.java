@@ -178,4 +178,12 @@ public interface River<E> {
      * @return
      */
     boolean allMatch(Predicate<? super E> predicate);
+
+    /**
+     * 判断匹配，都不要匹配上
+     *
+     * @param predicate
+     * @return
+     */
+    boolean noneMatch(Predicate<? super E> predicate);
 }
