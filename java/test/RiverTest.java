@@ -17,6 +17,7 @@ public class RiverTest {
         peekTest();
         skipTest();
         mapTest();
+        toArrayTest();
     }
 
     /**
@@ -107,6 +108,17 @@ public class RiverTest {
                 .skip(2)
                 .map(e -> "p -> " + e)
                 .forEach(System.out::println);
+    }
+
+    public static void toArrayTest() {
+        System.out.println("toArray test:");
+        String[] arr = new String[5];
+        River.of(1, 2, 3, 4, 5)
+                .map(e -> "map : " + e)
+                .toArray(arr);
+        for (String s : arr) {
+            System.out.println(s);
+        }
     }
 
 }

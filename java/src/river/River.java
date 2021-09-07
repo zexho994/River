@@ -87,10 +87,12 @@ public interface River<E> {
     /**
      * 元素转换映射
      *
-     * @param function
-     * @return
+     * @param function 映射执行逻辑
+     * @return new River
      */
     <E_OUT> River<E_OUT> map(Function<? super E, ? extends E_OUT> function);
+
+    //===============================终结操作=====================================
 
     /**
      * 遍历River所有元素
@@ -98,6 +100,15 @@ public interface River<E> {
      * @param consumer 表达式
      */
     void forEach(Consumer<E> consumer);
+
+    /**
+     * 输出一个数组
+     *
+     * @return E类型的数组
+     */
+    E[] toArray();
+
+    void toArray(E[] e);
 
     /**
      * 计算元素的数量

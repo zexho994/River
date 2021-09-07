@@ -215,17 +215,50 @@ public class AbstractRiverPipeline<I, O>
         PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                SinkChain<O, O> chain = new SinkChain<O, O>() {
+                return new SinkChain<O, O>() {
                     @Override
                     public void accept(O t) {
                         consumer.accept(t);
                     }
                 };
-                chain.next = sink;
-                return chain;
             }
         };
         launch(pipeFinal);
+    }
+
+    @Override
+    public O[] toArray() {
+        return null;
+    }
+
+    @Override
+    public void toArray(O[] arr) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private List<O> list;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void begin(int n) {
+                        list = new ArrayList<>(n > 0 ? n : 16);
+                        super.begin(n);
+                    }
+
+                    @Override
+                    public void accept(O t) {
+                        list.add(t);
+                    }
+
+                    @Override
+                    public void end() {
+                        list.toArray(arr);
+                        super.end();
+                    }
+                };
+            }
+        };
+        launch(stage);
     }
 
     @Override

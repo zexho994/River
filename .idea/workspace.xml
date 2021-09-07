@@ -24,8 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: SinkChain 删除无用构造函数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -564,7 +566,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="release_v1.1.0" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

@@ -1,6 +1,7 @@
 package pipeline;
 
 import river.AbstractRiverPipeline;
+
 import java.util.Spliterator;
 
 /**
@@ -24,4 +25,7 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
         throw new UnsupportedOperationException("to override");
     }
 
+    public O[] getArray() {
+        throw new UnsupportedOperationException("to override");
+    }
 }
