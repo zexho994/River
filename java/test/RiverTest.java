@@ -25,6 +25,7 @@ public class RiverTest {
         reduceTest();
         collectionTest();
         minTest();
+        maxTest();
     }
 
     /**
@@ -181,4 +182,17 @@ public class RiverTest {
         assert minVal == -2;
     }
 
+    public static void maxTest() {
+        Optional<Integer> max = River.of(1, 2, 2, 4, 0, 5, -2)
+                .max((a, b) -> {
+                    if (a >= b) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                });
+        assert max.isPresent();
+        Integer maxVal = max.get();
+        assert maxVal == 5;
+    }
 }

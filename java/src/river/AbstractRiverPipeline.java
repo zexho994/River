@@ -417,6 +417,34 @@ public class AbstractRiverPipeline<I, O>
         return (Optional<O>) stage.getState();
     }
 
+    @Override
+    public Optional<O> max(Comparator<? super O> comparator) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
+            private O state;
+
+            @Override
+            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
+                return new SinkChain<O, O>() {
+                    @Override
+                    public void accept(O t) {
+                        state = state == null ? t : comparator.compare(state, t) > 0 ? state : t;
+                    }
+                };
+            }
+
+            @Override
+            public Optional<O> getState() {
+                if (state == null) {
+                    return Optional.empty();
+                } else {
+                    return Optional.of(state);
+                }
+            }
+        };
+        launch(stage);
+        return (Optional<O>) stage.getState();
+    }
+
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
         return null;
     }

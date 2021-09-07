@@ -154,4 +154,13 @@ public interface River<E> {
      * @return 最小的元素
      */
     Optional<E> min(Comparator<? super E> comparator);
+
+    /**
+     * 获取比较后，最大的元素
+     *
+     * @param comparator 比较器
+     * @return 最大的元素
+     */
+    Optional<E> max(Comparator<? super E> comparator);
+
 }
