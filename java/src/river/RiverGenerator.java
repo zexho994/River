@@ -19,8 +19,8 @@ final class RiverGenerator {
         Spliterator<E> spliterator = Arrays.spliterator(e);
         return new PipelineStage<E, E>(spliterator) {
             @Override
-            public SinkChain<E> wrapSink(SinkChain<E> sink) {
-                SinkChain<E> sinkChain = new SinkChain<E>() {
+            public SinkChain<E, E> wrapSink(SinkChain<E, ?> sink) {
+                SinkChain<E, E> sinkChain = new SinkChain<E, E>() {
                     @Override
                     public void accept(E t) {
                         next.accept(t);

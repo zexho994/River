@@ -26,7 +26,7 @@ public abstract class Pipeline<I, O> {
      * @param stage 最后一个中间操作stage
      */
     public void launch(AbstractRiverPipeline<?, O, ? extends River<O>> stage) {
-        SinkChain<O> sinkHead = warpPipeline(stage);
+        SinkChain<O, O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
         Spliterator<O> sourceSpliterator = sinkHead.getSourceSpliterator();
