@@ -567,6 +567,6 @@ public class AbstractRiverPipeline<I, O>
     }
 
     public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
-        return null;
+        throw new UnsupportedOperationException("to override");
     }
 }
