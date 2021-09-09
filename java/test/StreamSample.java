@@ -17,7 +17,7 @@ public class StreamSample {
     }
 
     public static void parallelStreamTest2() {
-        long count = Stream.of(1, 2, 3, 4, 5).parallel().reduce((x, y) -> x + y + 10).get();
+        long count = Stream.of(1, 2, 3, 4, 5).sequential().parallel().reduce((x, y) -> x + y + 10).get();
         assert count == 55;
     }
 

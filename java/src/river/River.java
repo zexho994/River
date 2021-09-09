@@ -50,6 +50,20 @@ public interface River<E> {
     //===============================中间操作=====================================
 
     /**
+     * 将流转换为并行流
+     *
+     * @return River
+     */
+    River<E> parallel();
+
+    /**
+     * 将流转换为串行流
+     *
+     * @return River
+     */
+    River<E> sequential();
+
+    /**
      * 过滤操作
      *
      * @param predicate 过滤的表达式

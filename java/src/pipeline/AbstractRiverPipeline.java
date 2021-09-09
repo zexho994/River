@@ -18,6 +18,19 @@ public class AbstractRiverPipeline<I, O>
         extends Pipeline<I, O> implements River<O> {
 
     protected Spliterator<I> sourceSpliterator;
+    protected boolean isParallel;
+
+    @Override
+    public River<O> parallel() {
+        this.isParallel = true;
+        return this;
+    }
+
+    @Override
+    public River<O> sequential() {
+        this.isParallel = false;
+        return this;
+    }
 
     /**
      * 追加filter操作

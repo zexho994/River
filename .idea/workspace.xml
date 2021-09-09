@@ -22,13 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="stash">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_9_7__11_43___Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_9_8__8_48___Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: 调整结构">
+      <change afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/StreamSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/StreamSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="release_v1.0.1" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,12 +79,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1631017246" />
+                    <option name="branchName" value="v1.3.0" />
+                    <option name="lastUsedInstant" value="1631174210" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="v1.2.0" />
-                    <option name="lastUsedInstant" value="1631017240" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1631017246" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="release_v1.1.0" />
@@ -155,7 +156,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RiverTest">
+  <component name="RunManager" selected="Application.ParallelRiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -165,21 +166,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream_v2.sample.Create" />
-      <module name="jtream" />
-      <option name="PROGRAM_PARAMETERS" value="-ea" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="stream_v2.sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,6 +190,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParallelRiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ParallelRiverTest" />
+      <module name="jtream" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RiverTest" />
       <module name="jtream" />
@@ -222,17 +215,17 @@
     <list>
       <item itemvalue="Application.StreamSample" />
       <item itemvalue="Application.RiverTest" />
-      <item itemvalue="Application.Create" />
       <item itemvalue="Application.MapStreamTest" />
       <item itemvalue="Application.ForkJoinSample" />
+      <item itemvalue="Application.ParallelRiverTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.StreamSample" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
-        <item itemvalue="Application.Create" />
       </list>
     </recent_temporary>
   </component>
@@ -272,14 +265,7 @@
       <workItem from="1630852985699" duration="77000" />
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
-      <workItem from="1631103672495" duration="4834000" />
-    </task>
-    <task id="LOCAL-00003" summary="supplement code of stream of list">
-      <created>1610624232583</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1610624232583</updated>
+      <workItem from="1631103672495" duration="7426000" />
     </task>
     <task id="LOCAL-00004" summary="add files">
       <created>1610625230195</created>
@@ -617,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631103648860</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="[refactor]: 调整结构">
+      <created>1631174222795</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1631174222795</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +642,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: 重构foreach(),limit(),source()" />
     <MESSAGE value="[refactor]: foreach(),limit(),source()" />
     <MESSAGE value="[refactor]: distinct" />
     <MESSAGE value="[refactor]: filter" />
@@ -674,7 +666,8 @@
     <MESSAGE value="[add]: noneMatch()" />
     <MESSAGE value="[add]: findFirst()" />
     <MESSAGE value="stash" />
-    <option name="LAST_COMMIT_MESSAGE" value="stash" />
+    <MESSAGE value="[refactor]: 调整结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: 调整结构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -17,7 +17,7 @@ import java.util.function.Predicate;
  * @date 2021/9/3 3:01 下午
  */
 public abstract class Pipeline<I, O> {
-    public AbstractRiverPipeline<?, I> previous;
+    protected AbstractRiverPipeline<?, I> previous;
 
     /**
      * 启动River

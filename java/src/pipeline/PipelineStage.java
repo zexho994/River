@@ -10,6 +10,7 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
 
     public PipelineStage(Spliterator<I> spliterator) {
         this.sourceSpliterator = spliterator;
+        this.isParallel = false;
     }
 
     /**
