@@ -1,7 +1,5 @@
 package pipeline;
 
-import river.AbstractRiverPipeline;
-
 import java.util.Spliterator;
 
 /**

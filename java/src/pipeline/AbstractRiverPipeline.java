@@ -1,7 +1,6 @@
-package river;
+package pipeline;
 
-import pipeline.Pipeline;
-import pipeline.PipelineStage;
+import river.River;
 import sink.SinkChain;
 
 import java.util.*;
@@ -38,10 +37,10 @@ public class AbstractRiverPipeline<I, O>
                         if (!predicate.test(t)) {
                             return;
                         }
-                        next.accept(t);
+                        getNext().accept(t);
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -72,10 +71,10 @@ public class AbstractRiverPipeline<I, O>
                         if (!set.add(t)) {
                             return;
                         }
-                        next.accept(t);
+                        getNext().accept(t);
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -103,7 +102,7 @@ public class AbstractRiverPipeline<I, O>
                         this.next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -141,7 +140,7 @@ public class AbstractRiverPipeline<I, O>
                         super.end();
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -160,7 +159,7 @@ public class AbstractRiverPipeline<I, O>
                         next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -189,7 +188,7 @@ public class AbstractRiverPipeline<I, O>
                         this.next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -206,7 +205,7 @@ public class AbstractRiverPipeline<I, O>
                         next.accept(function.apply(o));
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -544,8 +543,6 @@ public class AbstractRiverPipeline<I, O>
                     public void accept(O t) {
                         if (state == null) {
                             state = t;
-                        } else {
-                            return;
                         }
                     }
                 };
@@ -564,9 +561,5 @@ public class AbstractRiverPipeline<I, O>
         };
         launch(stage);
         return (Optional<O>) stage.getState();
-    }
-
-    public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
-        throw new UnsupportedOperationException("to override");
     }
 }

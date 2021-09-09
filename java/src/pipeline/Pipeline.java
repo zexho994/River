@@ -1,6 +1,5 @@
 package pipeline;
 
-import river.AbstractRiverPipeline;
 import river.River;
 import sink.SinkChain;
 
@@ -46,6 +45,10 @@ public abstract class Pipeline<I, O> {
             sink = s.wrapSink(sink);
         }
         return sink;
+    }
+
+    public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
+        throw new UnsupportedOperationException("to override");
     }
 
 }
