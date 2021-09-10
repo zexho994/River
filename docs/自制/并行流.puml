@@ -1,0 +1,20 @@
+@startuml
+autonumber
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+
+@startuml
+:执行终结操作reduce();
+if (流类型) then(并行流)
+    :;
+else (串行流)
+    :执行串行流逻辑;
+    stop
+endif
+
+stop
+@enduml

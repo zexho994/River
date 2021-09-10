@@ -6,11 +6,18 @@ import river.River;
  */
 public class ParallelRiverTest {
     public static void main(String[] args) {
-        convertTest();
+        reduceTest();
     }
 
-    public static void convertTest() {
-        River<String> parallel1 = River.of("1", "1", "2", "3", "3").parallel();
-        River<String> parallel2 = River.of("1", "1", "2", "3", "3").parallel().sequential();
+    public static void reduceTest() {
+        System.out.print("=>test filter : ");
+        Integer reduce1 = River.of(1, 2, 3, 4, 5).parallel().reduce(0, Integer::sum);
+        assert reduce1 == 15;
+
+
+        Integer reduce2 = River.of(1, 2, 3, 4, 5).parallel().reduce(1, (a, b) -> a + b + 1);
+        Integer reduce3 = River.of(1, 2, 3, 4, 5).sequential().reduce(1, (a, b) -> a + b + 1);
+        assert reduce2 == reduce3;
+        System.out.println("success");
     }
 }

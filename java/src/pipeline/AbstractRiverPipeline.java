@@ -2,6 +2,7 @@ package pipeline;
 
 import river.River;
 import sink.SinkChain;
+import task.RiverTask;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
@@ -338,38 +339,17 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public O reduce(O identity, BinaryOperator<O> accumulator) {
-        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            public O state;
-
-            @Override
-            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
-                    @Override
-                    public void begin(int n) {
-                        state = identity;
-                        super.begin(n);
-                    }
-
-                    @Override
-                    public void accept(O t) {
-                        state = accumulator.apply(state, t);
-                    }
-
-                    @Override
-                    public void end() {
-                        super.end();
-                    }
-                };
-            }
-
-            @Override
-            public O getState() {
-                return state;
-            }
-
-        };
-        launch(stage);
-        return (O) stage.getState();
+        PipelineStage<O, O> stage = new ReduceOpStage<>(sourceSpliterator, identity, accumulator);
+        stage.previous = this;
+        if (this.isParallel) {
+            RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage, stage.wrapSink(null));
+            task.invoke();
+            O rawResult = task.getRawResult();
+            return rawResult;
+        } else {
+            launch(stage);
+            return (O) stage.getState();
+        }
     }
 
     @Override
@@ -575,4 +555,12 @@ public class AbstractRiverPipeline<I, O>
         launch(stage);
         return (Optional<O>) stage.getState();
     }
+
+    public void setSourceSpliterator(Spliterator sourceSpliterator) {
+        if (this.previous != null) {
+            this.previous.setSourceSpliterator(sourceSpliterator);
+        }
+        this.sourceSpliterator = sourceSpliterator;
+    }
+
 }

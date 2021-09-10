@@ -3,7 +3,6 @@ package pipeline;
 import river.River;
 import sink.SinkChain;
 
-import java.util.Spliterator;
 import java.util.function.Predicate;
 
 /**
@@ -28,8 +27,7 @@ public abstract class Pipeline<I, O> {
         SinkChain<O, O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
-        Spliterator<O> sourceSpliterator = sinkHead.getSourceSpliterator();
-        sourceSpliterator.forEachRemaining(sinkHead);
+        sinkHead.getSourceSpliterator().forEachRemaining(sinkHead);
         sinkHead.end();
     }
 

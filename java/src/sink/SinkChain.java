@@ -35,6 +35,10 @@ public abstract class SinkChain<IN, OUT> implements Sink<IN> {
     @Override
     public abstract void accept(IN t);
 
+    public OUT accept(IN t1, IN t2) {
+        return null;
+    }
+
     public Spliterator<IN> getSourceSpliterator() {
         return sourceSpliterator;
     }

@@ -22,13 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: 调整结构">
-      <change afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel() &amp; sequential()">
+      <change afterPath="$PROJECT_DIR$/docs/自制/并行流.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/StreamSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/StreamSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +48,7 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="UML Activity" />
+        <option value="UML Sequence" />
         <option value="Class" />
       </list>
     </option>
@@ -126,7 +132,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultPlantUmlFileTemplate" value="UML Activity" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -152,11 +158,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pipeline" />
+      <recent name="task" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ParallelRiverTest">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -193,6 +203,7 @@
     <configuration name="ParallelRiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ParallelRiverTest" />
       <module name="jtream" />
+      <option name="VM_PARAMETERS" value="-ea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,9 +232,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.StreamSample" />
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
       </list>
@@ -265,14 +276,8 @@
       <workItem from="1630852985699" duration="77000" />
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
-      <workItem from="1631103672495" duration="7426000" />
-    </task>
-    <task id="LOCAL-00004" summary="add files">
-      <created>1610625230195</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610625230195</updated>
+      <workItem from="1631103672495" duration="9626000" />
+      <workItem from="1631180558009" duration="24005000" />
     </task>
     <task id="LOCAL-00005" summary="[update]: 添加测试代码">
       <created>1630070082193</created>
@@ -610,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631174222795</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="[add]: parallel() &amp; sequential()">
+      <created>1631175226435</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1631175226436</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +639,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="v1.3.0" />
                       </list>
                     </value>
                   </entry>
@@ -642,7 +654,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[refactor]: foreach(),limit(),source()" />
     <MESSAGE value="[refactor]: distinct" />
     <MESSAGE value="[refactor]: filter" />
     <MESSAGE value="[refactor]: sort" />
@@ -667,30 +678,31 @@
     <MESSAGE value="[add]: findFirst()" />
     <MESSAGE value="stash" />
     <MESSAGE value="[refactor]: 调整结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: 调整结构" />
+    <MESSAGE value="[add]: parallel() &amp; sequential()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel() &amp; sequential()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/ForEachOps.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/MatchOps.java</url>
-          <line>229</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
-          <line>953</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java</url>
+          <line>349</line>
+          <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/FindOps.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/java/test/RiverTest.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

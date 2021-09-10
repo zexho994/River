@@ -9,7 +9,7 @@ import java.util.Spliterator;
 public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
 
     public PipelineStage(Spliterator<I> spliterator) {
-        this.sourceSpliterator = spliterator;
+        this.setSourceSpliterator(spliterator);
         this.isParallel = false;
     }
 
