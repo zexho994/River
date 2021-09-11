@@ -11,7 +11,7 @@ public class ParallelRiverTest {
     public static void main(String[] args) {
         reduceTest();
         countTest();
-        ;
+        forEachTest();
     }
 
     public static void reduceTest() {
@@ -71,12 +71,11 @@ public class ParallelRiverTest {
         System.out.println("success");
     }
 
-    public static void forEach() {
+    public static void forEachTest() {
+        System.out.print("=>test forEach : ");
         River.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                 .parallel()
                 .forEach(System.out::println);
-
+        System.out.println("success");
     }
-
-    ;
 }

@@ -16,10 +16,20 @@ public class RiverTask<E> extends ForkJoinTask<E> {
     private E result;
     private Spliterator spliterator;
     private PipelineStage terminalStage;
+    private final boolean isShare;
 
     public RiverTask(Spliterator s, PipelineStage stage) {
+        this(s, stage, true);
+    }
+
+    public RiverTask(Spliterator s, PipelineStage stage, boolean share) {
         this.spliterator = s;
-        this.terminalStage = stage.clone();
+        this.isShare = share;
+        if (share) {
+            this.terminalStage = stage.clone();
+        } else {
+            this.terminalStage = stage;
+        }
     }
 
     /**
@@ -53,17 +63,21 @@ public class RiverTask<E> extends ForkJoinTask<E> {
         Spliterator<E> backSpliterator = spliterator;
         Spliterator<E> frontSpliterator;
         if (backSpliterator.estimateSize() > 1 && (frontSpliterator = backSpliterator.trySplit()) != null) {
-            RiverTask<E> leftTask = new RiverTask<>(frontSpliterator, terminalStage);
-            RiverTask<E> rightTask = new RiverTask<>(backSpliterator, terminalStage);
+            RiverTask<E> leftTask = new RiverTask<>(frontSpliterator, terminalStage, isShare);
+            RiverTask<E> rightTask = new RiverTask<>(backSpliterator, terminalStage, isShare);
             invokeAll(leftTask, rightTask);
 
             E left = leftTask.join();
             E right = rightTask.join();
-            E res = (E) terminalStage.wrapSink(null).accept(left, right);
-            this.setRawResult(res);
+            if (isShare) {
+                E res = (E) terminalStage.wrapSink(null).accept(left, right);
+                this.setRawResult(res);
+            }
         } else {
             terminalStage.launch(spliterator, terminalStage);
-            setRawResult((E) this.terminalStage.getState());
+            if (isShare) {
+                setRawResult((E) this.terminalStage.getState());
+            }
         }
     }
 }

@@ -239,7 +239,11 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        launch(stage);
+        if (this.isParallel) {
+            new RiverTask(sourceSpliterator, stage, false).invoke();
+        } else {
+            launch(stage);
+        }
     }
 
     @Override
