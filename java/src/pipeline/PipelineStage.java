@@ -17,9 +17,9 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
      * @param river 上一个stage
      */
     public PipelineStage(AbstractRiverPipeline<?, I> river) {
-        this.previous = river;
-        this.isParallel = river.isParallel;
-        this.sourceSpliterator = river.sourceSpliterator;
+        previous = river;
+        isParallel = river.isParallel;
+        sourceSpliterator = river.sourceSpliterator;
     }
 
     public Object[] getArray() {

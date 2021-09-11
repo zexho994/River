@@ -22,13 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel count()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: simplify">
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/task/RiverTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/op/ReduceOpStage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,14 +269,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="40919000" />
-    </task>
-    <task id="LOCAL-00011" summary="[update]: 删除无用文件">
-      <created>1630639910198</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1630639910198</updated>
+      <workItem from="1631180558009" duration="41338000" />
     </task>
     <task id="LOCAL-00012" summary="[Add]: 添加River接口">
       <created>1630639926664</created>
@@ -616,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631355196764</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="[refactor]: simplify">
+      <created>1631364344592</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1631364344592</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +646,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: River&lt;&gt; 添加第三个参数" />
     <MESSAGE value="[update] 删除一些强依赖" />
     <MESSAGE value="[update] SinkChain&lt;E&gt; -&gt; SinkChain&lt;I,O&gt;" />
     <MESSAGE value="[add] map()" />
@@ -673,7 +670,8 @@
     <MESSAGE value="[add]: parallel reduce()" />
     <MESSAGE value="[fix]: spliterator np" />
     <MESSAGE value="[add]: parallel count()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel count()" />
+    <MESSAGE value="[refactor]: simplify" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: simplify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

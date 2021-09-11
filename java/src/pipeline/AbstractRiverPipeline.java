@@ -1,5 +1,6 @@
 package pipeline;
 
+import pipeline.op.ReduceOpStage;
 import river.River;
 import sink.SinkChain;
 import task.RiverTask;
@@ -531,4 +532,15 @@ public class AbstractRiverPipeline<I, O>
         this.sourceSpliterator = sourceSpliterator;
     }
 
+    public Spliterator getSourceSpliterator() {
+        return sourceSpliterator;
+    }
+
+    public boolean isParallel() {
+        return isParallel;
+    }
+
+    public void setParallel(boolean parallel) {
+        isParallel = parallel;
+    }
 }

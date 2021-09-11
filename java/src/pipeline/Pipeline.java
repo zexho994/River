@@ -53,7 +53,7 @@ public abstract class Pipeline<I, O> {
         return sink;
     }
 
-    public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
+    public SinkChain<?, O> wrapSink(SinkChain<O, ?> sink) {
         throw new UnsupportedOperationException("to override");
     }
 
