@@ -38,7 +38,7 @@ final class RiverGenerator {
                     }
                 };
                 sinkChain.setNext(sink);
-                sinkChain.setSourceSpliterator(this.sourceSpliterator);
+                sinkChain.setSourceSpliterator(sink.getSourceSpliterator());
                 return sinkChain;
             }
         };

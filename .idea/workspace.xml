@@ -22,19 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel() &amp; sequential()">
-      <change afterPath="$PROJECT_DIR$/docs/自制/并行流.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: add ReduceOpStage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/task/RiverTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/RiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/RiverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/StreamSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/StreamSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +162,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RiverTest">
+  <component name="RunManager" selected="Application.ParallelRiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -232,9 +228,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.StreamSample" />
-        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
       </list>
@@ -277,14 +273,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="24005000" />
-    </task>
-    <task id="LOCAL-00005" summary="[update]: 添加测试代码">
-      <created>1630070082193</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1630070082193</updated>
+      <workItem from="1631180558009" duration="30072000" />
     </task>
     <task id="LOCAL-00006" summary="[update]: 暂存">
       <created>1630073324889</created>
@@ -622,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631175226436</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="[update]: add ReduceOpStage">
+      <created>1631261583296</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1631261583296</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[refactor]: distinct" />
     <MESSAGE value="[refactor]: filter" />
     <MESSAGE value="[refactor]: sort" />
     <MESSAGE value="[refactor]: count()" />
@@ -679,30 +674,21 @@
     <MESSAGE value="stash" />
     <MESSAGE value="[refactor]: 调整结构" />
     <MESSAGE value="[add]: parallel() &amp; sequential()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel() &amp; sequential()" />
+    <MESSAGE value="[update]: add ReduceOpStage" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: add ReduceOpStage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java</url>
-          <line>349</line>
-          <option name="timeStamp" value="113" />
+          <line>554</line>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/RiverTest.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="115" />
+          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="142" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

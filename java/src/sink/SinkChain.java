@@ -36,7 +36,7 @@ public abstract class SinkChain<IN, OUT> implements Sink<IN> {
     public abstract void accept(IN t);
 
     public OUT accept(IN t1, IN t2) {
-        return null;
+        throw new UnsupportedOperationException("to override");
     }
 
     public Spliterator<IN> getSourceSpliterator() {
