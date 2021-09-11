@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: parallel stream reduce">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[fix]: parallel stream reduce identity error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
@@ -269,14 +269,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="30716000" />
-    </task>
-    <task id="LOCAL-00007" summary="[update]: 暂存">
-      <created>1630128195624</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1630128195624</updated>
+      <workItem from="1631180558009" duration="31392000" />
     </task>
     <task id="LOCAL-00008" summary="[docs]: 补充文档">
       <created>1630636952608</created>
@@ -614,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631337490089</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="[fix]: parallel stream reduce identity error">
+      <created>1631338146083</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1631338146083</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +646,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[refactor]: sort" />
     <MESSAGE value="[refactor]: count()" />
     <MESSAGE value="update docs" />
     <MESSAGE value="[add]: peek()" />
@@ -671,7 +670,8 @@
     <MESSAGE value="[add]: parallel() &amp; sequential()" />
     <MESSAGE value="[update]: add ReduceOpStage" />
     <MESSAGE value="[update]: parallel stream reduce" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: parallel stream reduce" />
+    <MESSAGE value="[fix]: parallel stream reduce identity error" />
+    <option name="LAST_COMMIT_MESSAGE" value="[fix]: parallel stream reduce identity error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -682,14 +682,14 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/test/StreamSample.java</url>
           <line>17</line>
           <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

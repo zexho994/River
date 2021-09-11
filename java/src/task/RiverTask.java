@@ -55,7 +55,7 @@ public class RiverTask<E> extends ForkJoinTask<E> {
     public void compute() {
         Spliterator<E> backSpliterator = spliterator;
         Spliterator<E> frontSpliterator;
-        if (backSpliterator.estimateSize() > 2 && (frontSpliterator = backSpliterator.trySplit()) != null) {
+        if (backSpliterator.estimateSize() > 1 && (frontSpliterator = backSpliterator.trySplit()) != null) {
             PipelineStage leftStage = terminalStage.clone();
             PipelineStage rightStage = terminalStage.clone();
             leftStage.setSourceSpliterator(frontSpliterator);

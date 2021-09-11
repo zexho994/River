@@ -13,11 +13,13 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
 
     private BinaryOperator<O> operator;
     private O state;
+    private O init;
 
-    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, Spliterator spliterator, BinaryOperator<O> op) {
+    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, Spliterator spliterator, O identity, BinaryOperator<O> op) {
         super(spliterator);
         this.previous = pre;
         this.operator = op;
+        this.init = identity;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
         SinkChain<O, O> chain = new SinkChain<O, O>() {
             @Override
             public void begin(int n) {
+                state = init;
                 super.begin(n);
             }
 
@@ -53,6 +56,6 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
 
     @Override
     public ReduceOpStage<O> clone() {
-        return new ReduceOpStage<>(this.previous, this.sourceSpliterator, operator);
+        return new ReduceOpStage<>(this.previous, this.sourceSpliterator, this.init, operator);
     }
 }
