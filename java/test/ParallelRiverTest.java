@@ -12,7 +12,6 @@ public class ParallelRiverTest {
     public static void reduceTest() {
         System.out.print("=>test filter : ");
         Integer reduce1 = River.of(1, 2, 3, 4, 5).parallel().reduce(0, Integer::sum);
-        System.out.println("reduce1 = " + reduce1);
         assert reduce1 == 15;
 
 

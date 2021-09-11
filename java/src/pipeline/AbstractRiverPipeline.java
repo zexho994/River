@@ -339,16 +339,17 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public O reduce(O identity, BinaryOperator<O> accumulator) {
-        PipelineStage<O, O> stage = new ReduceOpStage<>(this, sourceSpliterator, identity, accumulator);
+        PipelineStage<O, O> stage = new ReduceOpStage<>(this, sourceSpliterator, accumulator);
+        O result;
         if (this.isParallel) {
             RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage, stage.wrapSink(null));
             task.invoke();
-            O rawResult = task.getRawResult();
-            return rawResult;
+            result = task.getRawResult();
         } else {
             launch(stage);
-            return (O) stage.getState();
+            result = (O) stage.getState();
         }
+        return accumulator.apply(identity, result);
     }
 
     @Override

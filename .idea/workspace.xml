@@ -22,14 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: add ReduceOpStage">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: parallel stream reduce">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/task/RiverTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,8 +225,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ParallelRiverTest" />
-        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.StreamSample" />
+        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
       </list>
@@ -273,14 +269,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="30072000" />
-    </task>
-    <task id="LOCAL-00006" summary="[update]: 暂存">
-      <created>1630073324889</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1630073324889</updated>
+      <workItem from="1631180558009" duration="30716000" />
     </task>
     <task id="LOCAL-00007" summary="[update]: 暂存">
       <created>1630128195624</created>
@@ -618,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631261583296</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="[update]: parallel stream reduce">
+      <created>1631337490089</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1631337490089</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +646,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[refactor]: filter" />
     <MESSAGE value="[refactor]: sort" />
     <MESSAGE value="[refactor]: count()" />
     <MESSAGE value="update docs" />
@@ -675,20 +670,26 @@
     <MESSAGE value="[refactor]: 调整结构" />
     <MESSAGE value="[add]: parallel() &amp; sequential()" />
     <MESSAGE value="[update]: add ReduceOpStage" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: add ReduceOpStage" />
+    <MESSAGE value="[update]: parallel stream reduce" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: parallel stream reduce" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java</url>
-          <line>554</line>
+          <line>555</line>
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="142" />
+          <line>19</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/test/StreamSample.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

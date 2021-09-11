@@ -12,14 +12,12 @@ import java.util.function.BinaryOperator;
 public class ReduceOpStage<O> extends PipelineStage<O, O> {
 
     private BinaryOperator<O> operator;
-    private O identity;
     private O state;
 
-    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, Spliterator spliterator, O identity, BinaryOperator<O> op) {
+    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, Spliterator spliterator, BinaryOperator<O> op) {
         super(spliterator);
         this.previous = pre;
         this.operator = op;
-        this.identity = identity;
     }
 
     @Override
@@ -27,13 +25,16 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
         SinkChain<O, O> chain = new SinkChain<O, O>() {
             @Override
             public void begin(int n) {
-                state = identity;
                 super.begin(n);
             }
 
             @Override
             public void accept(O t) {
-                state = operator.apply(state, t);
+                if (state == null) {
+                    state = t;
+                } else {
+                    state = operator.apply(state, t);
+                }
             }
 
             @Override
@@ -52,6 +53,6 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
 
     @Override
     public ReduceOpStage<O> clone() {
-        return new ReduceOpStage<>(this.previous, this.sourceSpliterator, identity, operator);
+        return new ReduceOpStage<>(this.previous, this.sourceSpliterator, operator);
     }
 }
