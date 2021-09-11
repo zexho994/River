@@ -227,7 +227,7 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public void forEach(Consumer<O> consumer) {
-        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
                 return new SinkChain<O, O>() {
@@ -238,7 +238,7 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        launch(pipeFinal);
+        launch(stage);
     }
 
     @Override
@@ -312,7 +312,7 @@ public class AbstractRiverPipeline<I, O>
         PipelineStage<O, O> stage = new ReduceOpStage<>(this, identity, accumulator);
         O result;
         if (this.isParallel) {
-            RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage, stage.wrapSink(null));
+            RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage);
             task.invoke();
             result = task.getRawResult();
         } else {

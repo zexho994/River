@@ -22,10 +22,6 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
         this.sourceSpliterator = river.sourceSpliterator;
     }
 
-    public int getCount() {
-        throw new UnsupportedOperationException("to override");
-    }
-
     public Object[] getArray() {
         throw new UnsupportedOperationException("to override");
     }

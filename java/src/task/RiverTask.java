@@ -1,7 +1,6 @@
 package task;
 
 import pipeline.PipelineStage;
-import sink.SinkChain;
 
 import java.util.Spliterator;
 import java.util.concurrent.ForkJoinTask;
@@ -17,12 +16,10 @@ public class RiverTask<E> extends ForkJoinTask<E> {
     private E result;
     private Spliterator spliterator;
     private PipelineStage terminalStage;
-    private SinkChain sink;
 
-    public RiverTask(Spliterator s, PipelineStage stage, SinkChain chain) {
+    public RiverTask(Spliterator s, PipelineStage stage) {
         this.spliterator = s;
-        this.sink = chain;
-        this.terminalStage = stage;
+        this.terminalStage = stage.clone();
     }
 
     /**
@@ -56,25 +53,17 @@ public class RiverTask<E> extends ForkJoinTask<E> {
         Spliterator<E> backSpliterator = spliterator;
         Spliterator<E> frontSpliterator;
         if (backSpliterator.estimateSize() > 1 && (frontSpliterator = backSpliterator.trySplit()) != null) {
-            PipelineStage leftStage = terminalStage.clone();
-            PipelineStage rightStage = terminalStage.clone();
-            leftStage.setSourceSpliterator(frontSpliterator);
-            rightStage.setSourceSpliterator(backSpliterator);
+            RiverTask<E> leftTask = new RiverTask<>(frontSpliterator, terminalStage);
+            RiverTask<E> rightTask = new RiverTask<>(backSpliterator, terminalStage);
+            invokeAll(leftTask, rightTask);
 
-            RiverTask<E> leftTask = new RiverTask<>(frontSpliterator, leftStage, sink);
-            RiverTask<E> rightTask = new RiverTask<>(backSpliterator, rightStage, sink);
-
-            leftTask.fork();
-            rightTask.fork();
-
-            E right = rightTask.join();
             E left = leftTask.join();
-
-            E res = (E) sink.accept(left, right);
+            E right = rightTask.join();
+            E res = (E) terminalStage.wrapSink(null).accept(left, right);
             this.setRawResult(res);
         } else {
-            this.terminalStage.launch(this.terminalStage);
-            this.setRawResult((E) this.terminalStage.getState());
+            terminalStage.launch(spliterator, terminalStage);
+            setRawResult((E) this.terminalStage.getState());
         }
     }
 }

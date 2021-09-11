@@ -3,6 +3,7 @@ package pipeline;
 import river.River;
 import sink.SinkChain;
 
+import java.util.Spliterator;
 import java.util.function.Predicate;
 
 /**
@@ -17,6 +18,13 @@ import java.util.function.Predicate;
  */
 public abstract class Pipeline<I, O> {
     protected AbstractRiverPipeline<?, I> previous;
+
+    public void launch(Spliterator spliterator, AbstractRiverPipeline stage) {
+        SinkChain<O, O> sinkHead = warpPipeline(stage);
+        sinkHead.begin(-1);
+        spliterator.forEachRemaining(sinkHead);
+        sinkHead.end();
+    }
 
     /**
      * 启动River
@@ -37,10 +45,10 @@ public abstract class Pipeline<I, O> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain<O, O> warpPipeline(AbstractRiverPipeline<?, O> river) {
+    private SinkChain<O, O> warpPipeline(AbstractRiverPipeline river) {
         SinkChain<O, O> sink = null;
-        for (AbstractRiverPipeline s = river; s != null; s = s.previous) {
-            sink = s.wrapSink(sink);
+        for (; river != null; river = river.previous) {
+            sink = river.wrapSink(sink);
         }
         return sink;
     }

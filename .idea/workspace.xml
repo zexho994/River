@@ -22,8 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[fix]: spliterator np">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel count()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/task/RiverTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +160,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ParallelRiverTest">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -222,8 +226,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.StreamSample" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
@@ -267,14 +271,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="36468000" />
-    </task>
-    <task id="LOCAL-00010" summary="[update]: 删除无用文件">
-      <created>1630637568350</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1630637568350</updated>
+      <workItem from="1631180558009" duration="40919000" />
     </task>
     <task id="LOCAL-00011" summary="[update]: 删除无用文件">
       <created>1630639910198</created>
@@ -612,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631354816051</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="[add]: parallel count()">
+      <created>1631355196764</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1631355196764</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +648,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: 使用&lt;IN,OUT&gt;两个参数" />
     <MESSAGE value="[update]: River&lt;&gt; 添加第三个参数" />
     <MESSAGE value="[update] 删除一些强依赖" />
     <MESSAGE value="[update] SinkChain&lt;E&gt; -&gt; SinkChain&lt;I,O&gt;" />
@@ -669,7 +672,8 @@
     <MESSAGE value="[add]: parallel stream reduce done" />
     <MESSAGE value="[add]: parallel reduce()" />
     <MESSAGE value="[fix]: spliterator np" />
-    <option name="LAST_COMMIT_MESSAGE" value="[fix]: spliterator np" />
+    <MESSAGE value="[add]: parallel count()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel count()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -679,17 +683,12 @@
           <line>17</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="180" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="181" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="task.RiverTask" memberName="spliterator" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
