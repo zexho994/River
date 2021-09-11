@@ -2,7 +2,6 @@ package pipeline;
 
 import sink.SinkChain;
 
-import java.util.Spliterator;
 import java.util.function.BinaryOperator;
 
 /**
@@ -15,11 +14,12 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
     private O state;
     private O init;
 
-    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, Spliterator spliterator, O identity, BinaryOperator<O> op) {
-        super(spliterator);
+    public ReduceOpStage(AbstractRiverPipeline<?, O> pre, O identity, BinaryOperator<O> op) {
+        super(pre.sourceSpliterator);
         this.previous = pre;
         this.operator = op;
         this.init = identity;
+        this.isParallel = pre.isParallel;
     }
 
     @Override
@@ -56,6 +56,6 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
 
     @Override
     public ReduceOpStage<O> clone() {
-        return new ReduceOpStage<>(this.previous, this.sourceSpliterator, this.init, operator);
+        return new ReduceOpStage<>(this.previous, this.init, operator);
     }
 }

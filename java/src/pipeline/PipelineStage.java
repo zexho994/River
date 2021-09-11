@@ -18,6 +18,8 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
      */
     public PipelineStage(AbstractRiverPipeline<?, I> river) {
         this.previous = river;
+        this.isParallel = river.isParallel;
+        this.sourceSpliterator = river.sourceSpliterator;
     }
 
     public int getCount() {

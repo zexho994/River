@@ -18,7 +18,7 @@ import java.util.stream.Collector;
 public class AbstractRiverPipeline<I, O>
         extends Pipeline<I, O> implements River<O> {
 
-    protected Spliterator<I> sourceSpliterator;
+    protected Spliterator sourceSpliterator;
     protected boolean isParallel;
 
     @Override
@@ -210,7 +210,7 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public <E_OUT> River<E_OUT> map(Function<? super O, ? extends E_OUT> function) {
-        return new PipelineStage<O, E_OUT>(AbstractRiverPipeline.this) {
+        return new PipelineStage<O, E_OUT>(this) {
             @Override
             public SinkChain<O, E_OUT> wrapSink(SinkChain<E_OUT, ?> sink) {
                 SinkChain<O, E_OUT> chain = new SinkChain<O, E_OUT>() {
@@ -248,7 +248,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         list = new ArrayList<>(n > 0 ? n : 16);
@@ -278,7 +278,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         list = new ArrayList<>(n > 0 ? n : 16);
@@ -303,43 +303,13 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public long count() {
-        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
-            private int count;
-
-            @Override
-            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
-                    @Override
-                    public void begin(int n) {
-                        count = 0;
-                        super.begin(n);
-                    }
-
-                    @Override
-                    public void end() {
-                        super.end();
-                    }
-
-                    @Override
-                    public void accept(O t) {
-                        count++;
-                    }
-                };
-            }
-
-            @Override
-            public int getCount() {
-                return this.count;
-            }
-
-        };
-        launch(pipeFinal);
-        return pipeFinal.getCount();
+        River<Integer> map = map(e -> 1);
+        return map.reduce(0, Integer::sum);
     }
 
     @Override
     public O reduce(O identity, BinaryOperator<O> accumulator) {
-        PipelineStage<O, O> stage = new ReduceOpStage<>(this, sourceSpliterator, identity, accumulator);
+        PipelineStage<O, O> stage = new ReduceOpStage<>(this, identity, accumulator);
         O result;
         if (this.isParallel) {
             RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage, stage.wrapSink(null));
@@ -359,7 +329,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         state = collector.supplier().get();
@@ -388,7 +358,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         state = state == null ? t : comparator.compare(state, t) < 0 ? state : t;
@@ -416,7 +386,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         state = state == null ? t : comparator.compare(state, t) > 0 ? state : t;
@@ -444,7 +414,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (state) {
@@ -473,7 +443,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (!state) {
@@ -502,7 +472,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (!state) {
@@ -531,7 +501,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                SinkChain<O, O> sinkChain = new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (state == null) {
@@ -539,6 +509,7 @@ public class AbstractRiverPipeline<I, O>
                         }
                     }
                 };
+                return sinkChain;
             }
 
             @Override

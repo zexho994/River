@@ -22,10 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[fix]: parallel stream reduce identity error">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel reduce()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/ReduceOpStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/RiverGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/sink/SinkChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/sink/SinkChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +161,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ParallelRiverTest">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -224,9 +227,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.StreamSample" />
-        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
       </list>
@@ -269,14 +272,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="31392000" />
-    </task>
-    <task id="LOCAL-00008" summary="[docs]: 补充文档">
-      <created>1630636952608</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1630636952609</updated>
+      <workItem from="1631180558009" duration="36003000" />
     </task>
     <task id="LOCAL-00009" summary="[update]: 添加示例代码">
       <created>1630636972235</created>
@@ -614,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631338146083</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="[add]: parallel reduce()">
+      <created>1631339030214</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1631339030214</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,9 +649,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[refactor]: count()" />
-    <MESSAGE value="update docs" />
-    <MESSAGE value="[add]: peek()" />
     <MESSAGE value="[add]: skip()" />
     <MESSAGE value="[update]: 使用&lt;IN,OUT&gt;两个参数" />
     <MESSAGE value="[update]: River&lt;&gt; 添加第三个参数" />
@@ -671,16 +671,14 @@
     <MESSAGE value="[update]: add ReduceOpStage" />
     <MESSAGE value="[update]: parallel stream reduce" />
     <MESSAGE value="[fix]: parallel stream reduce identity error" />
-    <option name="LAST_COMMIT_MESSAGE" value="[fix]: parallel stream reduce identity error" />
+    <MESSAGE value="[fix]: parallel stream reduce done" />
+    <MESSAGE value="[add]: parallel stream reduce done" />
+    <MESSAGE value="[add]: parallel reduce()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel reduce()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java</url>
-          <line>555</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/test/StreamSample.java</url>
           <line>17</line>
@@ -688,8 +686,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="145" />
+          <line>42</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/test/ParallelRiverTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="153" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

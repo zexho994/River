@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 public class ParallelRiverTest {
     public static void main(String[] args) {
         reduceTest();
+        countTest();
+        ;
     }
 
     public static void reduceTest() {
@@ -33,4 +35,18 @@ public class ParallelRiverTest {
 
         System.out.println("success");
     }
+
+    public static void countTest() {
+        System.out.print("=>test count : ");
+        long count1 = Stream.of(1, 2, 3, 4, 5, 10, 39, 38, 20, 57, 19, 38, 3, 981).parallel().count();
+        long count = River.of(1, 2, 3, 4, 5, 10, 39, 38, 20, 57, 19, 38, 3, 981).parallel().count();
+        assert count == count1;
+
+
+        long n1 = River.of("1", "2", "3").parallel().count();
+        long n2 = Stream.of("1", "2", "3").parallel().count();
+        assert n1 == n2;
+        System.out.println("success");
+    }
+
 }
