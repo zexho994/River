@@ -3,7 +3,6 @@ package pipeline;
 import pipeline.op.ReduceOpStage;
 import river.River;
 import sink.SinkChain;
-import task.RiverTask;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
@@ -239,11 +238,7 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        if (this.isParallel) {
-            new RiverTask(sourceSpliterator, stage, false).invoke();
-        } else {
-            launch(stage);
-        }
+        evaluate(stage, false);
     }
 
     @Override
@@ -272,7 +267,7 @@ public class AbstractRiverPipeline<I, O>
                 return list.toArray();
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return stage.getArray();
     }
 
@@ -303,7 +298,7 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        launch(stage);
+        evaluate(stage, false);
     }
 
     @Override
@@ -315,16 +310,8 @@ public class AbstractRiverPipeline<I, O>
     @Override
     public O reduce(O identity, BinaryOperator<O> accumulator) {
         PipelineStage<O, O> stage = new ReduceOpStage<>(this, identity, accumulator);
-        O result;
-        if (this.isParallel) {
-            RiverTask<O> task = new RiverTask<>(sourceSpliterator, stage);
-            task.invoke();
-            result = task.getRawResult();
-        } else {
-            launch(stage);
-            result = (O) stage.getState();
-        }
-        return result;
+        evaluate(stage, true);
+        return (O) stage.getState();
     }
 
     @Override
@@ -352,7 +339,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return collector.finisher().apply((A) stage.getState());
     }
 
@@ -380,7 +367,7 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 
@@ -408,7 +395,7 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 
@@ -437,7 +424,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
@@ -466,7 +453,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
@@ -495,7 +482,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
@@ -528,7 +515,7 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 

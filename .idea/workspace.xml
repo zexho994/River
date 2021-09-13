@@ -22,10 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: 变量私有化">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: parallel River.forEach()">
+      <change afterPath="$PROJECT_DIR$/java/src/river/RiverShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/Pipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/PipelineStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/op/ReduceOpStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/op/ReduceOpStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/task/RiverTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/task/RiverTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +41,10 @@
       <list>
         <option value="UML Class" />
         <option value="Interface" />
-        <option value="Enum" />
         <option value="UML Activity" />
         <option value="UML Sequence" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -268,14 +272,7 @@
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
       <workItem from="1631103672495" duration="9626000" />
-      <workItem from="1631180558009" duration="41952000" />
-    </task>
-    <task id="LOCAL-00013" summary="add: River.of()">
-      <created>1630652394613</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1630652394613</updated>
+      <workItem from="1631180558009" duration="45157000" />
     </task>
     <task id="LOCAL-00014" summary="add: Pipeline &amp; Stage &amp; Op">
       <created>1630655637078</created>
@@ -613,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631364750920</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="[add]: parallel River.forEach()">
+      <created>1631365470532</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1631365470532</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +649,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update] SinkChain&lt;E&gt; -&gt; SinkChain&lt;I,O&gt;" />
     <MESSAGE value="[add] map()" />
     <MESSAGE value="[update]: SinkChain 补充泛型类型" />
     <MESSAGE value="[update]: SinkChain 删除无用构造函数" />
@@ -670,7 +673,8 @@
     <MESSAGE value="[add]: parallel count()" />
     <MESSAGE value="[refactor]: simplify" />
     <MESSAGE value="[refactor]: 变量私有化" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: 变量私有化" />
+    <MESSAGE value="[add]: parallel River.forEach()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add]: parallel River.forEach()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

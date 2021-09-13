@@ -74,7 +74,7 @@ public class RiverTask<E> extends ForkJoinTask<E> {
                 this.setRawResult(res);
             }
         } else {
-            terminalStage.launch(spliterator, terminalStage);
+            terminalStage.evaluate(spliterator, terminalStage);
             if (isShare) {
                 setRawResult((E) this.terminalStage.getState());
             }

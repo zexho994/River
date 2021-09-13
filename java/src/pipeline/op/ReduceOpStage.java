@@ -57,6 +57,11 @@ public class ReduceOpStage<O> extends PipelineStage<O, O> {
     }
 
     @Override
+    public void setState(O s) {
+        this.state = s;
+    }
+
+    @Override
     public ReduceOpStage<O> clone() {
         return new ReduceOpStage<>(this.previous, this.init, operator);
     }

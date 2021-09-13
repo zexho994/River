@@ -2,6 +2,7 @@ package pipeline;
 
 import river.River;
 import sink.SinkChain;
+import task.RiverTask;
 
 import java.util.Spliterator;
 import java.util.function.Predicate;
@@ -19,7 +20,7 @@ import java.util.function.Predicate;
 public abstract class Pipeline<I, O> {
     protected AbstractRiverPipeline<?, I> previous;
 
-    public void launch(Spliterator spliterator, AbstractRiverPipeline stage) {
+    public void evaluate(Spliterator spliterator, AbstractRiverPipeline stage) {
         SinkChain<O, O> sinkHead = warpPipeline(stage);
         sinkHead.begin(-1);
         spliterator.forEachRemaining(sinkHead);
@@ -31,7 +32,21 @@ public abstract class Pipeline<I, O> {
      *
      * @param stage 最后一个中间操作stage
      */
-    public void launch(AbstractRiverPipeline<?, O> stage) {
+    public void evaluate(PipelineStage<?, O> stage, boolean share) {
+        if (stage.isParallel) {
+            evaluateParallel(stage, share);
+        } else {
+            evaluateSequential(stage);
+        }
+    }
+
+    private void evaluateParallel(PipelineStage<?, O> stage, boolean share) {
+        RiverTask<O> task = new RiverTask<>(stage.getSourceSpliterator(), stage, share);
+        task.invoke();
+        stage.setState(task.getRawResult());
+    }
+
+    private void evaluateSequential(PipelineStage<?, O> stage) {
         SinkChain<O, O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
