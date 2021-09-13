@@ -489,11 +489,11 @@ public class AbstractRiverPipeline<I, O>
     @Override
     public Optional<O> findFirst() {
         PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            private O state;
+            private volatile O state;
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                SinkChain<O, O> sinkChain = new SinkChain<O, O>(this.sourceSpliterator) {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (state == null) {
@@ -501,7 +501,6 @@ public class AbstractRiverPipeline<I, O>
                         }
                     }
                 };
-                return sinkChain;
             }
 
             @Override

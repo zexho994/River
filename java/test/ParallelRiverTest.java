@@ -1,6 +1,7 @@
 import river.River;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -12,7 +13,8 @@ public class ParallelRiverTest {
         reduceTest();
         countTest();
         forEachTest();
-        allMatch();
+        allMatchTest();
+        findTest();
     }
 
     public static void reduceTest() {
@@ -88,7 +90,7 @@ public class ParallelRiverTest {
         ++i;
     }
 
-    public static void allMatch() {
+    public static void allMatchTest() {
         System.out.print("=>test allMatch : ");
         boolean allMatch1 = River.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                 .parallel()
@@ -100,5 +102,12 @@ public class ParallelRiverTest {
                 .allMatch(e -> e > 0 && e < 7);
         assert !allMatch2;
         System.out.println("success");
+    }
+
+    public static void findTest() {
+//        Optional<Integer> first = Stream.of(1, 2, 3, 4, 5).parallel().findFirst();
+        Optional<Integer> first1 = River.of(1, 2, 3, 4, 5).parallel().findFirst();
+        assert first1.isPresent();
+//        assert first1.isPresent() && first.get().equals(first1.get());
     }
 }
