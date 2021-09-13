@@ -13,7 +13,7 @@ public class RiverTask<E> extends ForkJoinTask<E> {
     /**
      * 任务执行的结果
      */
-    private E result;
+    private volatile E result;
     private Spliterator spliterator;
     private PipelineStage terminalStage;
     private final boolean isShare;

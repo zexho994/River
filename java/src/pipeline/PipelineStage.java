@@ -30,7 +30,8 @@ public class PipelineStage<I, O> extends AbstractRiverPipeline<I, O> {
         throw new UnsupportedOperationException("to override");
     }
 
-    public void setState(O s) {}
+    public void setState(O s) {
+    }
 
     @Override
     public PipelineStage<I, O> clone() {

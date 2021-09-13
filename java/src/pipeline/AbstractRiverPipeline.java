@@ -431,7 +431,7 @@ public class AbstractRiverPipeline<I, O>
     @Override
     public boolean allMatch(Predicate<? super O> predicate) {
         PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            private boolean state = true;
+            private volatile boolean state = true;
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {

@@ -12,6 +12,7 @@ public class ParallelRiverTest {
         reduceTest();
         countTest();
         forEachTest();
+        allMatch();
     }
 
     public static void reduceTest() {
@@ -75,7 +76,29 @@ public class ParallelRiverTest {
         System.out.print("=>test forEach : ");
         River.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
                 .parallel()
-                .forEach(System.out::println);
+                .forEach(e -> incc());
+        assert i > 0 && i <= 10;
+
+        System.out.println("success");
+    }
+
+    static volatile int i = 0;
+
+    private static void incc() {
+        ++i;
+    }
+
+    public static void allMatch() {
+        System.out.print("=>test allMatch : ");
+        boolean allMatch1 = River.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .parallel()
+                .allMatch(e -> e > 0 && e <= 10);
+        assert allMatch1;
+
+        boolean allMatch2 = River.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .parallel()
+                .allMatch(e -> e > 0 && e < 7);
+        assert !allMatch2;
         System.out.println("success");
     }
 }
