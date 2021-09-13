@@ -1,8 +1,8 @@
 package pipeline;
 
-import river.AbstractRiverPipeline;
 import river.River;
 import sink.SinkChain;
+import task.RiverTask;
 
 import java.util.Spliterator;
 import java.util.function.Predicate;
@@ -18,19 +18,39 @@ import java.util.function.Predicate;
  * @date 2021/9/3 3:01 下午
  */
 public abstract class Pipeline<I, O> {
-    public AbstractRiverPipeline<?, I> previous;
+    protected AbstractRiverPipeline<?, I> previous;
+
+    public void evaluate(Spliterator spliterator, AbstractRiverPipeline stage) {
+        SinkChain<O, O> sinkHead = warpPipeline(stage);
+        sinkHead.begin(-1);
+        spliterator.forEachRemaining(sinkHead);
+        sinkHead.end();
+    }
 
     /**
      * 启动River
      *
      * @param stage 最后一个中间操作stage
      */
-    public void launch(AbstractRiverPipeline<?, O> stage) {
+    public void evaluate(PipelineStage<?, O> stage, boolean share) {
+        if (stage.isParallel) {
+            evaluateParallel(stage, share);
+        } else {
+            evaluateSequential(stage);
+        }
+    }
+
+    private void evaluateParallel(PipelineStage<?, O> stage, boolean share) {
+        RiverTask<O> task = new RiverTask<>(stage.getSourceSpliterator(), stage, share);
+        task.invoke();
+        stage.setState(task.getRawResult());
+    }
+
+    private void evaluateSequential(PipelineStage<?, O> stage) {
         SinkChain<O, O> sinkHead = warpPipeline(stage);
 
         sinkHead.begin(-1);
-        Spliterator<O> sourceSpliterator = sinkHead.getSourceSpliterator();
-        sourceSpliterator.forEachRemaining(sinkHead);
+        sinkHead.getSourceSpliterator().forEachRemaining(sinkHead);
         sinkHead.end();
     }
 
@@ -40,12 +60,16 @@ public abstract class Pipeline<I, O> {
      * @param river 最后一个中间操作
      * @return 第一个Sink
      */
-    private SinkChain<O, O> warpPipeline(AbstractRiverPipeline<?, O> river) {
+    private SinkChain<O, O> warpPipeline(AbstractRiverPipeline river) {
         SinkChain<O, O> sink = null;
-        for (AbstractRiverPipeline s = river; s != null; s = s.previous) {
-            sink = s.wrapSink(sink);
+        for (; river != null; river = river.previous) {
+            sink = river.wrapSink(sink);
         }
         return sink;
+    }
+
+    public SinkChain<?, O> wrapSink(SinkChain<O, ?> sink) {
+        throw new UnsupportedOperationException("to override");
     }
 
 }

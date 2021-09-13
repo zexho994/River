@@ -28,7 +28,7 @@ final class RiverGenerator {
     }
 
     private static <E> River<E> create(Spliterator<E> spliterator) {
-        return new PipelineStage<E, E>(spliterator) {
+        PipelineStage<E, E> head = new PipelineStage<E, E>(spliterator) {
             @Override
             public SinkChain<E, E> wrapSink(SinkChain<E, ?> sink) {
                 SinkChain<E, E> sinkChain = new SinkChain<E, E>() {
@@ -37,11 +37,12 @@ final class RiverGenerator {
                         next.accept(t);
                     }
                 };
-                sinkChain.next = sink;
-                sinkChain.setSourceSpliterator(spliterator);
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
+        head.setSourceSpliterator(spliterator);
+        return head;
     }
 
 }

@@ -1,7 +1,7 @@
-package river;
+package pipeline;
 
-import pipeline.Pipeline;
-import pipeline.PipelineStage;
+import pipeline.op.ReduceOpStage;
+import river.River;
 import sink.SinkChain;
 
 import java.util.*;
@@ -18,7 +18,20 @@ import java.util.stream.Collector;
 public class AbstractRiverPipeline<I, O>
         extends Pipeline<I, O> implements River<O> {
 
-    protected Spliterator<I> sourceSpliterator;
+    protected Spliterator sourceSpliterator;
+    protected boolean isParallel;
+
+    @Override
+    public River<O> parallel() {
+        this.isParallel = true;
+        return this;
+    }
+
+    @Override
+    public River<O> sequential() {
+        this.isParallel = false;
+        return this;
+    }
 
     /**
      * 追加filter操作
@@ -38,10 +51,10 @@ public class AbstractRiverPipeline<I, O>
                         if (!predicate.test(t)) {
                             return;
                         }
-                        next.accept(t);
+                        getNext().accept(t);
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -72,10 +85,10 @@ public class AbstractRiverPipeline<I, O>
                         if (!set.add(t)) {
                             return;
                         }
-                        next.accept(t);
+                        getNext().accept(t);
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -103,7 +116,7 @@ public class AbstractRiverPipeline<I, O>
                         this.next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -141,7 +154,7 @@ public class AbstractRiverPipeline<I, O>
                         super.end();
                     }
                 };
-                sinkChain.next = sink;
+                sinkChain.setNext(sink);
                 return sinkChain;
             }
         };
@@ -160,7 +173,7 @@ public class AbstractRiverPipeline<I, O>
                         next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -189,7 +202,7 @@ public class AbstractRiverPipeline<I, O>
                         this.next.accept(t);
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -197,7 +210,7 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public <E_OUT> River<E_OUT> map(Function<? super O, ? extends E_OUT> function) {
-        return new PipelineStage<O, E_OUT>(AbstractRiverPipeline.this) {
+        return new PipelineStage<O, E_OUT>(this) {
             @Override
             public SinkChain<O, E_OUT> wrapSink(SinkChain<E_OUT, ?> sink) {
                 SinkChain<O, E_OUT> chain = new SinkChain<O, E_OUT>() {
@@ -206,7 +219,7 @@ public class AbstractRiverPipeline<I, O>
                         next.accept(function.apply(o));
                     }
                 };
-                chain.next = sink;
+                chain.setNext(sink);
                 return chain;
             }
         };
@@ -214,7 +227,7 @@ public class AbstractRiverPipeline<I, O>
 
     @Override
     public void forEach(Consumer<O> consumer) {
-        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
+        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
                 return new SinkChain<O, O>() {
@@ -225,7 +238,7 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        launch(pipeFinal);
+        evaluate(stage, false);
     }
 
     @Override
@@ -235,7 +248,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         list = new ArrayList<>(n > 0 ? n : 16);
@@ -254,7 +267,7 @@ public class AbstractRiverPipeline<I, O>
                 return list.toArray();
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return stage.getArray();
     }
 
@@ -265,7 +278,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         list = new ArrayList<>(n > 0 ? n : 16);
@@ -285,78 +298,19 @@ public class AbstractRiverPipeline<I, O>
                 };
             }
         };
-        launch(stage);
+        evaluate(stage, false);
     }
 
     @Override
     public long count() {
-        PipelineStage<O, O> pipeFinal = new PipelineStage<O, O>(this) {
-            private int count;
-
-            @Override
-            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
-                    @Override
-                    public void begin(int n) {
-                        count = 0;
-                        super.begin(n);
-                    }
-
-                    @Override
-                    public void end() {
-                        super.end();
-                    }
-
-                    @Override
-                    public void accept(O t) {
-                        count++;
-                    }
-                };
-            }
-
-            @Override
-            public int getCount() {
-                return this.count;
-            }
-
-        };
-        launch(pipeFinal);
-        return pipeFinal.getCount();
+        River<Integer> map = map(e -> 1);
+        return map.reduce(0, Integer::sum);
     }
 
     @Override
     public O reduce(O identity, BinaryOperator<O> accumulator) {
-        PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            public O state;
-
-            @Override
-            public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
-                    @Override
-                    public void begin(int n) {
-                        state = identity;
-                        super.begin(n);
-                    }
-
-                    @Override
-                    public void accept(O t) {
-                        state = accumulator.apply(state, t);
-                    }
-
-                    @Override
-                    public void end() {
-                        super.end();
-                    }
-                };
-            }
-
-            @Override
-            public O getState() {
-                return state;
-            }
-
-        };
-        launch(stage);
+        PipelineStage<O, O> stage = new ReduceOpStage<>(this, identity, accumulator);
+        evaluate(stage, true);
         return (O) stage.getState();
     }
 
@@ -367,7 +321,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void begin(int n) {
                         state = collector.supplier().get();
@@ -385,7 +339,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return collector.finisher().apply((A) stage.getState());
     }
 
@@ -396,7 +350,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         state = state == null ? t : comparator.compare(state, t) < 0 ? state : t;
@@ -413,7 +367,7 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 
@@ -424,7 +378,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         state = state == null ? t : comparator.compare(state, t) > 0 ? state : t;
@@ -441,7 +395,7 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 
@@ -452,7 +406,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (state) {
@@ -470,18 +424,18 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
     @Override
     public boolean allMatch(Predicate<? super O> predicate) {
         PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            private boolean state = true;
+            private volatile boolean state = true;
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (!state) {
@@ -499,7 +453,7 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
@@ -510,7 +464,7 @@ public class AbstractRiverPipeline<I, O>
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (!state) {
@@ -528,24 +482,22 @@ public class AbstractRiverPipeline<I, O>
                 return state;
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (boolean) stage.getState();
     }
 
     @Override
     public Optional<O> findFirst() {
         PipelineStage<O, O> stage = new PipelineStage<O, O>(this) {
-            private O state;
+            private volatile O state;
 
             @Override
             public SinkChain<O, O> wrapSink(SinkChain<O, ?> sink) {
-                return new SinkChain<O, O>() {
+                return new SinkChain<O, O>(this.sourceSpliterator) {
                     @Override
                     public void accept(O t) {
                         if (state == null) {
                             state = t;
-                        } else {
-                            return;
                         }
                     }
                 };
@@ -562,11 +514,19 @@ public class AbstractRiverPipeline<I, O>
                 }
             }
         };
-        launch(stage);
+        evaluate(stage, false);
         return (Optional<O>) stage.getState();
     }
 
-    public SinkChain<I, O> wrapSink(SinkChain<O, ?> sink) {
-        throw new UnsupportedOperationException("to override");
+    public void setSourceSpliterator(Spliterator sourceSpliterator) {
+        this.sourceSpliterator = sourceSpliterator;
+    }
+
+    public Spliterator getSourceSpliterator() {
+        return sourceSpliterator;
+    }
+
+    public boolean isParallel() {
+        return isParallel;
     }
 }

@@ -22,11 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: max()">
-      <change afterPath="$PROJECT_DIR$/java/test/ForkJoinSample.java" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: test parallel allMatch()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/river/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/SampleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/StreamSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +37,10 @@
       <list>
         <option value="UML Class" />
         <option value="Interface" />
-        <option value="Enum" />
         <option value="UML Activity" />
+        <option value="UML Sequence" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -53,7 +53,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="release_v1.0.1" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,12 +76,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1631017246" />
+                    <option name="branchName" value="v1.3.0" />
+                    <option name="lastUsedInstant" value="1631174210" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="v1.2.0" />
-                    <option name="lastUsedInstant" value="1631017240" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1631017246" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="release_v1.1.0" />
@@ -123,7 +123,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultPlantUmlFileTemplate" value="UML Activity" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -149,11 +149,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pipeline" />
+      <recent name="task" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StreamSampleTest">
+  <component name="RunManager" selected="Application.ParallelRiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -163,21 +167,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Create" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream_v2.sample.Create" />
-      <module name="jtream" />
-      <option name="PROGRAM_PARAMETERS" value="-ea" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="stream_v2.sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,6 +191,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParallelRiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ParallelRiverTest" />
+      <module name="jtream" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RiverTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RiverTest" />
       <module name="jtream" />
@@ -218,19 +215,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.StreamSample" />
       <item itemvalue="Application.RiverTest" />
-      <item itemvalue="Application.Create" />
       <item itemvalue="Application.MapStreamTest" />
-      <item itemvalue="Application.StreamSampleTest" />
       <item itemvalue="Application.ForkJoinSample" />
+      <item itemvalue="Application.ParallelRiverTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StreamSampleTest" />
-        <item itemvalue="Application.ForkJoinSample" />
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
+        <item itemvalue="Application.StreamSample" />
+        <item itemvalue="Application.ForkJoinSample" />
         <item itemvalue="Application.MapStreamTest" />
-        <item itemvalue="Application.Create" />
       </list>
     </recent_temporary>
   </component>
@@ -270,104 +267,10 @@
       <workItem from="1630852985699" duration="77000" />
       <workItem from="1630853107598" duration="18199000" />
       <workItem from="1631009701006" duration="7030000" />
-    </task>
-    <task id="LOCAL-00002" summary="add code of intermediate operations">
-      <created>1610602437342</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1610602437342</updated>
-    </task>
-    <task id="LOCAL-00003" summary="supplement code of stream of list">
-      <created>1610624232583</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1610624232583</updated>
-    </task>
-    <task id="LOCAL-00004" summary="add files">
-      <created>1610625230195</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610625230195</updated>
-    </task>
-    <task id="LOCAL-00005" summary="[update]: 添加测试代码">
-      <created>1630070082193</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1630070082193</updated>
-    </task>
-    <task id="LOCAL-00006" summary="[update]: 暂存">
-      <created>1630073324889</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1630073324889</updated>
-    </task>
-    <task id="LOCAL-00007" summary="[update]: 暂存">
-      <created>1630128195624</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1630128195624</updated>
-    </task>
-    <task id="LOCAL-00008" summary="[docs]: 补充文档">
-      <created>1630636952608</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1630636952609</updated>
-    </task>
-    <task id="LOCAL-00009" summary="[update]: 添加示例代码">
-      <created>1630636972235</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1630636972235</updated>
-    </task>
-    <task id="LOCAL-00010" summary="[update]: 删除无用文件">
-      <created>1630637568350</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1630637568350</updated>
-    </task>
-    <task id="LOCAL-00011" summary="[update]: 删除无用文件">
-      <created>1630639910198</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1630639910198</updated>
-    </task>
-    <task id="LOCAL-00012" summary="[Add]: 添加River接口">
-      <created>1630639926664</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1630639926664</updated>
-    </task>
-    <task id="LOCAL-00013" summary="add: River.of()">
-      <created>1630652394613</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1630652394613</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add: Pipeline &amp; Stage &amp; Op">
-      <created>1630655637078</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1630655637078</updated>
-    </task>
-    <task id="LOCAL-00015" summary="add: distinct op">
-      <created>1630655937366</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1630655937366</updated>
+      <workItem from="1631103672495" duration="9626000" />
+      <workItem from="1631180558009" duration="47507000" />
+      <workItem from="1631521297608" duration="12000" />
+      <workItem from="1631521331663" duration="511000" />
     </task>
     <task id="LOCAL-00016" summary="add: Sink">
       <created>1630670458533</created>
@@ -614,7 +517,105 @@
       <option name="project" value="LOCAL" />
       <updated>1631032110213</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="stash">
+      <created>1631103648860</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1631103648860</updated>
+    </task>
+    <task id="LOCAL-00052" summary="[refactor]: 调整结构">
+      <created>1631174222795</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1631174222795</updated>
+    </task>
+    <task id="LOCAL-00053" summary="[add]: parallel() &amp; sequential()">
+      <created>1631175226435</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1631175226436</updated>
+    </task>
+    <task id="LOCAL-00054" summary="[update]: add ReduceOpStage">
+      <created>1631261583296</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1631261583296</updated>
+    </task>
+    <task id="LOCAL-00055" summary="[update]: parallel stream reduce">
+      <created>1631337490089</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1631337490089</updated>
+    </task>
+    <task id="LOCAL-00056" summary="[fix]: parallel stream reduce identity error">
+      <created>1631338146083</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1631338146083</updated>
+    </task>
+    <task id="LOCAL-00057" summary="[add]: parallel reduce()">
+      <created>1631339030214</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1631339030214</updated>
+    </task>
+    <task id="LOCAL-00058" summary="[fix]: spliterator np">
+      <created>1631354816051</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1631354816051</updated>
+    </task>
+    <task id="LOCAL-00059" summary="[add]: parallel count()">
+      <created>1631355196764</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1631355196764</updated>
+    </task>
+    <task id="LOCAL-00060" summary="[refactor]: simplify">
+      <created>1631364344592</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1631364344592</updated>
+    </task>
+    <task id="LOCAL-00061" summary="[refactor]: 变量私有化">
+      <created>1631364750920</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1631364750920</updated>
+    </task>
+    <task id="LOCAL-00062" summary="[add]: parallel River.forEach()">
+      <created>1631365470532</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1631365470532</updated>
+    </task>
+    <task id="LOCAL-00063" summary="[refactor]: launch -&gt; evaluate">
+      <created>1631507884288</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1631507884288</updated>
+    </task>
+    <task id="LOCAL-00064" summary="[update]: test parallel allMatch()">
+      <created>1631508984482</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1631508984482</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +632,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="v1.3.0" />
                       </list>
                     </value>
                   </entry>
@@ -646,22 +647,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update] 添加静态warp方法" />
-    <MESSAGE value="[update]: 重构foreach(),limit(),source()" />
-    <MESSAGE value="[refactor]: foreach(),limit(),source()" />
-    <MESSAGE value="[refactor]: distinct" />
-    <MESSAGE value="[refactor]: filter" />
-    <MESSAGE value="[refactor]: sort" />
-    <MESSAGE value="[refactor]: count()" />
-    <MESSAGE value="update docs" />
-    <MESSAGE value="[add]: peek()" />
-    <MESSAGE value="[add]: skip()" />
-    <MESSAGE value="[update]: 使用&lt;IN,OUT&gt;两个参数" />
-    <MESSAGE value="[update]: River&lt;&gt; 添加第三个参数" />
-    <MESSAGE value="[update] 删除一些强依赖" />
-    <MESSAGE value="[update] SinkChain&lt;E&gt; -&gt; SinkChain&lt;I,O&gt;" />
-    <MESSAGE value="[add] map()" />
-    <MESSAGE value="[update]: SinkChain 补充泛型类型" />
     <MESSAGE value="[update]: SinkChain 删除无用构造函数" />
     <MESSAGE value="[add]: toArray(E[])" />
     <MESSAGE value="[add]: toArray()" />
@@ -671,62 +656,38 @@
     <MESSAGE value="[add]: allMatch()" />
     <MESSAGE value="[add]: noneMatch()" />
     <MESSAGE value="[add]: findFirst()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add]: findFirst()" />
+    <MESSAGE value="stash" />
+    <MESSAGE value="[refactor]: 调整结构" />
+    <MESSAGE value="[add]: parallel() &amp; sequential()" />
+    <MESSAGE value="[update]: add ReduceOpStage" />
+    <MESSAGE value="[update]: parallel stream reduce" />
+    <MESSAGE value="[fix]: parallel stream reduce identity error" />
+    <MESSAGE value="[fix]: parallel stream reduce done" />
+    <MESSAGE value="[add]: parallel stream reduce done" />
+    <MESSAGE value="[add]: parallel reduce()" />
+    <MESSAGE value="[fix]: spliterator np" />
+    <MESSAGE value="[add]: parallel count()" />
+    <MESSAGE value="[refactor]: simplify" />
+    <MESSAGE value="[refactor]: 变量私有化" />
+    <MESSAGE value="[add]: parallel River.forEach()" />
+    <MESSAGE value="[refactor]: launch -&gt; evaluate" />
+    <MESSAGE value="[update]: test parallel allMatch()" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: test parallel allMatch()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/ForEachOps.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/MatchOps.java</url>
-          <line>229</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/Spliterators.java</url>
-          <line>953</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/FindOps.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/concurrent/ForkJoinTask.java</url>
-          <line>735</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/stream/ReduceOps.java</url>
-          <line>751</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/concurrent/ForkJoinTask.java</url>
-          <line>400</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/concurrent/ForkJoinTask.java</url>
-          <line>286</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/concurrent/ForkJoinTask.java</url>
-          <line>292</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/src.zip!/java/util/concurrent/CountedCompleter.java</url>
-          <line>573</line>
-          <option name="timeStamp" value="66" />
+          <url>file://$PROJECT_DIR$/java/test/StreamSample.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="task.RiverTask" memberName="spliterator" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
