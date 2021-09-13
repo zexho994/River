@@ -529,8 +529,4 @@ public class AbstractRiverPipeline<I, O>
     public boolean isParallel() {
         return isParallel;
     }
-
-    public void setParallel(boolean parallel) {
-        isParallel = parallel;
-    }
 }
