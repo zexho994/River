@@ -22,14 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[add]: skipWhile()">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jtream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jtream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: maven">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/jtream-1.4.0-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/jtream-1.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ParallelRiverTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RiverTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ParallelRiverTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RiverTest.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +179,7 @@
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -237,9 +239,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.ParallelRiverTest" />
-        <item itemvalue="Application.RiverTest" />
         <item itemvalue="Application.StreamSample" />
         <item itemvalue="Application.ForkJoinSample" />
       </list>
@@ -286,14 +288,7 @@
       <workItem from="1631521297608" duration="12000" />
       <workItem from="1631521331663" duration="511000" />
       <workItem from="1631601031630" duration="2600000" />
-      <workItem from="1631605303959" duration="5945000" />
-    </task>
-    <task id="LOCAL-00016" summary="add: Sink">
-      <created>1630670458533</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1630670458533</updated>
+      <workItem from="1631605303959" duration="6850000" />
     </task>
     <task id="LOCAL-00017" summary="update: FilterSink">
       <created>1630671274470</created>
@@ -631,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631508984482</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="[update]: maven">
+      <created>1631614276264</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1631614276265</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +665,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: SinkChain 删除无用构造函数" />
     <MESSAGE value="[add]: toArray(E[])" />
     <MESSAGE value="[add]: toArray()" />
     <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
@@ -688,7 +689,8 @@
     <MESSAGE value="[add]: parallel River.forEach()" />
     <MESSAGE value="[refactor]: launch -&gt; evaluate" />
     <MESSAGE value="[update]: test parallel allMatch()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: test parallel allMatch()" />
+    <MESSAGE value="[update]: maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update]: maven" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
