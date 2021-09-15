@@ -22,16 +22,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: maven">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[refactor]: docs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/jtream-1.4.0-sources.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/jtream-1.4.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jtream-1.4.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ParallelRiverTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RiverTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ParallelRiverTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RiverTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/nexus-staging/staging/42d161ae812e33/.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/nexus-staging/staging/42d161ae812e33/io/github/zexho994/jtream/1.4.0/jtream-1.4.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/nexus-staging/staging/42d161ae812e33/io/github/zexho994/jtream/1.4.0/jtream-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/nexus-staging/staging/42d161ae812e33/io/github/zexho994/jtream/1.4.0/jtream-1.4.0.pom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/nexus-staging/staging/42d161ae812e33/io/github/zexho994/jtream/maven-metadata-nexus.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +171,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -176,7 +179,13 @@
       <recent name="task" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/docs/jdk" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RiverTest">
@@ -288,28 +297,7 @@
       <workItem from="1631521297608" duration="12000" />
       <workItem from="1631521331663" duration="511000" />
       <workItem from="1631601031630" duration="2600000" />
-      <workItem from="1631605303959" duration="6850000" />
-    </task>
-    <task id="LOCAL-00017" summary="update: FilterSink">
-      <created>1630671274470</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1630671274470</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update: distinct,filter,foreach done">
-      <created>1630733765169</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1630733765169</updated>
-    </task>
-    <task id="LOCAL-00019" summary="update: count()">
-      <created>1630734253161</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1630734253161</updated>
+      <workItem from="1631605303959" duration="9538000" />
     </task>
     <task id="LOCAL-00020" summary="update: SinkChain begin(),end()添加default">
       <created>1630734571422</created>
@@ -633,7 +621,28 @@
       <option name="project" value="LOCAL" />
       <updated>1631614276265</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="[refactor]: project struct">
+      <created>1631615408860</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615408860</updated>
+    </task>
+    <task id="LOCAL-00067" summary="[refactor]: project struct">
+      <created>1631615416540</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615416540</updated>
+    </task>
+    <task id="LOCAL-00068" summary="[refactor]: docs">
+      <created>1631615462594</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615462594</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,8 +674,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[add]: toArray(E[])" />
-    <MESSAGE value="[add]: toArray()" />
     <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
     <MESSAGE value="[add]: collect()" />
     <MESSAGE value="[add]: anyMatch()" />
@@ -690,7 +697,9 @@
     <MESSAGE value="[refactor]: launch -&gt; evaluate" />
     <MESSAGE value="[update]: test parallel allMatch()" />
     <MESSAGE value="[update]: maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: maven" />
+    <MESSAGE value="[refactor]: project struct" />
+    <MESSAGE value="[refactor]: docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor]: docs" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
