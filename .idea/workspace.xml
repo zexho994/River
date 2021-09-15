@@ -22,10 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update]: test parallel allMatch()">
+    <list default="true" id="0e6fbd48-74f8-40d8-9987-97b405dadcf6" name="Default Changelist" comment="[update] gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/pipeline/AbstractRiverPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/test/ParallelRiverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +38,8 @@
         <option value="Interface" />
         <option value="UML Activity" />
         <option value="UML Sequence" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,7 +52,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="v1.3.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,6 +74,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="v1.4.0" />
+                    <option name="lastUsedInstant" value="1631535181" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="v1.3.0" />
                     <option name="lastUsedInstant" value="1631174210" />
@@ -114,6 +117,18 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="6m2ykt04" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="zexho-repo-snapshots" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1kF1BOEFHRmrfSkSYJCUlP0USPe" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -146,7 +161,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -154,10 +169,16 @@
       <recent name="task" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/docs/jdk" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.ParallelRiverTest">
+  <component name="RunManager" selected="Application.RiverTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -174,19 +195,6 @@
     <configuration name="ForkJoinSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ForkJoinSample" />
       <module name="jtream" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapStreamTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="list_test.MapStreamTest" />
-      <module name="jtream" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="list_test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -214,20 +222,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="jtream" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.StreamSample" />
       <item itemvalue="Application.RiverTest" />
-      <item itemvalue="Application.MapStreamTest" />
       <item itemvalue="Application.ForkJoinSample" />
       <item itemvalue="Application.ParallelRiverTest" />
+      <item itemvalue="Application.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.RiverTest" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.ParallelRiverTest" />
         <item itemvalue="Application.StreamSample" />
         <item itemvalue="Application.ForkJoinSample" />
-        <item itemvalue="Application.MapStreamTest" />
       </list>
     </recent_temporary>
   </component>
@@ -271,41 +286,8 @@
       <workItem from="1631180558009" duration="47507000" />
       <workItem from="1631521297608" duration="12000" />
       <workItem from="1631521331663" duration="511000" />
-    </task>
-    <task id="LOCAL-00016" summary="add: Sink">
-      <created>1630670458533</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1630670458533</updated>
-    </task>
-    <task id="LOCAL-00017" summary="update: FilterSink">
-      <created>1630671274470</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1630671274470</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update: distinct,filter,foreach done">
-      <created>1630733765169</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1630733765169</updated>
-    </task>
-    <task id="LOCAL-00019" summary="update: count()">
-      <created>1630734253161</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1630734253161</updated>
-    </task>
-    <task id="LOCAL-00020" summary="update: SinkChain begin(),end()添加default">
-      <created>1630734571422</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1630734571422</updated>
+      <workItem from="1631601031630" duration="2600000" />
+      <workItem from="1631605303959" duration="11184000" />
     </task>
     <task id="LOCAL-00021" summary="release">
       <created>1630827502815</created>
@@ -615,7 +597,42 @@
       <option name="project" value="LOCAL" />
       <updated>1631508984482</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="[update]: maven">
+      <created>1631614276264</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1631614276265</updated>
+    </task>
+    <task id="LOCAL-00066" summary="[refactor]: project struct">
+      <created>1631615408860</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615408860</updated>
+    </task>
+    <task id="LOCAL-00067" summary="[refactor]: project struct">
+      <created>1631615416540</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615416540</updated>
+    </task>
+    <task id="LOCAL-00068" summary="[refactor]: docs">
+      <created>1631615462594</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1631615462594</updated>
+    </task>
+    <task id="LOCAL-00069" summary="[update] gitignore">
+      <created>1631669338281</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1631669338281</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +649,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="v1.3.0" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -647,10 +664,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="[update]: SinkChain 删除无用构造函数" />
-    <MESSAGE value="[add]: toArray(E[])" />
-    <MESSAGE value="[add]: toArray()" />
-    <MESSAGE value="[add]: reduce(identity,binaryOperator)" />
     <MESSAGE value="[add]: collect()" />
     <MESSAGE value="[add]: anyMatch()" />
     <MESSAGE value="[add]: allMatch()" />
@@ -672,18 +685,13 @@
     <MESSAGE value="[add]: parallel River.forEach()" />
     <MESSAGE value="[refactor]: launch -&gt; evaluate" />
     <MESSAGE value="[update]: test parallel allMatch()" />
-    <option name="LAST_COMMIT_MESSAGE" value="[update]: test parallel allMatch()" />
+    <MESSAGE value="[update]: maven" />
+    <MESSAGE value="[refactor]: project struct" />
+    <MESSAGE value="[refactor]: docs" />
+    <MESSAGE value="[update] gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="[update] gitignore" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/java/test/StreamSample.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="144" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="task.RiverTask" memberName="spliterator" />
